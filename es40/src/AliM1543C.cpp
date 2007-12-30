@@ -27,6 +27,9 @@
  * \file 
  * Contains the code for the emulated Ali M1543C chipset devices.
  *
+ * X-1.48       Camiel Vanderhoeven                             30-DEC-2007
+ *      Print file id on initialization.
+ *
  * X-1.47       Camiel Vanderhoeven                             30-DEC-2007
  *      Comments.
  *
@@ -403,7 +406,7 @@ CAliM1543C::CAliM1543C(CConfigurator * cfg, CSystem * c, int pcibus, int pcidev)
     lpt=NULL;
   }
 
-  printf("%s: $Id$ initialized.\n",devid_string);
+  printf("%s: $Id$\n",devid_string);
 }
 
 /**
