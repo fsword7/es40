@@ -38,6 +38,9 @@
  *
  * $Id$
  *
+ * X-1.23       Camiel Vanderhoeven                             02-JAN-2008
+ *      Ignore OPMODE_OM (loopback mode) bits.
+ *
  * X-1.22       Camiel Vanderhoeven                             02-JAN-2008
  *      Replaced USE_NETWORK with HAVE_PCAP.
  *
@@ -460,7 +463,7 @@ void CDEC21143::nic_write(u32 address, int dsize, u32 data)
 			/*  Turned off RX? Then go to stopped state:  */
 			state.reg[CSR_STATUS/8] &= ~STATUS_RS;
 		}
-		data &= ~(OPMODE_HBD | OPMODE_SCR | OPMODE_PCS | OPMODE_PS | OPMODE_SF | OPMODE_TTM | OPMODE_FD | OPMODE_TR);
+		data &= ~(OPMODE_HBD | OPMODE_SCR | OPMODE_PCS | OPMODE_PS | OPMODE_SF | OPMODE_TTM | OPMODE_FD | OPMODE_TR | OPMODE_OM);
 //		if (data & OPMODE_PNIC_IT) {
 //			data &= ~OPMODE_PNIC_IT;
 //		    state.tx.idling = state.tx.idling_threshold;
