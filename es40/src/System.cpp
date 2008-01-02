@@ -1,5 +1,5 @@
 /* ES40 emulator.
- * Copyright (C) 2007 by the ES40 Emulator Project
+ * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
  * Website: http://sourceforge.net/projects/es40
  * E-mail : camiel@camicom.com
@@ -26,6 +26,11 @@
 /**
  * \file 
  * Contains the code for the emulated Typhoon Chipset devices.
+ *
+ * $Id$
+ *
+ * X-1.49       Camiel Vanderhoeven                             02-JAN-2008
+ *      Cleanup. 
  *
  * X-1.48       Camiel Vanderhoeven                             30-DEC-2007
  *      Comments.
@@ -1438,7 +1443,7 @@ void CSystem::panic(char *message, int flags)
   printf("\n");
 #ifdef IDB
   if(flags & PANIC_LISTING) {
-    u64 start,end,xpc;
+    u64 start,end;
     start = cpu->get_pc() - 64;
     end = start + 128;
     cpu->listing(start,end,cpu->get_pc());
