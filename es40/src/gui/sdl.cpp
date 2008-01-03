@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.6        Fang Zhe                                        03-JAN-2008
+ *      Compatibility with Apple OS X.
+ *
  * X-1.5        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -63,6 +66,10 @@
 #include "../System.h"
 #include "../AliM1543C.h"
 #include "../Configurator.h"
+
+#ifdef __APPLE__
+#include <dlfcn.h>
+#endif
 
 #define _MULTI_THREAD
 
@@ -165,13 +172,24 @@ void bx_sdl_gui_c::specific_init(
     for(j=0;j<16;j++)
       vga_charmap[i*32+j] = sdl_font8x16[i][j];
 
-  #ifdef __MORPHOS__
+#ifdef __APPLE__
+  {
+  void* cocoa_lib;
+  void (*nsappload)(void);
+
+    cocoa_lib = dlopen( "/System/Library/Frameworks/Cocoa.framework/Cocoa", RTLD_LAZY );
+    nsappload = (void(*)()) dlsym( cocoa_lib, "NSApplicationLoad");
+    nsappload();
+  }
+#endif
+
+#ifdef __MORPHOS__
   if (!(PowerSDLBase=OpenLibrary("powersdl.library",0)))
   {
     BX_PANIC (("Unable to open SDL libraries"));
     return;
   }
-  #endif
+#endif
   
   flags = SDL_INIT_VIDEO;
   if (SDL_Init(flags) < 0) {
