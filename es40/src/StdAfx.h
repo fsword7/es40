@@ -32,6 +32,9 @@
  *
  * $Id$
  *
+ * X-1.20       Fang Zhe                                        03-JAN-2008
+ *      Help compilation on Mac OS X and FreeBSD.
+ *
  * X-1.19       Camiel Vanderhoeven                             02-JAN-2008
  *      Cleanup. 
  *
@@ -141,7 +144,9 @@ inline void sleep_ms(int ms)
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#if !defined(__APPLE__)  && !defined(__FreeBSD__)
 #include <malloc.h>
+#endif
 #include <time.h>
 #include <ctype.h>
 
