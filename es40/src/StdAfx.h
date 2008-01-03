@@ -32,6 +32,9 @@
  *
  * $Id$
  *
+ * X-1.22       Fang Zhe                                        03-JAN-2008
+ *      Put es40_endian.h after es40_debug.h as it uses the FAILURE macro.
+ *
  * X-1.20       Fang Zhe                                        03-JAN-2008
  *      Help compilation on Mac OS X and FreeBSD.
  *
@@ -104,7 +107,6 @@
 #define INCLUDED_STDAFX_H
 
 #include "datatypes.h"
-#include "es40_endian.h"
 
 #if defined(_WIN32)
 
@@ -176,5 +178,6 @@ inline char printable(char c)
 }
 
 #include "es40_debug.h"
+#include "es40_endian.h"
 
 #endif // !defined(INCLUDED_STDAFX_H)
