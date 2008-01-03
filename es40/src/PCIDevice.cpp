@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.10       Fang Zhe                                        03-JAN-2008
+ *      Fixed semicolon error.
+ *
  * X-1.9        Camiel Vanderhoeven                             03-JAN-2008
  *      Attempt to make PCI base device endianess-correct.
  *
@@ -126,7 +129,7 @@ u32 CPCIDevice::config_read(int func, u32 address, int dsize)
   switch (dsize)
     {
     case 8:
-      data = endian_8(*x)
+      data = endian_8(*x);
       break;
     case 16:
       data = endian_16(*((u16*)x));
