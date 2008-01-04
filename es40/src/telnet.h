@@ -30,6 +30,9 @@
  *
  * $Id$
  *
+ * X-1.8        Fang Zhe                                        04-JAN-2008
+ *      Include sys/socket.h on Apple OS X.
+ *
  * X-1.7        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -61,6 +64,10 @@
 #include <winsock2.h>
 typedef size_t ssize_t;
 typedef int socklen_t;
+#endif
+
+#if defined(__APPLE__)
+#include <sys/socket.h>
 #endif
 
 #if defined(__VMS)
