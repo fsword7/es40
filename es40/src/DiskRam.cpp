@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.9        Camiel Vanderhoeven                             04-JAN-2008
+ *      64-bit file I/O.
+ *
  * X-1.8        Camiel Vanderhoeven                             02-JAN-2008
  *      Cleanup.
  *
@@ -74,7 +77,7 @@ CDiskRam::CDiskRam(CConfigurator * cfg, CDiskController * c, int idebus, int ide
 
   sectors = 32;
   heads = 8;
-  cylinders = (lba_size/sectors/heads);
+  cylinders = (long)(lba_size/sectors/heads);
 
   unsigned long chs_size = sectors*cylinders*heads;
   if (chs_size<lba_size)
@@ -95,7 +98,7 @@ CDiskRam::~CDiskRam(void)
   }
 }
 
-bool CDiskRam::seek_block(unsigned long lba)
+bool CDiskRam::seek_block(off_t_large lba)
 {
   if (lba >=lba_size)
   {
@@ -137,7 +140,7 @@ size_t CDiskRam::write_blocks(void * src, size_t blocks)
 
 }
 
-bool CDiskRam::seek_byte(unsigned long byte)
+bool CDiskRam::seek_byte(off_t_large byte)
 {
   if (byte >=byte_size)
   {
