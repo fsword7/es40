@@ -32,6 +32,9 @@
  *
  * $Id$
  *
+ * X-1.23       Camiel Vanderhoeven                             04-JAN-2008
+ *      Put in definitions to handle 64-bit file I/O OS-independently.
+ *
  * X-1.22       Fang Zhe                                        03-JAN-2008
  *      Put es40_endian.h after es40_debug.h as it uses the FAILURE macro.
  *
@@ -179,5 +182,18 @@ inline char printable(char c)
 
 #include "es40_debug.h"
 #include "es40_endian.h"
+
+// Different OS'es define different functions to access 64-bit files
+#if defined(_WIN32)
+#define fopen_large fopen
+#define fseek_large _fseeki64
+#define ftell_large _ftelli64
+#define off_t_large __int64
+#else
+#define fopen_large fopen64
+#define fseek_large fseeko64
+#define ftell_large ftello64
+#define off_t_large off64_t
+#endif
 
 #endif // !defined(INCLUDED_STDAFX_H)
