@@ -36,10 +36,13 @@
  *
  * $Id$
  *
- * X-1.6        Fang Zhe                                        03-JAN-2008
+ * X-1.11       Fang Zhe                                        04-JAN-2008
+ *      Improved compatibility with Apple OS X; keyboard works now.
+ *
+ * X-1.10       Fang Zhe                                        03-JAN-2008
  *      Compatibility with Apple OS X.
  *
- * X-1.5        Camiel Vanderhoeven                             02-JAN-2008
+ * X-1.9        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
  * X-1.4        Camiel Vanderhoeven                             10-DEC-2007
@@ -174,12 +177,13 @@ void bx_sdl_gui_c::specific_init(
 
 #ifdef __APPLE__
   {
-  void* cocoa_lib;
-  void (*nsappload)(void);
-
-    cocoa_lib = dlopen( "/System/Library/Frameworks/Cocoa.framework/Cocoa", RTLD_LAZY );
-    nsappload = (void(*)()) dlsym( cocoa_lib, "NSApplicationLoad");
-    nsappload();
+    // Initialize Cocoa before SDL_Init, using a method from WebKit.framework
+    WebInitForCarbon();
+    // Make the application as a GUI application (shown in Dock, etc.)
+    ProcessSerialNumber psn = { 0, kCurrentProcess};    
+    TransformProcessType(&psn, kProcessTransformToForegroundApplication);
+    // Bring the window to the front
+    SetFrontProcess(&psn);
   }
 #endif
 
