@@ -38,6 +38,9 @@
  *
  * $Id$
  *
+ * X-1.25       Fausto                                          05-JAN-2008
+ *      Fixed typo (\m instead of \n).
+ *
  * X-1.24       David Hittner                                   04-JAN-2008
  *      MAC address configurable.
  *
@@ -302,7 +305,7 @@ CDEC21143::CDEC21143(CConfigurator * confg, CSystem * c, int pcibus, int pcidev)
 	  }
 	}
 	if (mac_replaced) {
-	    printf("\n%%NIC-I-MACSET: MAC set to %s\m", cfg);
+	    printf("\n%%NIC-I-MACSET: MAC set to %s\n", cfg);
 	} else {
 		printf("\n%%NIC-F-BADMAC: Illegal MAC address: %s\n", cfg);
 		printf("\n%%NIC-I-MACFORMAT: MAC should have xx-xx-xx-xx-xx-xx format.\n");
