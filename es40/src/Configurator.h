@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.6        Camiel Vanderhoeven                             05-JAN-2008
+ *      Added CDiskDevice class.
+ *
  * X-1.5        Camiel Vanderhoeven                             02-JAN-2008
  *      Better handling of configuration errors.
  *
@@ -67,6 +70,7 @@ typedef enum {c_none,
               c_sym53c895,
               // disk devices
               c_file,
+              c_device,
               c_ramdisk,
               // gui's
               c_sdl} classid;
