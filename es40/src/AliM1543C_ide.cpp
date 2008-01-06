@@ -29,6 +29,9 @@
  *		
  * $Id$
  *
+ * X-1.18       Camiel Vanderhoeven                             06-JAN-2008
+ *      Leave changing the blocksize to the disk itself.
+ *
  * X-1.17       Camiel Vanderhoeven                             04-JAN-2008
  *      Less messages fprint'ed.
  *
@@ -541,8 +544,8 @@ void CAliM1543C_ide::ide_command_write(int index, u32 address, int dsize, u32 da
 
 	    case 0x25: // CDVD Capacity
 	      //printf("ATAPI: get capacity\n");
-	      *(u32 *)&state.ide_data[index][0] = SEL_DISK(index)->get_lba_size();
-	      *(u32 *)&state.ide_data[index][2] = 2048;
+	      *(u32 *)&state.ide_data[index][0] = swap_32((u32) SEL_DISK(index)->get_lba_size());
+          *(u32 *)&state.ide_data[index][2] = swap_32((u32) SEL_DISK(index)->get_block_size());
 	      ATAPI_OK_DATA(index,8);
 	      break;
 
@@ -1406,8 +1409,8 @@ void CAliM1543C_ide::identify_drive(int index)
   state.ide_data[index][2] = 0xc837;	// specific configuration (ATA-4 specs)
 
   state.ide_data[index][3] = (u16)(SEL_DISK(index)->get_heads());		// heads
-  state.ide_data[index][4] = (u16)(512 * SEL_DISK(index)->get_sectors());	// bytes per track
-  state.ide_data[index][5] = 512;		// bytes per sector
+  state.ide_data[index][4] = (u16)(SEL_DISK(index)->get_block_size() * SEL_DISK(index)->get_sectors());	// bytes per track
+  state.ide_data[index][5] = (u16)(SEL_DISK(index)->get_block_size());		// bytes per sector
   state.ide_data[index][6] = (u16)(SEL_DISK(index)->get_sectors());		// sectors per track
   state.ide_data[index][7] = 0;		// spec. bytes
   state.ide_data[index][8] = 0;		// spec. bytes
