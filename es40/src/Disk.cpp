@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.7        Camiel Vanderhoeven                             06-JAN-2008
+ *      Support changing the block size (required for SCSI, ATAPI).
+ *
  * X-1.6        Camiel Vanderhoeven                             02-JAN-2008
  *      Cleanup.
  *
@@ -86,4 +89,13 @@ CDisk::CDisk(CConfigurator * cfg, CDiskController * ctrl, int idebus, int idedev
 CDisk::~CDisk(void)
 {
   free(devid_string);
+}
+
+void CDisk::calc_cylinders()
+{
+  cylinders = byte_size/block_size/sectors/heads;
+
+  off_t_large chs_size = sectors*cylinders*heads*block_size;
+  if (chs_size<byte_size)
+    cylinders++;
 }

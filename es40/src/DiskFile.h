@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.6        Camiel Vanderhoeven                             06-JAN-2008
+ *      Support changing the block size (required for SCSI, ATAPI).
+ *
  * X-1.5        Camiel Vanderhoeven                             04-JAN-2008
  *      64-bit file I/O.
  *
@@ -59,10 +62,6 @@ class CDiskFile : public CDisk
 public:
   CDiskFile(CConfigurator * cfg, CDiskController * c, int idebus, int idedev);
   virtual ~CDiskFile(void);
-
-  virtual bool seek_block(off_t_large block);
-  virtual size_t read_blocks(void * dest, size_t blocks);
-  virtual size_t write_blocks(void * src, size_t blocks);
 
   virtual bool seek_byte(off_t_large byte);
   virtual size_t read_bytes(void * dest, size_t bytes);
