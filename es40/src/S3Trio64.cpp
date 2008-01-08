@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.11       Fang Zhe                                        08-JAN-2008
+ *      Endianess.
+ *
  * X-1.10       Camiel Vanderhoeven                             02-JAN-2008
  *      Cleanup.
  *
@@ -615,7 +618,6 @@ void CS3Trio64::legacy_write(u32 address, int dsize, u32 data)
   }
 }
 
-
 /**
  * Read from Option ROM
  */
@@ -628,13 +630,13 @@ u32 CS3Trio64::rom_read(u32 address, int dsize)
     switch (dsize)
       {
       case 8:
-	data = (u32)(*((u8*)x))&0xff;
+	data = (u32)endian_8(*((u8*)x))&0xff;
 	break;
       case 16:
-	data = (u32)(*((u16*)x))&0xffff;
+	data = (u32)endian_16(*((u16*)x))&0xffff;
 	break;
       case 32:
-	data = (u32)(*((u32*)x))&0xffffffff;
+	data = (u32)endian_32(*((u32*)x))&0xffffffff;
 	break;
       }
     //printf("S3 rom read: %" LL "x, %d, %" LL "x\n", address, dsize,data);

@@ -38,7 +38,10 @@
  *
  * $Id$
  *
- * X-1.25       Fausto                                          05-JAN-2008
+ * X-1.26       Fang Zhe                                        08-JAN-2008
+ *      Avoid compiler warning.
+ *
+ * X-1.25       Fausto Saporito                                 05-JAN-2008
  *      Fixed typo (\m instead of \n).
  *
  * X-1.24       David Hittner                                   04-JAN-2008
@@ -855,7 +858,7 @@ int CDEC21143::dec21143_rx()
 		state.rx.cur_offset = 0;
 	}
 
-    addr = cSystem->PCI_Phys(0,addr&0xffffffff);
+    addr = cSystem->PCI_Phys(0,(u32)addr);
 
     memcpy(descr,cSystem->PtrToMem(addr),sizeof(u32)*4);
 
