@@ -141,6 +141,7 @@
  *  - Eduardo Marcelo Serrat: Major bugfixes. 
  *  - Fang Zhe: OS X port.
  *  - David Hittner: Bugfix in Ethernet controller.
+ *  - Fausto Saporito: Bugfixes.
  *  .
  *
  * \section Acknowledgements
