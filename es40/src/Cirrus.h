@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.7        Camiel Vanderhoeven                             08-JAN-2008
+ *      Comments.
+ *
  * X-1.6        Camiel Vanderhoeven                             02-JAN-2008
  *      Cleanup.
  *
@@ -61,6 +64,11 @@
 
 /**
  * \brief Cirrus Video Card
+ *
+ * Documentation consulted:
+ *  - VGADOC4b
+ *   (http://home.worldonline.dk/~finth/)
+ *  .
  **/
 
 class CCirrus : public CVGA

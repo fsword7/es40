@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.4        Camiel Vanderhoeven                             08-JAN-2008
+ *      Comments.
+ *
  * X-1.3        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -50,6 +53,10 @@
  *
  * \todo This device is just a stub. Not functional yet.
  *
+ * Documentation consulted:
+ *  - Ali M1543C B1 South Bridge Version 1.20
+ *    (http://mds.gotdns.com/sensors/docs/ali/1543dScb1-120.pdf)
+ *  .
  **/
 
 class CAliM1543C_usb : public CPCIDevice  

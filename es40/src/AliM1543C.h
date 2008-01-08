@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.25       Camiel Vanderhoeven                             08-JAN-2008
+ *      Comments.
+ *
  * X-1.24       Camiel Vanderhoeven                             02-JAN-2008
  *      Comments; moved keyboard status register bits to "status" struct.
  *
@@ -125,6 +128,11 @@
  *
  * The ALi M1543C device provides i/o and glue logic support to the system: 
  * ISA, DMA, Interrupt, Timer, TOY Clock.
+ *
+ * Documentation consulted:
+ *  - Ali M1543C B1 South Bridge Version 1.20
+ *    (http://mds.gotdns.com/sensors/docs/ali/1543dScb1-120.pdf)
+ *  .
  **/
 
 class CAliM1543C : public CPCIDevice

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.8        Camiel Vanderhoeven                             08-JAN-2008
+ *      Comments.
+ *
  * X-1.7        Camiel Vanderhoeven                             02-JAN-2008
  *      Cleanup.
  *
@@ -69,6 +72,11 @@
 
 /**
  * \brief S3 Trio 64 Video Card
+ *
+ * Documentation consulted:
+ *  - VGADOC4b
+ *   (http://home.worldonline.dk/~finth/)
+ *  .
  **/
 
 class CS3Trio64 : public CVGA
