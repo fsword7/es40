@@ -362,6 +362,9 @@ unsigned int CSystem::get_memory_bits()
 
 char * CSystem::PtrToMem(u64 address)
 {
+  if (address>>iNumMemoryBits) // Non Memory
+    return 0;
+
   return &(((char*)memory)[(int)address]);
 }
 
