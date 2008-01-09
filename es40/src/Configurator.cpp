@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.10       Camiel Vanderhoeven                             09-JAN-2008
+ *      Save disk state to state file.
+ *
  * X-1.9        Camiel Vanderhoeven                             08-JAN-2008
  *      Use Brian Wheeler's CNewIde class instead of the CAliM1543C_ide
  *      class if HAVE_NEW_IDE is defined. This change will be undone when
@@ -682,15 +685,15 @@ void CConfigurator::initialize()
     break;
 
   case c_file:
-    myDevice = new CDiskFile(this,(CDiskController *)pParent->get_device(),idebus,idedev);
+    myDevice = new CDiskFile(this,theSystem,(CDiskController *)pParent->get_device(),idebus,idedev);
     break;
 
   case c_device:
-    myDevice = new CDiskDevice(this,(CDiskController *)pParent->get_device(),idebus,idedev);
+    myDevice = new CDiskDevice(this,theSystem,(CDiskController *)pParent->get_device(),idebus,idedev);
     break;
 
   case c_ramdisk:
-    myDevice = new CDiskRam(this,(CDiskController *)pParent->get_device(),idebus,idedev);
+    myDevice = new CDiskRam(this,theSystem,(CDiskController *)pParent->get_device(),idebus,idedev);
     break;
 
   case c_serial:
