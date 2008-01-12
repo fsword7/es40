@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.9        Camiel Vanderhoeven                             12-JAN-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.8        Camiel Vanderhoeven                             09-JAN-2008
  *      Save disk state to state file.
  *
