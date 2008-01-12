@@ -73,7 +73,7 @@ CDiskRam::CDiskRam(CConfigurator * cfg, CSystem * sys, CDiskController * c, int 
 {
   byte_size = myCfg->get_int_value("size",512)*1024*1024;
 
-  CHECK_ALLOCATION(ramdisk = malloc(byte_size));
+  CHECK_ALLOCATION(ramdisk = malloc((size_t)byte_size));
 
   state.byte_pos = 0;
 
