@@ -914,7 +914,7 @@ int CDisk::do_scsi_command()
     {
       if (state.scsi.cmd.data[9] != 0x10)
       {
-        printf("READ CD issued with data type %02x.\n");
+        printf("READ CD issued with data type %02x.\n",state.scsi.cmd.data[9]);
         FAILURE("data type not recognized");
       }
       //  cmd[2..5] hold the logical block address.
