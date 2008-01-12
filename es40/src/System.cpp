@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.55       Camiel Vanderhoeven                             12-JAN-2008
+ *      Comments.
+ *
+ * X-1.54       Camiel Vanderhoeven                             09-JAN-2008
+ *      Let PtrToMemory return NULL when the address is out of range.
+ *
  * X-1.53       Camiel Vanderhoeven                             08-JAN-2008
  *      Layout of comments.
  *
