@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.5        Camiel Vanderhoeven                             13-JAN-2008
+ *      Use determine_layout in stead of calc_cylinders.
+ *
  * X-1.4        Camiel Vanderhoeven                             09-JAN-2008
  *      Save disk state to state file.
  *
@@ -121,7 +124,8 @@ CDiskDevice::CDiskDevice(CConfigurator * cfg, CSystem * sys, CDiskController * c
   heads = 8;
 #endif
 
-  calc_cylinders();
+  //calc_cylinders();
+  determine_layout();
 
   model_number=myCfg->get_text_value("model_number",filename);
 

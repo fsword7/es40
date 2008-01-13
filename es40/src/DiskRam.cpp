@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.14       Camiel Vanderhoeven                             13-JAN-2008
+ *      Use determine_layout in stead of calc_cylinders.
+ *
  * X-1.12       Camiel Vanderhoeven                             09-JAN-2008
  *      Save disk state to state file.
  *
@@ -80,7 +83,8 @@ CDiskRam::CDiskRam(CConfigurator * cfg, CSystem * sys, CDiskController * c, int 
   sectors = 32;
   heads = 8;
 
-  calc_cylinders();
+  //calc_cylinders();
+  determine_layout();
 
   model_number=myCfg->get_text_value("model_number","ES40RAMDISK");
 

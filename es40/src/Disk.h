@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.11       Camiel Vanderhoeven                             13-JAN-2008
+ *      Determine best-fitting C/H/S lay-out.
+ *
  * X-1.10       Camiel Vanderhoeven                             12-JAN-2008
  *      Include SCSI engine, because this is common to both SCSI and ATAPI
  *      devices.
@@ -99,7 +102,9 @@ public:
   size_t write_blocks(void * src, size_t blocks) { return write_bytes(src, blocks*state.block_size)/state.block_size; };
 
   size_t get_block_size() { return state.block_size; };
-  void set_block_size(size_t bs) { state.block_size = bs; calc_cylinders(); };
+  void set_block_size(size_t bs) { state.block_size = bs; determine_layout(); /*calc_cylinders();*/ };
+
+  void determine_layout();
 
   off_t_large get_lba_size()  { return byte_size/state.block_size; };
   off_t_large get_byte_size()  { return byte_size; };
