@@ -213,7 +213,7 @@
  * Tested with 6.2
  *   - Using newide
  *      - devices are probed and DMA is used.
- *      - CD-ROM device looks like an audio disk to FreeBSD.
+ *      - CD-ROM device works, but install fails.
  *      .
  *   .
  *
@@ -234,7 +234,7 @@
  *   - Panics if cirrus device is present.
  *   - Using newide
  *       - recognizes all devices and uses DMA
- *       - CD-ROM cannot be used due to unimplemented opcodes (0x52).
+ *       - CD-ROM cannot be used due to apparent cdrom corruption.
  *       .
  *   - Using ali_ide
  *       - Unknown at this time.
