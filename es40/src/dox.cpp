@@ -137,10 +137,10 @@
  * \section con Contributors
  * In order of appearance.
  *  - Camiel Vanderhoeven (camiel@camicom.com): main architect/developer.
- *  - Brian Wheeler: UNIX port, initial config file, initial VGA, and contributions to overall quality.
+ *  - Brian Wheeler: UNIX port, initial config file, initial VGA, new IDE, and contributions to overall quality.
  *  - Eduardo Marcelo Serrat: Major bugfixes. 
  *  - Fang Zhe: OS X port.
- *  - David Hittner: Bugfix in Ethernet controller.
+ *  - David Hittner: CPU Integer Traps, Bugfix in Ethernet controller.
  *  - Fausto Saporito: Bugfixes.
  *  .
  *
@@ -213,7 +213,7 @@
  * Tested with 6.2
  *   - Using newide
  *      - devices are probed and DMA is used.
- *      - CD-ROM device works, but install fails.
+ *      - CD-ROM device works, but occasionally times out.
  *      .
  *   .
  *
