@@ -4,8 +4,6 @@
  * WWW    : http://sourceforge.net/projects/es40
  * E-mail : camiel@camicom.com
  * 
- *  This file is based upon Bochs.
- *
  *  Copyright (C) 2002  MandrakeSoft S.A.
  *
  *    MandrakeSoft S.A.
@@ -35,6 +33,9 @@
  * interfacing with SDL and other device interfaces.
  *
  * $Id$
+ *
+ * X-1.4        Camiel Vanderhoeven                             19-JAN-2008
+ *      Added win32 GUI.
  *
  * X-1.3        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
@@ -68,6 +69,10 @@
 
 #if defined(HAVE_SDL)
 DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(sdl)
+#endif
+
+#if defined(_WIN32)
+DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(win32)
 #endif
 
 #endif /* __PLUGIN_H */
