@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.4        Camiel Vanderhoeven                             20-JAN-2008
+ *      Added X11 GUI.
+ *
  * X-1.3        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -56,6 +59,7 @@ public:
   ~CVGA(void);
 
   virtual u8 get_actl_palette_idx(u8 index) = 0;
+  virtual void redraw_area(unsigned x0, unsigned y0, unsigned width, unsigned height) = 0;
 
 };
 

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.8        Camiel Vanderhoeven                             20-JAN-2008
+ *      Added X11 GUI.
+ *
  * X-1.7        Camiel Vanderhoeven                             08-JAN-2008
  *      Comments.
  *
@@ -89,6 +92,7 @@ class CCirrus : public CVGA
     void update(void);
 
     virtual u8 get_actl_palette_idx(u8 index);
+    virtual void redraw_area(unsigned x0, unsigned y0, unsigned width, unsigned height);
 
 private:
     u32 mem_read(u32 address, int dsize);
@@ -131,7 +135,6 @@ private:
     u32 rom_read(u32 address, int dsize);
     void rom_write(u32 address, int dsize, u32 data);
 
-    void redraw_area(unsigned x0, unsigned y0, unsigned width, unsigned height);
     void determine_screen_dimensions(unsigned *piHeight, unsigned *piWidth);
 
     char bios_message[200];

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.8        Camiel Vanderhoeven                             20-JAN-2008
+ *      Added X11 GUI.
+ *
  * X-1.7        Camiel Vanderhoeven                             19-JAN-2008
  *      Added win32 GUI.
  *
@@ -77,7 +80,8 @@ typedef enum {c_none,
               c_ramdisk,
               // gui's
               c_sdl,
-              c_win32} classid;
+              c_win32,
+              c_x11 } classid;
 
 class CConfigurator
 {
