@@ -34,6 +34,9 @@
  *
  * $Id$
  *
+ * X-1.5        Camiel Vanderhoeven                             20-JAN-2008
+ *      Added X11 GUI.
+ *
  * X-1.4        Camiel Vanderhoeven                             19-JAN-2008
  *      Added win32 GUI.
  *
@@ -73,6 +76,10 @@ DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(sdl)
 
 #if defined(_WIN32)
 DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(win32)
+#endif
+
+#if defined(HAVE_X11)
+DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(x11)
 #endif
 
 #endif /* __PLUGIN_H */
