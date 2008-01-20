@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.5        Camiel Vanderhoeven                             20-JAN-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.4        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -122,7 +125,7 @@ public:
 
 protected:
   static s32 make_text_snapshot (char **snapshot, u32 *length);
-  static void toggle_mouse_enable(void);
+//  static void toggle_mouse_enable(void);
 
   unsigned char vga_charmap[0x2000];
   bool charmap_updated;
