@@ -22,12 +22,16 @@
  * and receiving any modifications you may make to the source code that might serve
  * the general public.
  */
+
 /**
  * \file 
  * Contains code macros for the processor integer arithmetic instructions.
  * Based on ARM chapter 4.4.
  *
  * $Id$
+ *
+ * X-1.8       Camiel Vanderhoeven                             21-JAN-2008
+ *      Fixed misunderstaiding of the INT bit in integer overflow traps.
  *
  * X-1.7       Camiel Vanderhoeven                             18-JAN-2008
  *      Replaced sext_64 inlines with sext_u64_<bits> inlines for
@@ -77,7 +81,7 @@
       state.r[rc] = sext_u64_32(rav + rbv);                         \
       /* test for integer overflow */                               \
       if (((~rav ^ rbv) & (rav ^ state.r[rc])) & L_SIGN)            \
-        ARITH_TRAP(ARITH_INT, rc);                                  \
+        ARITH_TRAP(TRAP_INT | TRAP_IOV, rc);                                  \
     }
 
 #define DO_CTLZ									\
