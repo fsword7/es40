@@ -31,7 +31,10 @@
  *
  * $Id$
  *
- * X-1.6       Camiel Vanderhoeven                             18-JAN-2008
+ * X-1.7        Camiel Vanderhoeven                             21-JAN-2008
+ *      Fixed typo.
+ *
+ * X-1.6        Camiel Vanderhoeven                             18-JAN-2008
  *      Replaced sext_64 inlines with sext_u64_<bits> inlines for
  *      performance reasons (thanks to David Hittner for spotting this!);
  *
@@ -126,7 +129,7 @@
 #define ldl(a,b)                                              \
       if (virt2phys(a,&phys_address,ACCESS_READ,NULL,0))  \
         return -1;                                             \
-      b = sext_u64_32(cSystem->ReadMem(phys_address));
+      b = sext_u64_32(cSystem->ReadMem(phys_address, 32));
 #define ldb(a,b)                                              \
       if (virt2phys(a,&phys_address,ACCESS_READ,NULL,0))  \
         return -1;                                             \
