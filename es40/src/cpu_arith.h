@@ -30,6 +30,9 @@
  *
  * $Id$
  *
+ * X-1.11      Camiel Vanderhoeven                             22-JAN-2008
+ *      Also fixed MULQ/V.
+ *
  * X-1.10      Camiel Vanderhoeven                             22-JAN-2008
  *      Use RA, RAV style macro's for integer registers; fixed MULQ.
  *
@@ -138,17 +141,12 @@
 
 #define DO_MULQ RCV = RAV * RBV;
     
-#define DO_MULQ_V                                               \
-  {                                                             \
-    u64 t64;                                                    \
-    RCV = uemul64 (ABS_Q (RAV), ABS_Q (RBV), &t64);  \
-    if (Q_GETSIGN (RAV ^ RBV))                       \
-    {                                                           \
-      RCV = NEG_Q (RCV);                  \
-      t64 = ~t64 + (RCV == 0); /* i don't completely understand this...*/  \
-    }                                                           \
+#define DO_MULQ_V                                      \
+  {                                                    \
+    u64 t64;                                           \
+    RCV = uemul64 (RAV, RBV, &t64);                    \
 	if (Q_GETSIGN(RCV)? (t64 != X64_QUAD): (t64 != 0)) \
-      ARITH_TRAP(TRAP_INT | TRAP_IOV, RC);                   \
+      ARITH_TRAP(TRAP_INT | TRAP_IOV, RC);             \
   }
 
 #define DO_UMULH uemul64(RAV, RBV, &RCV);
