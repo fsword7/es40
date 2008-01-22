@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.2        Camiel Vanderhoeven                             22-JAN-2008
+ *      Minor cleanup.
+ *
  * X-1.1        Camiel Vanderhoeven                             21-JAN-2008
  *      File created. Contains code based upon the SIMH Alpha pre-
  *      implementation, which is Copyright (c) 2003, Robert M Supnik.
@@ -86,8 +89,6 @@ return SWAP_VAXG (op);					/* swizzle bits */
 
 void CAlphaCPU::arith_trap(u64 mask, u32 ins)
 {
-  u32 rc = I_GETRC (ins);
-
   ARITH_TRAP(mask | ((ins & I_FTRP_S) ? TRAP_SWC : 0)
                   , I_GETRC(ins));
 }
