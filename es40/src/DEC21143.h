@@ -38,6 +38,9 @@
  *
  * $Id$
  *
+ * X-1.12       Camiel Vanderhoeven                             24-JAN-2008
+ *      Use new CPCIDevice::do_pci_read and CPCIDevice::do_pci_write.
+ *
  * X-1.11       David Hittner                                   04-JAN-2008
  *      MAC address configurable.
  *
@@ -162,7 +165,7 @@ class CDEC21143 : public CPCIDevice
 
     /// Internal TX state
     struct SNIC_tx {
-	  u64	    cur_addr;
+	  u32	    cur_addr;
 	  unsigned char	*cur_buf;
 	  int		cur_buf_len;
 	  int		idling;
@@ -172,7 +175,7 @@ class CDEC21143 : public CPCIDevice
 
 	/// Internal RX state
     struct SNIC_rx {
-	  u64	    cur_addr;
+	  u32	    cur_addr;
 	  unsigned char	*cur_buf;
 	  int		cur_buf_len;
 	  int		cur_offset;
