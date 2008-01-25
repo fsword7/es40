@@ -29,6 +29,11 @@
  *
  * $Id$
  *
+ * X-1.3        Camiel Vanderhoeven                             25-JAN-2008
+ *      Trap on unalogned memory access. The previous implementation where
+ *      unaligned accesses were silently allowed could go wrong when page
+ *      boundaries are crossed.
+ *
  * X-1.2        Camiel Vanderhoeven                             22-JAN-2008
  *      Added RA, RAV style macro's for integer registers.
  *
@@ -346,7 +351,20 @@ return quo;						/* return quotient */
 #define DISP_16 (sext_u64_16(ins))
 #define DISP_21 (sext_u64_21(ins))
 
-#define DATA_PHYS(addr,flags) 				\
+#define DATA_PHYS(addr,flags,align)                       \
+  if (addr & align)                                       \
+  {                                                       \
+    state.fault_va = addr;                                \
+    state.exc_sum = (REG_1 & 0x1f) << 8;                  \
+    state.mm_stat = I_GETOP(ins)<<4                       \
+                  | ((flags&ACCESS_WRITE)?1:0);           \
+    GO_PAL(UNALIGN);                                      \
+  }                                                       \
+  if (virt2phys(addr, &phys_address, flags, NULL, ins))   \
+    return 0
+
+
+#define DATA_PHYS_NT(addr,flags) 				          \
     if (virt2phys(addr, &phys_address, flags, NULL, ins)) \
       return 0
 
