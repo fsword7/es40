@@ -321,18 +321,18 @@ private:
   u64 vax_ldg (u64 op);
   u32 vax_stf (u64 op);
   u64 vax_stg (u64 op);
-  void CAlphaCPU::arith_trap(u64 mask, u32 ins);
-  bool CAlphaCPU::vax_unpack (u64 op, UFP *r, u32 ins);
-  bool CAlphaCPU::vax_unpack_d (u64 op, UFP *r, u32 ins);
-  void CAlphaCPU::vax_norm (UFP *r);
-  u64 CAlphaCPU::vax_rpack (UFP *r, u32 ins, u32 dp);
-  u64 CAlphaCPU::vax_rpack_d (UFP *r, u32 ins);
-  s32 CAlphaCPU:: vax_fcmp (u64 s1, u64 s2, u32 ins);
-  u64 CAlphaCPU::vax_cvtif (u64 val, u32 ins, u32 dp);
-  u64 CAlphaCPU::vax_cvtfi (u64 op, u32 ins);
-  u64 CAlphaCPU::vax_fadd (u64 s1, u64 s2, u32 ins, u32 dp, bool sub);
-  u64 CAlphaCPU::vax_fmul (u64 s1, u64 s2, u32 ins, u32 dp);
-  u64 CAlphaCPU::vax_fdiv (u64 s1, u64 s2, u32 ins, u32 dp);
+  void arith_trap(u64 mask, u32 ins);
+  bool vax_unpack (u64 op, UFP *r, u32 ins);
+  bool vax_unpack_d (u64 op, UFP *r, u32 ins);
+  void vax_norm (UFP *r);
+  u64 vax_rpack (UFP *r, u32 ins, u32 dp);
+  u64 vax_rpack_d (UFP *r, u32 ins);
+  s32  vax_fcmp (u64 s1, u64 s2, u32 ins);
+  u64 vax_cvtif (u64 val, u32 ins, u32 dp);
+  u64 vax_cvtfi (u64 op, u32 ins);
+  u64 vax_fadd (u64 s1, u64 s2, u32 ins, u32 dp, bool sub);
+  u64 vax_fmul (u64 s1, u64 s2, u32 ins, u32 dp);
+  u64 vax_fdiv (u64 s1, u64 s2, u32 ins, u32 dp);
   u64 vax_sqrt (u32 ins, u32 dp);
 
   /* VMS PALcode call: */
