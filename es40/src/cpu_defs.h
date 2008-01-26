@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.5        Brian Wheeler                                   26-JAN-2008
+ *      Make file end in newline.
+ *
  * X-1.4        Camiel Vanderhoeven                             26-JAN-2008
  *      Do unaligned trap only when a page boundary is crossed. Something
  *      is causing alignment traps in the SRM console, with the DAT bit set
