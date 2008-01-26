@@ -61,7 +61,7 @@
 #define DO_LDAH state.r[REG_1] = state.r[REG_2] + (DISP_16<<16);
 
 #define DO_LDBU									\
-	  DATA_PHYS(state.r[REG_2] + DISP_16, ACCESS_READ, 0);	\
+	  DATA_PHYS_NT(state.r[REG_2] + DISP_16, ACCESS_READ);	\
 	  state.r[REG_1] = READ_PHYS(8);
 
 #define DO_LDL									\
@@ -85,7 +85,7 @@
 	  state.r[REG_1] = READ_PHYS(64);
 
 #define DO_LDQ_U									\
-	  DATA_PHYS((state.r[REG_2] + DISP_16)& ~X64(7), ACCESS_READ, 7);	\
+	  DATA_PHYS_NT((state.r[REG_2] + DISP_16)& ~X64(7), ACCESS_READ);	\
 	  state.r[REG_1] = READ_PHYS(64);
 
 #define DO_LDWU									\
@@ -93,7 +93,7 @@
 	  state.r[REG_1] = READ_PHYS(16);
 
 #define DO_STB									\
-	  DATA_PHYS(state.r[REG_2] + DISP_16, ACCESS_WRITE, 0);	\
+	  DATA_PHYS_NT(state.r[REG_2] + DISP_16, ACCESS_WRITE);	\
 	  WRITE_PHYS(state.r[REG_1],8);
 
 #define DO_STL									\
@@ -121,7 +121,7 @@
 	  state.lock_flag = false;
 
 #define DO_STQ_U									\
-	  DATA_PHYS((state.r[REG_2] + DISP_16)& ~X64(7), ACCESS_WRITE, 7);	\
+	  DATA_PHYS_NT((state.r[REG_2] + DISP_16)& ~X64(7), ACCESS_WRITE);	\
 	  WRITE_PHYS(state.r[REG_1],64);
 
 #define DO_STW									\
