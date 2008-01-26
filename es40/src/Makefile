@@ -29,8 +29,12 @@
 #
 # $Id$
 #
+# X-1.6         Camiel Vanderhoeven             26-JAN-2008
+#   Added new floating point cpp's.
+#
 # X-1.5         Camiel Vanderhoeven             20-JAN-2008
 #   Added X11 GUI.
+#
 # X-1.16		Brian Wheeler      				12-JAN-2008
 #	Added SCSIDevice and SCSIDisk.
 #
@@ -101,6 +105,8 @@ OBJS = AliM1543C.o \
        AliM1543C_ide.o \
        AliM1543C_usb.o \
        AlphaCPU.o \
+       AlphaCPU_ieeefloat.o \
+       AlphaCPU_vaxfloat.o \
        AlphaCPU_vmspal.o \
        AlphaSim.o \
        Cirrus.o \
