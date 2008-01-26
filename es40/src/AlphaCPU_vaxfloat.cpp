@@ -115,9 +115,9 @@ r->frac = FPR_GETFRAC (op);				/* get fraction */
 if (r->exp == 0) {					/* exp = 0? */
 	if (op != 0) arith_trap (TRAP_INV, ins); 	/* rsvd op? */
 	r->frac = r->sign = 0;
-	return TRUE;  }
+	return true;  }
 r->frac = (r->frac | FPR_HB) << FPR_GUARD;		/* ins hidden bit, guard */
-return FALSE;
+return false;
 }
 
 bool CAlphaCPU::vax_unpack_d (u64 op, UFP *r, u32 ins)
@@ -128,10 +128,10 @@ r->frac = FDR_GETFRAC (op);				/* get fraction */
 if (r->exp == 0) {					/* exp = 0? */
 	if (op != 0) arith_trap (TRAP_INV, ins); 	/* rsvd op? */
 	r->frac = r->sign = 0;
-	return TRUE;  }
+	return true;  }
 r->exp = r->exp + G_BIAS - D_BIAS;			/* change to G bias */
 r->frac = (r->frac | FDR_HB) << FDR_GUARD;		/* ins hidden bit, guard */
-return FALSE;
+return false;
 }
 
 /* VAX normalize */
