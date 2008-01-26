@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.59       Camiel Vanderhoeven                             26-JAN-2008
+ *      Made IDB compile again.
+ *
  * X-1.58       Camiel Vanderhoeven                             25-JAN-2008
  *      Added option to disable the icache.
  *
@@ -324,6 +327,10 @@ CAlphaCPU::~CAlphaCPU()
 
 
 #if defined(IDB)
+  char dbg_string[1000];
+#if !defined(LS_MASTER) && !defined(LS_SLAVE)
+  char * dbg_strptr;
+#endif
 
 void handle_debug_string(char * s)
 {
@@ -390,9 +397,9 @@ int CAlphaCPU::DoClock()
 
 #if defined(IDB)
   char * funcname = 0;
-  char dbg_string[1000] = "";
+  dbg_string[0] = '\0';
 #if !defined(LS_MASTER) && !defined(LS_SLAVE)
-  char * dbg_strptr = dbg_string;
+  dbg_strptr = dbg_string;
 #endif
 #endif
 
