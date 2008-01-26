@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.11       Brian Wheeler                                   26-JAN-2008
+ *      Don't repeat interrupt too soon.
+ *
  * X-1.10       Camiel Vanderhoeven                             24-JAN-2008
  *      Use new CPCIDevice::do_pci_read and CPCIDevice::do_pci_write.
  *
@@ -1546,6 +1549,7 @@ int CNewIde::DoClock()
 				           && CONTROLLER(index).data_ptr==0)
                         {
 				          raise_interrupt(index);
+					      SEL_COMMAND(index).command_cycle=1;
 				        }
 			            yield = true;  // yield.			    
 		              } else {			
