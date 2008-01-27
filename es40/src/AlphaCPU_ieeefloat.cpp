@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.3        Camiel Vanderhoeven                             27-JAN-2008
+ *      Minor floating-point improvements.
+ *
  * X-1.2        Camiel Vanderhoeven                             27-JAN-2008
  *      Bugfix in ieee_sts.
  *
@@ -39,6 +42,7 @@
 
 #include "StdAfx.h"
 #include "AlphaCPU.h"
+#include "cpu_debug.h"
 
 /* Register format constants */
 /* IEEE */
@@ -493,7 +497,8 @@ void CAlphaCPU::ieee_trap (u64 trap, u32 instenb, u64 fpcrdsb, u32 ins)
     real_trap |= trap;              // trap bit in EXC_SUM
 
   if (real_trap)
-    arith_trap (trap, ins);					/* set Alpha trap */
+    ARITH_TRAP(real_trap | ((ins & I_FTRP_S) ? TRAP_SWC : 0)
+               , I_GETRC(ins));
   return;
 }
 
