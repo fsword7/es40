@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.2        Camiel Vanderhoeven                             27-JAN-2008
+ *      Bugfix in ieee_sts.
+ *
  * X-1.1        Camiel Vanderhoeven                             21-JAN-2008
  *      File created. Contains code based upon the SIMH Alpha pre-
  *      implementation, which is Copyright (c) 2003, Robert M Supnik.
@@ -77,7 +80,10 @@ return (((u64) (op & S_SIGN))? FPR_SIGN: 0) |	/* reg format */
 u32 CAlphaCPU::ieee_sts (u64 op)
 {
 u32 sign = FPR_GETSIGN (op)? S_SIGN: 0;
-u32 exp = ((u32) (op >> (FPR_V_EXP - S_V_EXP))) & S_EXP;
+u32 exp = FPR_GETEXP(op);
+if (exp == FPR_NAN) exp = S_NAN;			/* inf or NaN? */
+else if (exp != 0) exp = exp + S_BIAS - T_BIAS;		/* zero or denorm? */
+exp = (exp << S_V_EXP) & S_EXP;
 u32 frac = ((u32) (op >> S_V_FRAC)) & X64_LONG;
 
 return sign | exp | (frac & ~(S_SIGN|S_EXP));
