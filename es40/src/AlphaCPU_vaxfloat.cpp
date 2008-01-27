@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.6        Camiel Vanderhoeven                             27-JAN-2008
+ *      Comments.
+ *
  * X-1.5        Camiel Vanderhoeven                             27-JAN-2008
  *      Minor floating-point improvements.
  *
@@ -283,6 +286,12 @@ return (((u64) r->sign) << FDR_V_SIGN) |
 }
 //\}
 
+/***************************************************************************//**
+ * \name VAX_fp_operations
+ * VAX floating point operations
+ ******************************************************************************/
+//\{
+
 /* VAX floating compare */
 
 s32 CAlphaCPU:: vax_fcmp (u64 s1, u64 s2, u32 ins)
@@ -434,3 +443,5 @@ b.exp = ((b.exp + 1 - G_BIAS) >> 1) + G_BIAS;		/* result exponent */
 b.frac = fsqrt64 (b.frac, b.exp);			/* result fraction */
 return vax_rpack (&b, ins, dp);				/* round and pack */
 }
+
+//\}
