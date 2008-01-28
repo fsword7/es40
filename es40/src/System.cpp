@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.59       Camiel Vanderhoeven                             28-JAN-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.58       Camiel Vanderhoeven                             25-JAN-2008
  *      Added option to disable the icache.
  *
@@ -2117,7 +2120,7 @@ void CSystem::SaveState(char *fn)
   unsigned int j;
   int * mem = (int*) memory;
   int int0 = 0;
-  unsigned int memints = (1<<iNumMemoryBits)/sizeof(int);
+  unsigned int memints = (1<<iNumMemoryBits)/(unsigned int)sizeof(int);
   u32 temp_32;
 
   f = fopen(fn,"wb");
@@ -2177,7 +2180,7 @@ void CSystem::RestoreState(char *fn)
   unsigned int m;
   unsigned int j;
   int * mem = (int*) memory;
-  unsigned int memints = (1<<iNumMemoryBits)/sizeof(int);
+  unsigned int memints = (1<<iNumMemoryBits)/(unsigned int)sizeof(int);
   u32 temp_32;
 
   f = fopen(fn,"rb");
@@ -2246,7 +2249,7 @@ void CSystem::DumpMemory(unsigned int filenum)
   sprintf(file,"memory_%012d.dmp",filenum);
   f = fopen(file,"wb");
 
-  x = (1<<iNumMemoryBits)/sizeof(int)/2;
+  x = (1<<iNumMemoryBits)/(unsigned int)sizeof(int)/2;
 
   while (!mem[x-1])
     x--;

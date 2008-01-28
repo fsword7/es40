@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.21       Camiel Vanderhoeven                             28-JAN-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.20       Camiel Vanderhoeven                             24-JAN-2008
  *      Use new CPCIDevice::do_pci_read and CPCIDevice::do_pci_write.
  *
@@ -1119,9 +1122,6 @@ int CSym53C895::DoClock()
 
 int CSym53C895::execute()
 {
-  u64 cmda0;
-  u64 cmda1;
-
   int optype;
 
     // single step mode
@@ -1218,7 +1218,7 @@ int CSym53C895::execute()
           if ((size_t)count > scsi_expected_xfer(0))
           {
             printf("SYM: attempt to xfer more bytes than expected.\n");
-            count = scsi_expected_xfer(0);
+            count = (u32)scsi_expected_xfer(0);
           }
           u8 * scsi_data_ptr = (u8*) scsi_xfer_ptr(0, count);
           u8 * org_sdata_ptr = scsi_data_ptr;
