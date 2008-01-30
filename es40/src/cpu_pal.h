@@ -30,6 +30,9 @@
  *
  * $Id$
  *
+ * X-1.13       Camiel Vanderhoeven                             30-JAN-2008
+ *      Always use set_pc or add_pc to change the program counter.
+ *
  * X-1.12       Camiel Vanderhoeven                             30-JAN-2008
  *      Remember number of instructions left in current memory page, so
  *      that the translation-buffer doens't need to be consulted on every
@@ -315,11 +318,7 @@
   }
 
 #define DO_HW_RET                                                 \
-  {                                                               \
-    state.pc = state.r[REG_2];                                    \
-    state.rem_ins_in_page = 0;                                    \
-  }
-
+  set_pc(state.r[REG_2])
 
 #define DO_HW_LDL								\
       switch(function)								\
