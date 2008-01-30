@@ -30,6 +30,11 @@
  *
  * $Id$
  *
+ * X-1.12       Camiel Vanderhoeven                             30-JAN-2008
+ *      Remember number of instructions left in current memory page, so
+ *      that the translation-buffer doens't need to be consulted on every
+ *      instruction fetch when the Icache is disabled.
+ *
  * X-1.11       Camiel Vanderhoeven                             25-JAN-2008
  *      Trap on unalogned memory access. The previous implementation where
  *      unaligned accesses were silently allowed could go wrong when page
@@ -309,7 +314,12 @@
     }										\
   }
 
-#define DO_HW_RET state.pc = state.r[REG_2];
+#define DO_HW_RET                                                 \
+  {                                                               \
+    state.pc = state.r[REG_2];                                    \
+    state.rem_ins_in_page = 0;                                    \
+  }
+
 
 #define DO_HW_LDL								\
       switch(function)								\
