@@ -30,6 +30,9 @@
  *
  * $Id$
  *
+ * X-1.16       Camiel Vanderhoeven                             05-feb-2008
+ *      Put X64 around 64-bit constants in DO_CVTQL.
+ *
  * X-1.15       Camiel Vanderhoeven                             28-JAN-2008
  *      Better floating-point exception handling.
  *
@@ -210,8 +213,8 @@
   state.f[FREG_3] = ((state.f[FREG_2] & 0xC0000000) << 32)          \
                   | ((state.f[FREG_2] & 0x3FFFFFFF) << 29);         \
   if (FPR_GETSIGN (state.f[FREG_2]) ?                               \
-                  (state.f[FREG_2] < 0xFFFFFFFF80000000) :          \
-		          (state.f[FREG_2] > 0x000000007FFFFFFF))           \
+                  (state.f[FREG_2] < X64(FFFFFFFF80000000)) :       \
+		          (state.f[FREG_2] > X64(000000007FFFFFFF)))        \
    {                                                                \
      if (ins & I_FTRP_V) vax_trap (TRAP_IOV, ins);					\
    }
