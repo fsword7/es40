@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.66       Camiel Vanderhoeven                             05-FEB-2008
+ *      Only use new floating-point code when HAVE_NEW_FP has been defined.
+ *
  * X-1.65       Camiel Vanderhoeven                             01-FEB-2008
  *      Avoid unnecessary shift-operations to calculate constant values.
  *
@@ -294,8 +297,9 @@
 #include "cpu_pal.h"
 #include "cpu_debug.h"
 
-//#include "Serial.h"
-//#include "AliM1543C.h"
+#if !defined(HAVE_NEW_FP)
+#include "es40_float.h"
+#endif
 
 /**
  * Constructor.
