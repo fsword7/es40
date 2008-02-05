@@ -29,7 +29,10 @@
  *
  * $Id$
  *
- * X-1.7        Camiel Vanderhoeven                             01-FEB-2008
+ * X-1.9        Camiel Vanderhoeven                             05-FEB-2008
+ *      Bug description added.
+ *
+ * X-1.8        Camiel Vanderhoeven                             01-FEB-2008
  *      Disable unaligned access check alltogether; it doesn't work
  *      properly for some reason.
  *
@@ -61,6 +64,8 @@
  *      File created. Contains code pulled from various older source files,
  *      and some floating-point definitions based upon the SIMH Alpha pre-
  *      implementation, which is Copyright (c) 2003, Robert M Supnik.
+ *
+ * \bug Fix unaligned access traps.
  **/
 
 #if !defined(__CPU_DEFS__)
