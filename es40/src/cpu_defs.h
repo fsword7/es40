@@ -30,6 +30,10 @@
  * $Id$
  *
  * X-1.7        Camiel Vanderhoeven                             01-FEB-2008
+ *      Disable unaligned access check alltogether; it doesn't work
+ *      properly for some reason.
+ *
+ * X-1.7        Camiel Vanderhoeven                             01-FEB-2008
  *      Avoid unnecessary shift-operations to calculate constant values.
  *
  * X-1.6        Camiel Vanderhoeven                             28-JAN-2008
@@ -430,7 +434,8 @@ return zsig;
     if (virt2phys(addr, &phys_address, flags, NULL, ins)) \
       return 0
 
-//#define DATA_PHYS(addr,flags,align) DATA_PHYS_NT(addr,flags)
+#undef DATA_PHYS
+#define DATA_PHYS(addr,flags,align) DATA_PHYS_NT(addr,flags)
 
 #define ALIGN_PHYS(a) (phys_address & ~((u64)((a)-1)))
 
