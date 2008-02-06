@@ -32,6 +32,9 @@
  *
  * $Id$
  *
+ * X-1.18       Camiel Vanderhoeven                             06-FEB-2008
+ *      Check for FPEN in old floating point code. 
+ *
  * X-1.17       Camiel Vanderhoeven                             05-FEB-2008
  *      File restored. Only use new floating-point code when HAVE_NEW_FP
  *      has been defined.

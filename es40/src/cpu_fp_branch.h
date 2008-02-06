@@ -30,6 +30,9 @@
  *
  * $Id$
  *
+ * X-1.10       Camiel Vanderhoeven                             06-FEB-2008
+ *      Check for FPEN in old floating point code. 
+ *
  * X-1.9        Camiel Vanderhoeven                             05-FEB-2008
  *      Only use new floating-point code when HAVE_NEW_FP has been defined.
  *
@@ -97,12 +100,18 @@
 
 #else
 
-#define DO_FBEQ  if (state.f[FREG_1] == X64(0000000000000000) || state.f[FREG_1] == X64(8000000000000000))	add_pc(DISP_21 * 4);
-#define DO_FBGE  if (!(state.f[FREG_1]& X64(8000000000000000)) || state.f[FREG_1] == X64(8000000000000000))	add_pc(DISP_21 * 4);
-#define DO_FBGT  if (!(state.f[FREG_1]& X64(8000000000000000)) && state.f[FREG_1] != X64(0000000000000000))	add_pc(DISP_21 * 4);
-#define DO_FBLE  if ((state.f[FREG_1]& X64(8000000000000000)) || state.f[FREG_1] == X64(0000000000000000))	add_pc(DISP_21 * 4);
-#define DO_FBLT  if ((state.f[FREG_1]& X64(8000000000000000)) && state.f[FREG_1] != X64(8000000000000000))	add_pc(DISP_21 * 4);
-#define DO_FBNE  if (state.f[FREG_1] != X64(0000000000000000) && state.f[FREG_1] != X64(8000000000000000))	add_pc(DISP_21 * 4);
+#define DO_FBEQ                                                   \
+  FPSTART;  if (state.f[FREG_1] == X64(0000000000000000) || state.f[FREG_1] == X64(8000000000000000))	add_pc(DISP_21 * 4);
+#define DO_FBGE                                                   \
+  FPSTART;  if (!(state.f[FREG_1]& X64(8000000000000000)) || state.f[FREG_1] == X64(8000000000000000))	add_pc(DISP_21 * 4);
+#define DO_FBGT                                                   \
+  FPSTART;  if (!(state.f[FREG_1]& X64(8000000000000000)) && state.f[FREG_1] != X64(0000000000000000))	add_pc(DISP_21 * 4);
+#define DO_FBLE                                                   \
+  FPSTART;  if ((state.f[FREG_1]& X64(8000000000000000)) || state.f[FREG_1] == X64(0000000000000000))	add_pc(DISP_21 * 4);
+#define DO_FBLT                                                   \
+  FPSTART;  if ((state.f[FREG_1]& X64(8000000000000000)) && state.f[FREG_1] != X64(8000000000000000))	add_pc(DISP_21 * 4);
+#define DO_FBNE                                                   \
+  FPSTART;  if (state.f[FREG_1] != X64(0000000000000000) && state.f[FREG_1] != X64(8000000000000000))	add_pc(DISP_21 * 4);
 
 
 #endif
