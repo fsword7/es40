@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.54       Camiel Vanderhoeven                             07-FEB-2008
+ *      Don't define DEBUG_KBD by default.
+ *
  * X-1.53       Camiel Vanderhoeven                             07-FEB-2008
  *      Comments.
  *
@@ -224,11 +227,7 @@
  *
  * X-1.1        Camiel Vanderhoeven                             19-JAN-2007
  *      Initial version in CVS.
- *
- * \author Camiel Vanderhoeven (camiel@camicom.com / http://www.camicom.com)
  **/
-
-#define DEBUG_KBD
 
 #include "StdAfx.h"
 #include "AliM1543C.h"
@@ -720,7 +719,7 @@ void CAliM1543C::kbd_gen_scancode(u32 key)
     for (i=0; i<strlen((const char *)scancode); i++) 
     {
 #if defined(DEBUG_KBD)
-      printf("gen_scancode(): writing raw %02x",scancode[i]);
+      printf("gen_scancode(): writing raw %02x   \n",scancode[i]);
 #endif
       kbd_enQ(scancode[i]);
     }
