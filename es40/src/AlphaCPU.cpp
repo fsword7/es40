@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.67       Camiel Vanderhoeven                             08-FEB-2008
+ *      Show originating device name on memory errors.
+ *
  * X-1.66       Camiel Vanderhoeven                             05-FEB-2008
  *      Only use new floating-point code when HAVE_NEW_FP has been defined.
  *
@@ -509,7 +512,7 @@ int CAlphaCPU::DoClock()
     if (get_icache(state.pc, &ins))
       return 0;
   } else {
-    ins = (u32)(cSystem->ReadMem(state.pc,32));
+    ins = (u32)(cSystem->ReadMem(state.pc,32,this));
   }
 
   next_pc();

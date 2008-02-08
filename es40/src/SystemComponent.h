@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.14       Camiel Vanderhoeven                             08-FEB-2008
+ *      Show originating device name on memory errors.
+ *
  * X-1.13       Camiel Vanderhoeven                             19-JAN-2008
  *      Run CPU in a separate thread if CPU_THREADS is defined.
  *      NOTA BENE: This is very experimental, and has several problems.
@@ -99,8 +102,8 @@ class CSystemComponent
   virtual void StopThreads() {};
   virtual bool ActiveThreads() { return false; };
 
- protected: 
   char * devid_string;
+ protected: 
   class CSystem * cSystem;
   class CConfigurator * myCfg;
 };

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.26       Camiel Vanderhoeven                             08-FEB-2008
+ *      Show originating device name on memory errors.
+ *
  * X-1.25       Camiel Vanderhoeven                             04-FEB-2008
  *      Corrected a typo in the definition of PTE_SHIFT (2 should be 12)
  *      that caused an OpenVMS procgone bugcheck.
@@ -191,8 +194,8 @@ class CSystem
   u64 PCI_Phys_scatter_gather(u32 address, u64 wsm, u64 tba);
   void interrupt(int number, bool assert);
   int LoadROM();
-  u64 ReadMem(u64 address, int dsize);
-  void WriteMem(u64 address, int dsize, u64 data);
+  u64 ReadMem(u64 address, int dsize, CSystemComponent * source);
+  void WriteMem(u64 address, int dsize, u64 data, CSystemComponent * source);
   int Run();
   int SingleStep();
 
