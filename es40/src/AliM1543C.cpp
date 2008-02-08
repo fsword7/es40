@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.57       Camiel Vanderhoeven                             08-FEB-2008
+ *      Set default keyboard translation to scanset 3 (PS/2).
+ *
  * X-1.56       Camiel Vanderhoeven                             07-FEB-2008
  *      Add more keyboard debugging.
  *
@@ -1757,7 +1760,9 @@ void CAliM1543C::kbd_resetinternals(bool powerup)
 
   // Default scancode set is mf2 (translation is controlled by the 8042)
   state.kbd_controller.expecting_scancodes_set = 0;
-  state.kbd_controller.current_scancodes_set = 1;
+  //state.kbd_controller.current_scancodes_set = 1;
+  state.kbd_controller.current_scancodes_set = 2;
+  //state.kbd_controller.scancodes_translate = 1;
   
   if (powerup) {
     state.kbd_internal_buffer.expecting_led_write = 0;
@@ -2454,20 +2459,18 @@ void CAliM1543C::kbd_ctrl_to_kbd(u8 value)
       BX_INFO(("identify keyboard command received"));
 #endif
 
-      // XT sends nothing, AT sends ACK 
-      // MFII with translation sends ACK+ABh+41h
-      // MFII without translation sends ACK+ABh+83h
-//      if (SIM->get_param_enum(BXPN_KBD_TYPE)->get() != BX_KBD_XT_TYPE) {
-        kbd_enQ(0xFA); 
-//        if (SIM->get_param_enum(BXPN_KBD_TYPE)->get() == BX_KBD_MF_TYPE) {
-          kbd_enQ(0xAB);
+      //  Keyboard IDs
+      //
+      // Keyboards do report an ID as a reply to the command f2. An MF2 AT keyboard
+      // reports ID ab 83. Translation turns this into ab 41.
+
+      kbd_enQ(0xFA); 
+      kbd_enQ(0xAB);
           
-          if(state.kbd_controller.scancodes_translate)
-            kbd_enQ(0x41);
-          else
-            kbd_enQ(0x83);
-  //      }
-//      }
+      if(state.kbd_controller.scancodes_translate)
+        kbd_enQ(0x41);
+      else
+        kbd_enQ(0x83);
       break;
 
     case 0xf3:  // typematic info
