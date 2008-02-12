@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.14       Camiel Vanderhoeven                             12-FEB-2008
+ *      Moved keyboard code into it's own class (CKeyboard)
+ *
  * X-1.13       Camiel Vanderhoeven                             22-JAN-2008
  *      Minor cleanups.
  *
@@ -73,7 +76,8 @@
 #include "keymap.h"
 #include "../VGA.h"
 #include "../System.h"
-#include "../AliM1543C.h"
+//#include "../AliM1543C.h"
+#include "../Keyboard.h"
 #include "../Configurator.h"
 
 #ifdef __APPLE__
@@ -833,9 +837,9 @@ void bx_sdl_gui_c::handle_events(void)
 	  key_event = entry->baseKey;
 	}
 	if( key_event == BX_KEY_UNHANDLED ) break;
-	theAli->kbd_gen_scancode( key_event );
+	theKeyboard->gen_scancode( key_event );
     if ((key_event == BX_KEY_NUM_LOCK) || (key_event == BX_KEY_CAPS_LOCK)) {
-	  theAli->kbd_gen_scancode( key_event | BX_KEY_RELEASED );
+	  theKeyboard->gen_scancode( key_event | BX_KEY_RELEASED );
     }
 	break;
 
@@ -863,9 +867,9 @@ void bx_sdl_gui_c::handle_events(void)
           }
 	  if( key_event == BX_KEY_UNHANDLED ) break;
           if ((key_event == BX_KEY_NUM_LOCK) || (key_event == BX_KEY_CAPS_LOCK)) {
-            theAli->kbd_gen_scancode( key_event );
+            theKeyboard->gen_scancode( key_event );
           }
-	  theAli->kbd_gen_scancode( key_event | BX_KEY_RELEASED );
+	  theKeyboard->gen_scancode( key_event | BX_KEY_RELEASED );
 	}
 	break;
 

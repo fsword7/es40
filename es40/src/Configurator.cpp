@@ -29,7 +29,10 @@
  *
  * $Id$
  *
- * X-1.12        Camiel Vanderhoeven                             20-JAN-2008
+ * X-1.13       Camiel Vanderhoeven                             12-FEB-2008
+ *      Moved keyboard code into it's own class (CKeyboard)
+ *
+ * X-1.12       Camiel Vanderhoeven                             20-JAN-2008
  *      Added X11 GUI.
  *
  * X-1.11       Camiel Vanderhoeven                             19-JAN-2008
@@ -76,6 +79,7 @@
 #include "Flash.h"
 #include "DPR.h"
 #include "AliM1543C.h"
+#include "Keyboard.h"
 #if defined(HAVE_NEW_IDE)
 #include "NewIde.h"
 #else
@@ -660,6 +664,7 @@ void CConfigurator::initialize()
   case c_ali:
     myDevice = new CAliM1543C(this,(CSystem *)pParent->get_device(),pcibus,pcidev);
     new CPort80(this,(CSystem *)pParent->get_device());
+    new CKeyboard(this,(CSystem *)pParent->get_device());
     break;
 
   case c_ali_ide:

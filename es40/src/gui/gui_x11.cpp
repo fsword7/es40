@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.2        Camiel Vanderhoeven                             12-FEB-2008
+ *      Moved keyboard code into it's own class (CKeyboard)
+ *
  * X-1.1        Camiel Vanderhoeven                             20-JAN-2008
  *      Initial version for ES40 emulator.
  *
@@ -52,7 +55,7 @@
 #include "keymap.h"
 #include "../Configurator.h"
 #include "../VGA.h"
-#include "../AliM1543C.h"
+#include "../Keyboard.h"
 
 extern "C" {
 #include <X11/Xlib.h>
@@ -1010,7 +1013,7 @@ xkeypress(KeySym keysym, int press_release)
   if (press_release)
     key_event |= BX_KEY_RELEASED;
 
-  theAli->kbd_gen_scancode(key_event);
+  theKeyboard->gen_scancode(key_event);
 }
 
 
