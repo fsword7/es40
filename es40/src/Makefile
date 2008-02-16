@@ -196,6 +196,7 @@ OBJS = AliM1543C.o \
        es40_debug.o \
        Flash.o \
        FloppyController.o \
+       Keyboard.o \
        lockstep.o \
        NewIde.o \
        PCIDevice.o \
@@ -205,6 +206,7 @@ OBJS = AliM1543C.o \
        SCSIDevice.o \
        Serial.o \
        StdAfx.o \
+       Sym53C810.o \
        Sym53C895.o \
        SystemComponent.o \
        System.o \
