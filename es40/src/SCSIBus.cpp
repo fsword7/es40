@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.2        Camiel Vanderhoeven                             16-FEB-2008
+ *      Owner of the SCSI bus is allowed to re-arbitrate for it.
+ *
  * X-1.1        Camiel Vanderhoeven                             12-JAN-2008
  *      Initial version in CVS.
  **/
@@ -93,14 +96,14 @@ void CSCSIBus::scsi_unregister(CSCSIDevice * dev, int target)
  **/
 bool CSCSIBus::arbitrate(int initiator)
 {
- if (state.phase != SCSI_PHASE_FREE)
+  if (state.phase != SCSI_PHASE_FREE && state.initiator != initiator)
   {
     printf("Could not arbitrate for the SCSI bus.\n");
     return false;
   }
- state.initiator = initiator;
- state.phase = SCSI_PHASE_ARBITRATION;
- return true;
+  state.initiator = initiator;
+  state.phase = SCSI_PHASE_ARBITRATION;
+  return true;
 }
 
 /**
