@@ -83,8 +83,6 @@
  *      Initial version in CVS.
  **/
 
-#define DEBUG_SCSI
-
 #include "StdAfx.h" 
 #include "Disk.h"
 

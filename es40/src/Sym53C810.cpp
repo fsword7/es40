@@ -34,8 +34,6 @@
  *      that chip to work properly with the OpenVMS driver.
  **/
 
-#define DEBUG_SYM
-
 #if defined(DEBUG_SYM)
 #define DEBUG_SYM_REGS
 #define DEBUG_SYM_SCRIPTS
