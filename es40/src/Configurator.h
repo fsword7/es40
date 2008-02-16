@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.9        Camiel Vanderhoeven                             16-FEB-2008
+ *      Added Symbios 53C810 controller.
+ *
  * X-1.8        Camiel Vanderhoeven                             20-JAN-2008
  *      Added X11 GUI.
  *
@@ -74,6 +77,7 @@ typedef enum {c_none,
               c_cirrus,
               c_dec21143,
               c_sym53c895,
+              c_sym53c810,
               // disk devices
               c_file,
               c_device,

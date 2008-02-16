@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.14       Camiel Vanderhoeven                             16-FEB-2008
+ *      Added Symbios 53C810 controller.
+ *
  * X-1.13       Camiel Vanderhoeven                             12-FEB-2008
  *      Moved keyboard code into it's own class (CKeyboard)
  *
@@ -97,6 +100,7 @@
 #include "DEC21143.h"
 #endif
 #include "Sym53C895.h"
+#include "Sym53C810.h"
 
 /**
  * Constructor.
@@ -695,6 +699,10 @@ void CConfigurator::initialize()
 
   case c_sym53c895:
     myDevice = new CSym53C895(this,(CSystem *)pParent->get_device(),pcibus,pcidev);
+    break;
+
+  case c_sym53c810:
+    myDevice = new CSym53C810(this,(CSystem *)pParent->get_device(),pcibus,pcidev);
     break;
 
   case c_file:
