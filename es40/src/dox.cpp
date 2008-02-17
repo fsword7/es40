@@ -177,6 +177,8 @@
  *  - SCSI 2 (http://www.t10.org/ftp/t10/drafts/s2/s2-r10l.pdf)
  *  - SCSI 3 Multimedia Commands (MMC) (http://www.t10.org/ftp/t10/drafts/mmc/mmc-r10a.pdf)
  *  - SYM53C895 PCI-Ultra2 SCSI I/O Processor (http://www.datasheet4u.com/html/S/Y/M/SYM53C895_LSILogic.pdf.html)
+ *  - SYM53C810A PCI-SCSI I/O Processor (http://ftp.netbsd.org/pub/NetBSD/arch/bebox/doc/810a.pdf)
+ *  - Symbios SCSI SCRIPTS Processors Programming Guide (http://la.causeuse.org/hauke/macbsd/symbios_53cXXX_doc/lsilogic-53cXXX-scripts.pdf)
  *  - Ali M1543C B1 South Bridge Version 1.20 (http://mds.gotdns.com/sensors/docs/ali/1543dScb1-120.pdf)
  *  - VGADOC4b (http://home.worldonline.dk/~finth/)
  *  .
