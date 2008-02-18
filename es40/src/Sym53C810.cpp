@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.4        Camiel Vanderhoeven                             18-FEB-2008
+ *      Debugging info on xfer size made conditional.
+ *
  * X-1.3        Camiel Vanderhoeven                             17-FEB-2008
  *      Debugging info.
  *
@@ -1156,7 +1159,9 @@ int CSym53C810::execute()
           }
           if ((size_t)count > scsi_expected_xfer(0))
           {
+#if defined(DEBUG_SYM_SCRIPTS)
             printf("SYM: xfer %d bytes, max %d expected, in phase %d.\n",count,scsi_expected_xfer(0),scsi_phase);
+#endif
             count = (u32)scsi_expected_xfer(0);
           }
           u8 * scsi_data_ptr = (u8*) scsi_xfer_ptr(0, count);
