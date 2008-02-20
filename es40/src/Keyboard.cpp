@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.2        David Leonard                                   20-FEB-2008
+ *      Avoid 'Xlib: unexpected async reply' errors on Linux/Unix/BSD's by
+ *      adding some thread interlocking.
+ *
  * X-1.1        Camiel Vanderhoeven                             12-FEB-2008
  *      Created. Contains code previously found in AliM1543C.cpp
  *
@@ -1670,7 +1674,11 @@ int CKeyboard::DoClock()
   unsigned retval;
 
   if (bx_gui)
+  {
+    bx_gui->lock();
     bx_gui->handle_events();
+    bx_gui->unlock();
+  }
 
   retval=periodic();
 

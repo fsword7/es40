@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.9        David Leonard                                   20-FEB-2008
+ *      Avoid 'Xlib: unexpected async reply' errors on Linux/Unix/BSD's by
+ *      adding some thread interlocking.
+ *
  * X-1.8        Camiel Vanderhoeven                             20-JAN-2008
  *      Added X11 GUI.
  *
@@ -118,10 +122,12 @@ private:
 
     u8 read_b_3c0();
     u8 read_b_3c1();
+    u8 read_b_3c2();
     u8 read_b_3c3();
     u8 read_b_3c4();
     u8 read_b_3c5();
     u8 read_b_3c9();
+    u8 read_b_3ca();
     u8 read_b_3cc();
     u8 read_b_3cf();
     u8 read_b_3d4();
