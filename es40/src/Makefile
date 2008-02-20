@@ -168,10 +168,9 @@ ifneq ($(findstring "-DHAVE_PCAP",$(OPTIONS)),"")
 LDOPTIONFLAGS += -lpcap
 endif
 
-+ifneq ($(findstring "-g",$(CDEBUGFLAGS)),"")
-+LDOPTIONFLAGS += -g
-+endif
-+
+ifneq ($(findstring "-g",$(CDEBUGFLAGS)),"")
+LDOPTIONFLAGS += -g
+endif
 
 CFLAGS =  -I. -I..  \
 	$(CDEBUGFLAGS) $(CTUNINGFLAGS) $(OPTIONS) $(COPTIONFLAGS)
