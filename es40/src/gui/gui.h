@@ -36,6 +36,10 @@
  *
  * $Id$
  *
+ * X-1.6        David Leonard                                   20-FEB-2008
+ *      Avoid 'Xlib: unexpected async reply' errors on Linux/Unix/BSD's by
+ *      adding some thread interlocking.
+ *
  * X-1.5        Camiel Vanderhoeven                             20-JAN-2008
  *      Avoid compiler warnings.
  *
@@ -122,6 +126,9 @@ public:
   void cleanup(void);
   static void mouse_enabled_changed(bool val);
   static void init_signal_handlers();
+
+  void lock();
+  void unlock();
 
 protected:
   static s32 make_text_snapshot (char **snapshot, u32 *length);
