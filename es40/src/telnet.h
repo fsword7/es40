@@ -32,6 +32,9 @@
  *
  * $Id$
  *
+ * X-1.10       Alex                                            20-FEB-2008
+ *      GNU compiler support on Windows.
+ *
  * X-1.9        Camiel Vanderhoeven                             04-JAN-2008
  *      Comments.
  *
@@ -67,13 +70,17 @@
 
 #if defined(_WIN32)
 #include <winsock2.h>
+#if defined(__GNUWIN32__)
+#include <ws2tcpip.h>
+#else  
 typedef size_t ssize_t;
 typedef int socklen_t;
-#endif
+#endif // __GNUWIN32__
+#endif // _WIN32
 
 #if defined(__APPLE__)
 #include <sys/socket.h>
-#endif
+#endif // __APPLE__
 
 #if defined(__VMS)
 #include <socket.h>
@@ -81,7 +88,7 @@ typedef int socklen_t;
 #include <inet.h>
 #define INVALID_SOCKET -1
 typedef unsigned int socklen_t;
-#endif
+#endif // __VMS
 
 #if defined(_WIN32) || defined(__VMS)
 
