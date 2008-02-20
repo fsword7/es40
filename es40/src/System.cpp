@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.62       David Leonard                                   20-FEB-2008
+ *      Flush stdout during decompression progress.
+ *
  * X-1.61       Camiel Vanderhoeven                             08-FEB-2008
  *      Show originating device name on memory errors.
  *
@@ -1692,6 +1695,7 @@ int CSystem::LoadROM()
         printf("%d%%",j*2);
       else
         printf(".");
+      fflush(stdout);
     }
     printf("100%%\n");
     acCPUs[0]->restore_icache();
