@@ -217,6 +217,7 @@ OBJS = AliM1543C.o \
        DMA.o \
        DPR.o \
        es40_debug.o \
+       Ethernet.o \
        Flash.o \
        FloppyController.o \
        Keyboard.o \
