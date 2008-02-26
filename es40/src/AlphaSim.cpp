@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.41       Brian Wheeler                                   26-FEB-2008
+ *   a) Catch SIGUSR1 to trigger the backtracer if es40 seems to have hung.
+ *   b) Use _exit() to really really quit when a SIGSEGV is caught.
+ *
  * X-1.40       Brian Wheeler                                   07-FEB-2008
  *      On GNU systems, display a backtrace when a segmentation fault
  *      occurs, and DEBUG_BACKTRACE has been defined.
@@ -211,7 +215,7 @@ void segv_handler(int signum) {
     printf("%3d %s\n",nptrs-i, strings[i]);
   }
   free(strings);
-  exit(1);
+  if(signum==SIGSEGV) _exit(1);
 }
 
 #else
@@ -255,6 +259,7 @@ int main(int argc, char* argv[])
 
 #ifdef HAS_BACKTRACE
   signal(SIGSEGV, &segv_handler);
+  signal(SIGUSR1, &segv_handler);
 #endif
 
   try 
