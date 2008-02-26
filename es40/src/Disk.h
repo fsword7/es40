@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.15       Camiel Vanderhoeven                             26-FEB-2008
+ *      Remove private devid_string.
+ *
  * X-1.14       David Leonard                                   20-FEB-2008
  *      Return SYSTEM RESOURCE FAILURE sense if dato/dati buffer size is
  *      exceeded.
@@ -146,7 +149,6 @@ protected:
   char * serial_number;
   char * model_number;
   char * revision_number;
-  char * devid_string;
 
   bool read_only;
   bool is_cdrom;
