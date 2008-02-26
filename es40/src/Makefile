@@ -144,6 +144,7 @@ CTUNINGFLAGS = -O3 -mtune=generic
 #   -DDEBUG_LPT         Turn on debugging for LPT Port
 #   -DDEBUG_USB         Turn on debugging for USB controller
 #   -DDEBUG_SYM         Turn on debugging for Sym53C810 controller
+#   -DDEBUG_DMA         Turn on debugging for DMA controller
 #   -DDEBUG_BACKTRACE   Turn on backtrace dump on SIGSEGV
 #
 CDEBUGFLAGS = -g -DHIDE_COUNTER -DDEBUG_BACKTRACE
@@ -213,6 +214,7 @@ OBJS = AliM1543C.o \
        DiskDevice.o \
        DiskFile.o \
        DiskRam.o \
+       DMA.o \
        DPR.o \
        es40_debug.o \
        Flash.o \
