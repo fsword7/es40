@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.10       Camiel Vanderhoeven                             26-FEB-2008
+ *      Moved DMA code into it's own class (CDMA)
+ *
  * X-1.9        Camiel Vanderhoeven                             16-FEB-2008
  *      Added Symbios 53C810 controller.
  *
@@ -75,6 +78,7 @@ typedef enum {c_none,
               c_ali_usb,
               c_s3,
               c_cirrus,
+              c_radeon,
               c_dec21143,
               c_sym53c895,
               c_sym53c810,

@@ -29,6 +29,9 @@
 #
 # $Id$
 #
+# X-1.27       Camiel Vanderhoeven              26-FEB-2008
+#      Moved DMA code into it's own class (CDMA)
+#
 # X-1.25		Brian Wheeler      				20-FEB-2008
 #	This quick patch makes sure that the ld command gets
 #   -g if -g was defined in the CDEBUGFLAGS.
