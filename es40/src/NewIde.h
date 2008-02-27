@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.4        Brian Wheeler                                   27-FEB-2008
+ *      Attempts to refire the interrupt if the controller seems to have
+ *      missed it -- before the OS declares a timeout.
+ *
  * X-1.3        Camiel Vanderhoeven                             12-JAN-2008
  *      Use disk's SCSI engine for ATAPI devices.
  *
@@ -150,6 +154,7 @@ class CNewIde : public CDiskController, public CSCSIDevice
       // internal state
       bool reset_in_progress;
       bool interrupt_pending;
+      int interrupt_fired;
       int selected;
 
       // dma stuff
