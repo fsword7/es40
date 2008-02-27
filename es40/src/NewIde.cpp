@@ -30,6 +30,9 @@
  * $Id$
  *
  * X-1.15       Brian Wheeler                                   27-FEB-2008
+ *     Improvement to last fix.
+ *
+ * X-1.15       Brian Wheeler                                   27-FEB-2008
  *     This patch fixes the vms boot problems from ide cdrom and it also
  *     allowed me to install tru64 -- albeit with timeouts:
  *   a) Clears the busmaster active bit when the bit 1 is written to the
@@ -1856,6 +1859,8 @@ int CNewIde::DoClock()
       }
     } 
 
+    SEL_COMMAND(index).command_cycle++;
+
     if(!CONTROLLER(index).disable_irq) 
     {
       if (CONTROLLER(index).interrupt_pending) 
@@ -1871,27 +1876,27 @@ int CNewIde::DoClock()
       } 
       else 
       {
-	// check to see if its been a long time(tm) since we fired
-	// the interrupt, and if it has been, we re-fire it.
-	if(CONTROLLER(index).interrupt_fired != 0) 
-	{
+	    // check to see if its been a long time(tm) since we fired
+	    // the interrupt, and if it has been, we re-fire it.
+	    if(CONTROLLER(index).interrupt_fired != 0) 
+	    {
 
-	  if((SEL_COMMAND(index).command_cycle - CONTROLLER(index).interrupt_fired) > 10)
-	  {
-	    CONTROLLER(index).interrupt_pending=1;
-	    theAli->pic_deassert(1,6+index); 
+	      if((SEL_COMMAND(index).command_cycle - CONTROLLER(index).interrupt_fired) > 10)
+	      {
+	        CONTROLLER(index).interrupt_pending=1;
+	        theAli->pic_deassert(1,6+index); 
 #ifdef DEBUG_IDE_INTERRUPT
-	    printf("%%IDE-I-INTERRUPT: scheduling re-firing of interrupt on controller %d.\n",index);
-	    PAUSE("Yeee haa!");
+	        printf("%%IDE-I-INTERRUPT: scheduling re-firing of interrupt on controller %d.\n",index);
+	        PAUSE("Yeee haa!");
 #endif
-	  }
-	  else
-	  {
+	      }
+	      else
+	      {
 #ifdef DEBUG_IDE_INTERRUPT
-	    printf("%%IDE-I-INTERRUPT: waiting for int acknowledge on %d. (%d, %d)\n",index,SEL_COMMAND(index).command_cycle,CONTROLLER(index).interrupt_fired);
+	        printf("%%IDE-I-INTERRUPT: waiting for int acknowledge on %d. (%d, %d)\n",index,SEL_COMMAND(index).command_cycle,CONTROLLER(index).interrupt_fired);
 #endif
-	  }
-	}
+	      }
+	    }
       }
     }
     else 
@@ -1900,8 +1905,6 @@ int CNewIde::DoClock()
       // accidentally fire one later when they are enabled.
       CONTROLLER(index).interrupt_pending=false;
     }
-    
-    SEL_COMMAND(index).command_cycle++;
   }
   return 0;
 }
