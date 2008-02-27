@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.23       Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.22       Camiel Vanderhoeven                             16-FEB-2008
  *      Backported some of the improvements made in the 53C810 code.
  *
@@ -470,7 +473,7 @@ int CSym53C895::SaveState(FILE *f)
   fwrite(&ss,sizeof(long),1,f);
   fwrite(&state,sizeof(state),1,f);
   fwrite(&sym_magic2,sizeof(u32),1,f);
-  printf("%s: %d bytes saved.\n",devid_string,ss);
+  printf("%s: %d bytes saved.\n",devid_string,(int)ss);
   return 0;
 }
 
@@ -532,7 +535,7 @@ int CSym53C895::RestoreState(FILE *f)
     return -1;
   }
 
-  printf("%s: %d bytes restored.\n",devid_string,ss);
+  printf("%s: %d bytes restored.\n",devid_string,(int)ss);
   return 0;
 }
 

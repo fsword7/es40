@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.37       Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.36       Camiel Vanderhoeven                             06-JAN-2008
  *      Proper interrupt handling. 
  *
@@ -643,7 +646,7 @@ int CSerial::SaveState(FILE *f)
   fwrite(&ss,sizeof(long),1,f);
   fwrite(&state,sizeof(state),1,f);
   fwrite(&srl_magic2,sizeof(u32),1,f);
-  printf("%s: %d bytes saved.\n",devid_string,ss);
+  printf("%s: %d bytes saved.\n",devid_string,(int)ss);
   return 0;
 }
 
@@ -701,6 +704,6 @@ int CSerial::RestoreState(FILE *f)
     return -1;
   }
 
-  printf("%s: %d bytes restored.\n",devid_string,ss);
+  printf("%s: %d bytes restored.\n",devid_string,(int)ss);
   return 0;
 }

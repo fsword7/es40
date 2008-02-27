@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.15       Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.14       Camiel Vanderhoeven                             13-FEB-2008
  *      Added more DEBUG_PCI messages.
  *
@@ -134,7 +137,7 @@ u32 CPCIDevice::config_read(int func, u32 address, int dsize)
 {
   u8 * x;
 
-  u32 data;
+  u32 data = 0;
 
   x = (u8*)pci_state.config_data[func];
   x+= address;
@@ -429,7 +432,7 @@ int CPCIDevice::SaveState(FILE *f)
   fwrite(&ss,sizeof(long),1,f);
   fwrite(&pci_state,sizeof(pci_state),1,f);
   fwrite(&pci_magic2,sizeof(u32),1,f);
-  printf("%s: %d PCI bytes saved.\n",devid_string,ss);
+  printf("%s: %d PCI bytes saved.\n",devid_string,(int)ss);
   return 0;
 }
 
@@ -487,7 +490,7 @@ int CPCIDevice::RestoreState(FILE *f)
     return -1;
   }
 
-  printf("%s: %d PCI bytes restored.\n",devid_string,ss);
+  printf("%s: %d PCI bytes restored.\n",devid_string,(int)ss);
   return 0;
 }
 

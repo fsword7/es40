@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.60       Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.59       Camiel Vanderhoeven                             26-FEB-2008
  *      Moved DMA code into it's own class (CDMA)
  *
@@ -1111,7 +1114,7 @@ int CAliM1543C::SaveState(FILE *f)
   fwrite(&ss,sizeof(long),1,f);
   fwrite(&state,sizeof(state),1,f);
   fwrite(&ali_magic2,sizeof(u32),1,f);
-  printf("%s: %d bytes saved.\n",devid_string,ss);
+  printf("%s: %d bytes saved.\n",devid_string,(int)ss);
   return 0;
 }
 
@@ -1173,7 +1176,7 @@ int CAliM1543C::RestoreState(FILE *f)
     return -1;
   }
 
-  printf("%s: %d bytes restored.\n",devid_string,ss);
+  printf("%s: %d bytes restored.\n",devid_string,(int)ss);
   return 0;
 }
 

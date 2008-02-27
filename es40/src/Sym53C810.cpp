@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.5        Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.4        Camiel Vanderhoeven                             18-FEB-2008
  *      Debugging info on xfer size made conditional.
  *
@@ -401,7 +404,7 @@ int CSym53C810::SaveState(FILE *f)
   fwrite(&ss,sizeof(long),1,f);
   fwrite(&state,sizeof(state),1,f);
   fwrite(&sym_magic2,sizeof(u32),1,f);
-  printf("%s: %d bytes saved.\n",devid_string,ss);
+  printf("%s: %d bytes saved.\n",devid_string,(int)ss);
   return 0;
 }
 
@@ -463,7 +466,7 @@ int CSym53C810::RestoreState(FILE *f)
     return -1;
   }
 
-  printf("%s: %d bytes restored.\n",devid_string,ss);
+  printf("%s: %d bytes restored.\n",devid_string,(int)ss);
   return 0;
 }
 
@@ -597,10 +600,14 @@ void CSym53C810::WriteMem_Bar(int func,int bar, u32 address, int dsize, u32 data
         case R_SSTAT1:  // 0E
         case R_SSTAT2:  // 0F
         case R_CTEST2:  // 1A
-          //printf("SYM: Write to read-only memory at %02x. FreeBSD driver cache test.\n" ,address);
+          //printf("SYM: Write to read-only register at %02x. FreeBSD driver cache test.\n", address);
           break;
+  	    case 0x4b:      // ??? Linux wants this
+          //printf("SYM: Write to non-existing register at %02x. Linux generic driver.\n", address);
+          break;
+
         default:
-          printf("SYM: Write 8 bits to unknown memory at %02x with %08x.\n",address,data);
+          printf("SYM: Write to unknown register at %02x with %08x.\n",address,data);
 	      throw((int)1);
         }
         break;
@@ -738,8 +745,18 @@ u32 CSym53C810::ReadMem_Bar(int func,int bar, u32 address, int dsize)
           data = read_b_sist(address-R_SIST0);
           break;
 
+    	case 0x17:      // ??? Linux wants this.
+  	    case 0x4b:      // ??? Linux wants this
+  	    case 0x52:      // ??? Linux wants this.
+    	case 0x59:      // ??? Linux wants this.
+          //printf("SYM: Read from non-existing register at %02x. Linux generic driver.\n", address);
+          data = 0;
+          break;
+
         default:
-          printf("SYM: Attempt to read %d bits from memory at %02x\n", dsize, address);
+          printf("SYM: Attempt to read from unknown register at %02x\n", dsize, address);
+	  
+
 	      throw((int)1);
         }
 #if defined(DEBUG_SYM_REGS)

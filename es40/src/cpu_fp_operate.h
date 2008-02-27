@@ -30,6 +30,9 @@
  *
  * $Id$
  *
+ * X-1.19       Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.18       Camiel Vanderhoeven                             06-FEB-2008
  *      Check for FPEN in old floating point code. 
  *

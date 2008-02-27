@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.18       Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.17       Brian Wheeler                                   26-FEB-2007
  *      Better syntax checking and error reporting.
  *

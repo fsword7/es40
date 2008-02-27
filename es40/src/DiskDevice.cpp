@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.6        Brian Wheeler                                   27-FEB-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.5        Camiel Vanderhoeven                             13-JAN-2008
  *      Use determine_layout in stead of calc_cylinders.
  *
