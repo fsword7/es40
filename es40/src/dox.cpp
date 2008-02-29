@@ -204,13 +204,12 @@
  *   - Using the newide device:
  *       - Devices are probed correctly.
  *       - DMA is supported.
- *       - CD-ROM devices crash es40 due to unhandled SCSI commands.
- *       - Crash during install due to timing issues in disk code.
+ *       - installs and configures.
+ *       - es40 system too hot?  remove your dpr.rom and restart!
  *       .
  *   - Using the ali_ide device
  *       - devices timeout on probe.
  *       .
- *   - ES40 crashes if ali_usb device is present, due to incomplete emulation.
  *   .
  *
  * \section free Free OS'es
@@ -245,6 +244,11 @@
  *   - Using ali_ide
  *       - Unknown at this time.
  *       .
+ *   .
+ *
+ * \subsection obsd OpenBSD
+ * Tested 4.2
+ *   - Crashes immediately upon boot.
  *   .
  *
  * \subsection linux Linux

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.4        Brian Wheeler                                   29-FEB-2008
+ *      ACK recognized, but unhandled, keyboard commands.
+ *
  * X-1.3        Brian Wheeler                                   27-FEB-2008
  *      Avoid compiler warnings.
  *
@@ -1187,6 +1190,9 @@ void CKeyboard::ctrl_to_kbd(u8 value)
     case 0xfa:  // PS/2 Set All Keys to Typematic Make/Break
     case 0xfb:  // PS/2 Set Key Type to Typematic
     case 0xfd:  // PS/2 Set Key Type to Make
+      printf("kbd: unhandled command: %02x, ACKing     \n",value);
+      enQ(0xFA);
+      break;
     default:
       printf("kbd: command %02x: not recognized!   \n", value);
       enQ(0xFE); /* send NACK */
