@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.15       Brian Wheeler                                   29-FEB-2008
+ *      Restart serial port connection if lost.
+ *
  * X-1.14       Camiel Vanderhoeven                             06-JAN-2008
  *      Proper interrupt handling. 
  *
@@ -101,6 +104,7 @@ class CSerial : public CSystemComponent
   virtual int SaveState(FILE * f);
   virtual int RestoreState(FILE * f);
   void eval_interrupts();
+  void WaitForConnection();
 
  private:
   /// The state structure contains all elements that need to be saved to the statefile.
@@ -124,6 +128,7 @@ class CSerial : public CSystemComponent
     int iNumber;
     bool irq_active;
   } state;
+  int listenPort;
   int listenSocket;
   int connectSocket;
 #if defined(IDB) && defined(LS_MASTER) 
