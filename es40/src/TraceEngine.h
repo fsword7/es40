@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.18       Brian Wheeler                                   29-FEB-2008
+ *      Add BREAKPOINT INSTRUCTION command to IDB.
+ *
  * X-1.17       Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -152,6 +155,7 @@ class CTraceEngine
   u64 iBreakPoint;
   int iBreakPointMode;
   bool bBreakPoint;
+  u32 iBreakPointInstruction;
 };
 
 extern bool bTrace;

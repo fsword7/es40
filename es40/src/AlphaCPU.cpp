@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.69       Brian Wheeler                                   29-FEB-2008
+ *      Add BREAKPOINT INSTRUCTION command to IDB.
+ *
  * X-1.68       Brian Wheeler                                   27-FEB-2008
  *      Avoid compiler warnings.
  *
@@ -537,6 +540,9 @@ int CAlphaCPU::DoClock()
   }
 
   // Decode and dispatch opcode.
+#if defined(IDB)
+  last_instruction = ins;
+#endif
   opcode = ins >> 26;
   switch (opcode)
     {
