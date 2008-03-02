@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.65       Camiel Vanderhoeven                             02-MAR-2008
+ *      Natural way to specify large numeric values ("10M") in the config file.
+ *
  * X-1.64       Brian Wheeler                                   29-FEB-2008
  *      Do not generate unknown PCI 0 memory messages for legacy VGA
  *      memory region.
@@ -301,7 +304,7 @@ CSystem::CSystem(CConfigurator * cfg)
   iNumSlowClocks = 0;
   iNumMemories = 0;
   iNumCPUs = 0;
-  iNumMemoryBits = myCfg->get_int_value("memory.bits",27);
+  iNumMemoryBits = (int)myCfg->get_num_value("memory.bits",27);
 //  iNumConfig = 0;
 
 #if defined(IDB)

@@ -32,6 +32,9 @@
  *
  * $Id$
  *
+ * X-1.30       Camiel Vanderhoeven                             02-MAR-2008
+ *      Natural way to specify large numeric values ("10M") in the config file.
+ *
  * X-1.29       Brian Wheeler                                   29-FEB-2008
  *      Compute SROM checksum. Tru64 needs this.
  *
@@ -342,7 +345,7 @@ CDEC21143::CDEC21143(CConfigurator * confg, CSystem * c, int pcibus, int pcidev)
 	  printf("\n%%NIC-I-MACDEFAULT: MAC defaulted to %s\n", mac);
   }
 
-  rx_queue = new CPacketQueue("rx_queue", myCfg->get_int_value("queue", 100));
+  rx_queue = new CPacketQueue("rx_queue", myCfg->get_num_value("queue", 100));
   calc_crc = myCfg->get_bool_value("crc", false);
 
   c->RegisterClock(this, true);

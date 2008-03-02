@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.17       Camiel Vanderhoeven                             02-MAR-2008
+ *      Natural way to specify large numeric values ("10M") in the config file.
+ *
  * X-1.16       David Leonard                                   20-FEB-2008
  *      Show disk creation progress.
  *
@@ -98,7 +101,7 @@ CDiskFile::CDiskFile(CConfigurator * cfg, CSystem * sys, CDiskController * c, in
   if (!handle)
   {
     printf("%s: Could not open file %s!\n",devid_string,filename);
-    int sz = myCfg->get_int_value("autocreate_size",0);
+    int sz = myCfg->get_num_value("autocreate_size",0)/1024/1024;
     if (!sz)
       FAILURE("File does not exist and no autocreate_size set");
     void * crt_buf;
