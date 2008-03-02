@@ -145,6 +145,7 @@
  *  - Fang Zhe: OS X port.
  *  - David Hittner: Ethernet controller fixes, many wise suggestions in other places.
  *  - Fausto Saporito: Bugfixes.
+ *  - Pepito Grillo: Bugfixes.
  *  .
  *
  * \section Acknowledgements

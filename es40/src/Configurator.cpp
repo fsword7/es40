@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.20       Pepito Grillo                                   02-MAR-2008
+ *      Avoid compiler warnings.
+ *
  * X-1.19       Camiel Vanderhoeven                             02-MAR-2008
  *      Natural way to specify large numeric values ("10M") in the config file.
  *
@@ -478,7 +481,7 @@ void CConfigurator::add_value(char * n, char * v)
  * our list of values, return def.
  **/
 
-char * CConfigurator::get_text_value(char * n, char * def)
+char * CConfigurator::get_text_value(const char * n, char * def)
 {
   int i;
   for (i=0;i<iNumValues;i++)
@@ -503,7 +506,7 @@ char * CConfigurator::get_text_value(char * n, char * def)
  *  .
  **/
 
-bool CConfigurator::get_bool_value(char * n, bool def)
+bool CConfigurator::get_bool_value(const char * n, bool def)
 {
   int i;
   for (i=0;i<iNumValues;i++)
@@ -526,6 +529,7 @@ bool CConfigurator::get_bool_value(char * n, bool def)
         return false;
       default:
         printf("Illegal boolean value: %s   \n", pValues[i].value);
+        FAILURE("Configuration error");
       }
     }
   }
@@ -537,7 +541,7 @@ bool CConfigurator::get_bool_value(char * n, bool def)
  * our list of values, return def.
  **/
 
-u64 CConfigurator::get_num_value(char * n, u64 def)
+u64 CConfigurator::get_num_value(const char * n, u64 def)
 {
   int i;
   for (i=0;i<iNumValues;i++)
