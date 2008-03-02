@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.66       Brian Wheeler                                   02-MAR-2008
+ *      Allow large memory sizes (>1GB).
+ *
  * X-1.65       Camiel Vanderhoeven                             02-MAR-2008
  *      Natural way to specify large numeric values ("10M") in the config file.
  *
@@ -336,7 +339,15 @@ CSystem::CSystem(CConfigurator * cfg)
   state.tig.HaltA   = 0;
   state.tig.HaltB   = 0;
 
-  CHECK_ALLOCATION(memory = calloc(1<<iNumMemoryBits,1));
+  if(iNumMemoryBits > 30)
+  {
+    // size_t may not be big enough, and makes 2^31 negative, so the
+    // alloc fails.  We're going to allocate the memory in 
+    //  2^(iNumMemoryBits-10) chunks of 2^10.
+    CHECK_ALLOCATION(memory = calloc(1<<(iNumMemoryBits-10),1<<10));
+  }
+  else
+    CHECK_ALLOCATION(memory = calloc(1<<iNumMemoryBits,1));
 
   printf("%s(%s): $Id$\n",cfg->get_myName(),cfg->get_myValue());
 }
