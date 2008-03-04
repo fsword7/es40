@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.42       Camiel Vanderhoeven                             04-MAR-2008
+ *      Version updated to 0.18.
+ *
  * X-1.41       Brian Wheeler                                   26-FEB-2008
  *   a) Catch SIGUSR1 to trigger the backtracer if es40 seems to have hung.
  *   b) Use _exit() to really really quit when a SIGSEGV is caught.
@@ -241,7 +244,7 @@ int main(int argc, char* argv[])
   printf("\n\n");
   printf("   **======================================================================**\n");
   printf("   ||                             ES40  emulator                           ||\n");
-  printf("   ||                              Version 0.17                            ||\n");
+  printf("   ||                              Version 0.18                            ||\n");
   printf("   ||                                                                      ||\n");
   printf("   ||  Copyright (C) 2007-2008 by the ES40 Emulator Project                ||\n");
   printf("   ||  Website: http://sourceforge.net/projects/es40                       ||\n");
