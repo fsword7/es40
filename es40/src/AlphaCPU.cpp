@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.71       Camiel Vanderhoeven                             04-MAR-2008
+ *      Support some basic MP features. (CPUID read from C-Chip MISC 
+ *      register, inter-processor interrupts)
+ *
  * X-1.70       Camiel Vanderhoeven                             29-FEB-2008
  *      Comments.
  *
@@ -318,7 +322,6 @@
  **/
 CAlphaCPU::CAlphaCPU(CConfigurator * cfg, CSystem * system) : CSystemComponent (cfg,system)
 {
-  state.iProcNum = cSystem->RegisterCPU(this);
   cSystem = system;
 
 #if !defined(CPU_THREADS)
@@ -330,6 +333,7 @@ CAlphaCPU::CAlphaCPU(CConfigurator * cfg, CSystem * system) : CSystemComponent (
 #endif
 
   memset(&state,0,sizeof(state));
+  state.iProcNum = cSystem->RegisterCPU(this);
 
   icache_enabled = true;
   flush_icache();

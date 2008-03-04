@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.28       Camiel Vanderhoeven                             04-MAR-2008
+ *      Support some basic MP features. (CPUID read from C-Chip MISC 
+ *      register, inter-processor interrupts)
+ *
  * X-1.27       Camiel Vanderhoeven                             26-FEB-2008
  *      Added CF8/CFC method for getting at PCI config space.
  *
@@ -211,6 +215,7 @@ class CSystem
   void ResetMem(unsigned int membits);
 
   CAlphaCPU * get_cpu(int cpunum) { return acCPUs[cpunum]; };
+  int get_cpu_num() { return iNumCPUs; };
 
   virtual ~CSystem();
   unsigned int iNumMemoryBits;
@@ -230,7 +235,7 @@ class CSystem
 
 private:
 
-  u64 cchip_csr_read(u32 address);
+  u64 cchip_csr_read(u32 address, CSystemComponent * src);
   void cchip_csr_write(u32 address, u64 data);
   u64 pchip_csr_read(int num, u32 address);
   void pchip_csr_write(int num, u32 address, u64 data);
