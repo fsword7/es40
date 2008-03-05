@@ -39,6 +39,9 @@
  *
  * $Id$
  *
+ * X-1.5        Camiel Vanderhoeven                             05-MAR-2008
+ *      Multi-threading version.
+ *
  * X-1.4        Camiel Vanderhoeven                             12-FEB-2008
  *      Moved keyboard code into it's own class (CKeyboard)
  *
@@ -58,14 +61,16 @@
 
 #if defined(_WIN32)
 
-#include "gui.h"
+#include <process.h>
+
 #include "gui_win32_font.h"
 #include "keymap.h"
 #include "../Configurator.h"
 #include "../VGA.h"
 #include "../Keyboard.h"
 
-#include <process.h>
+#include "gui.h"
+
 
 class bx_win32_gui_c : public bx_gui_c {
 public:

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.13       Camiel Vanderhoeven                             05-MAR-2008
+ *      Multi-threading version.
+ *
  * X-1.12       Pepito Grillo                                   02-MAR-2008
  *      Avoid compiler warnings.
  *
@@ -112,8 +115,8 @@ public:
   bool get_bool_value(const char * n) { return get_bool_value(n, false); };
   bool get_bool_value(const char * n, bool def);
 
-  u64 get_num_value(const char * n) { return get_num_value(n, 0); };
-  u64 get_num_value(const char * n, u64 def);
+  u64 get_num_value(const char * n, bool decimal_suffixes) { return get_num_value(n, decimal_suffixes, 0); };
+  u64 get_num_value(const char * n, bool decimal_suffixes, u64 def);
 
   classid get_class_id() { return myClassId; };
   void * get_device() { return myDevice; };

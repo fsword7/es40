@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.5        Camiel Vanderhoeven                             05-MAR-2008
+ *      Multi-threading version.
+ *
  * X-1.4        David Leonard                                   20-FEB-2008
  *      Avoid 'Xlib: unexpected async reply' errors on Linux/Unix/BSD's by
  *      adding some thread interlocking.
@@ -311,20 +314,12 @@ void bx_gui_c::graphics_tile_update_in_place(unsigned x0, unsigned y0,
 }
 
 
-#if defined(_WIN32) || defined(__VMS)
-void bx_gui_c::lock() {}
-void bx_gui_c::unlock() {}
-#else
-#include <pthread.h>
-static pthread_mutex_t bx_gui_mutex = PTHREAD_MUTEX_INITIALIZER;
-
-void bx_gui_c::lock()
+void bx_gui_c::lock() 
 {
-    pthread_mutex_lock(&bx_gui_mutex);
+  guiMutex.lock();
 }
 
-void bx_gui_c::unlock()
+void bx_gui_c::unlock() 
 {
-    pthread_mutex_unlock(&bx_gui_mutex);
+  guiMutex.unlock();
 }
-#endif

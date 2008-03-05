@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.3        Camiel Vanderhoeven                             05-MAR-2008
+ *      Multi-threading version.
+ *
  * X-1.2        Brian Wheeler                                   26-FEB-2008
  *      Debugging statements conditionalized.
  *
@@ -60,8 +63,6 @@ CDMA::CDMA(CConfigurator * cfg, CSystem * c) : CSystemComponent(cfg,c)
     state.channel[i].c_lobyte=true;
     state.channel[i].a_lobyte=true;
   }
-
-  c->RegisterClock(this, true);
 
   printf("dma: $Id$\n");
 }

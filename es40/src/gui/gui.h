@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.7        Camiel Vanderhoeven                             05-MAR-2008
+ *      Multi-threading version.
+ *
  * X-1.6        David Leonard                                   20-FEB-2008
  *      Avoid 'Xlib: unexpected async reply' errors on Linux/Unix/BSD's by
  *      adding some thread interlocking.
@@ -131,6 +134,7 @@ public:
   void unlock();
 
 protected:
+  Poco::Mutex guiMutex;
   static s32 make_text_snapshot (char **snapshot, u32 *length);
 //  static void toggle_mouse_enable(void);
 

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.11       Camiel Vanderhoeven                             05-MAR-2008
+ *      Multi-threading version.
+ *
  * X-1.10       Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -76,6 +79,7 @@ class CDPR : public CSystemComponent
  public:
   CDPR(CConfigurator * cfg, class CSystem * c);
   virtual ~CDPR();
+  void init();
   virtual void WriteMem(int index, u64 address, int dsize, u64 data);
   virtual u64 ReadMem(int index, u64 address, int dsize);
   virtual int SaveState(FILE * f);
