@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.31       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.30       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -163,7 +166,7 @@ class CAliM1543C : public CPCIDevice, public Poco::Runnable
  private:
 
   Poco::Thread myThread;
-  Poco::Mutex myRegLock;
+  CMutex * myRegLock;
   bool StopThread;
 
   // REGISTER 61 (NMI)

@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.62       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.61       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -377,6 +380,7 @@ CAliM1543C::CAliM1543C(CConfigurator * cfg, CSystem * c, int pcibus, int pcidev)
   }
   lpt_reset();
 
+  myRegLock = new CMutex("ali-reg");
   StopThread = false;
   myThread.start(*this);
 

@@ -30,6 +30,9 @@
  *
  * $Id$
  *
+ * X-1.63       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.52       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -276,7 +279,6 @@ class CAlphaCPU : public CSystemComponent, public Poco::Runnable
 
   Poco::Thread myThread;
   Poco::Semaphore mySemaphore;
-//  Poco::Mutex myRegLock;
   bool StopThread;
 
   int get_icache(u64 address, u32 * data);

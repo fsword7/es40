@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.30       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.29       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -251,7 +254,7 @@ private:
   void tig_write(u32 address, u8 data);
 
   int iNumCPUs;
-  Poco::FastMutex cpu_lock_mutex;
+  CFastMutex * cpu_lock_mutex;
 
   /// The state structure contains all elements that need to be saved to the statefile.
   struct SSys_state {

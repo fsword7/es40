@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.4       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.3        Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -104,7 +107,7 @@ class CSym53C810 : public CDiskController, public CSCSIDevice, public Poco::Runn
 
   Poco::Thread myThread;
   Poco::Semaphore mySemaphore;
-  Poco::Mutex myRegLock;
+  CMutex * myRegLock;
   bool StopThread;
 
   /// The state structure contains all elements that need to be saved to the statefile.

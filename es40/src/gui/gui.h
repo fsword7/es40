@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.8        Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.7        Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -134,7 +137,7 @@ public:
   void unlock();
 
 protected:
-  Poco::Mutex guiMutex;
+  CMutex * guiMutex;
   static s32 make_text_snapshot (char **snapshot, u32 *length);
 //  static void toggle_mouse_enable(void);
 

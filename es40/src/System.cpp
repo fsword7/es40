@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.70       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.68       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -355,6 +358,8 @@ CSystem::CSystem(CConfigurator * cfg)
   else
     CHECK_ALLOCATION(memory = calloc(1<<iNumMemoryBits,1));
 
+  cpu_lock_mutex = new CFastMutex("cpu-locking-lock");
+
   printf("%s(%s): $Id$\n",cfg->get_myName(),cfg->get_myValue());
 }
 
@@ -553,37 +558,33 @@ int CSystem::SingleStep()
   return 0;
 }
 
-
 #ifdef DEBUG_PORTACCESS
 u64 lastport;
 #endif
 
 void CSystem::cpu_lock(int cpuid, u64 address)
 {
-  cpu_lock_mutex.lock();
+  SCOPED_FM_LOCK(cpu_lock_mutex);
 //  printf("cpu%d: lock %" LL "x.   \n",cpuid,address);
   state.cpu_lock_flags |= (1<<cpuid);
   state.cpu_lock_address[cpuid] = address;
-  cpu_lock_mutex.unlock();
 }
 
 bool CSystem::cpu_unlock(int cpuid)
 {
+  SCOPED_FM_LOCK(cpu_lock_mutex);
   bool retval;
-  cpu_lock_mutex.lock();
   retval = state.cpu_lock_flags & (1<<cpuid);
 //  printf("cpu%d: unlock (%s).   \n",cpuid,retval?"ok":"failed");
   state.cpu_lock_flags &= ~(1<<cpuid);
-  cpu_lock_mutex.unlock();
   return retval;
 }
 
 void CSystem::cpu_break_lock(int cpuid, CSystemComponent * source)
 {
-  cpu_lock_mutex.lock();
+  SCOPED_FM_LOCK(cpu_lock_mutex);
   printf("cpu%d: lock broken by %s.   \n",cpuid,source->devid_string);
   state.cpu_lock_flags &= ~(1<<cpuid);
-  cpu_lock_mutex.unlock();
  }
 
 /**

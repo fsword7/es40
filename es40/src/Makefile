@@ -150,6 +150,7 @@ CTUNINGFLAGS =  -O3 -mtune=generic
 #   -DDEBUG_SYM         Turn on debugging for Sym53C810 controller
 #   -DDEBUG_DMA         Turn on debugging for DMA controller
 #   -DDEBUG_BACKTRACE   Turn on backtrace dump on SIGSEGV
+#   -DDEBUG_LOCKS       Turn on debugging for mutexes
 #
 CDEBUGFLAGS = -g -DHIDE_COUNTER -DDEBUG_BACKTRACE
 #

@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.7        Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
  * X-1.5        Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -113,6 +116,7 @@ static user_key_t user_keys[N_USER_KEYS] =
 bx_gui_c::bx_gui_c(void)
 {
   framebuffer = NULL;
+  guiMutex = new CMutex("gui-lock");
 }
 
 bx_gui_c::~bx_gui_c()
@@ -316,10 +320,10 @@ void bx_gui_c::graphics_tile_update_in_place(unsigned x0, unsigned y0,
 
 void bx_gui_c::lock() 
 {
-  guiMutex.lock();
+  MUTEX_LOCK(guiMutex);
 }
 
 void bx_gui_c::unlock() 
 {
-  guiMutex.unlock();
+  MUTEX_UNLOCK(guiMutex);
 }

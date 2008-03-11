@@ -32,10 +32,13 @@
  *
  * $Id$
  *
- * X-1.18       Camiel Vanderhoeven                             05-MAR-2008
+ * X-1.28       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
+ * X-1.27       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
- * X-1.17       Alex                                            20-FEB-2008
+ * X-1.26       Alex                                            20-FEB-2008
  *      GNU compiler support on Windows.
  *
  * X-1.25       Camiel Vanderhoeven                             19-JAN-2008
@@ -215,5 +218,7 @@ inline char printable(char c)
 #include <Poco/Semaphore.h>
 #include <Poco/Mutex.h>
 #include <Poco/Timestamp.h>
+
+#include "Lock.h"
 
 #endif // !defined(INCLUDED_STDAFX_H)

@@ -29,6 +29,12 @@
  *		
  * $Id$
  *
+ * X-1.24       Camiel Vanderhoeven                             11-MAR-2008
+ *      Named, debuggable mutexes.
+ *
+ * X-1.23       Brian Wheeler                                   11-MAR-2008
+ *      Even nicer, more efficient multi-threading version.
+ *
  * X-1.22       Brian Wheeler                                   05-MAR-2008
  *      Nicer, more efficient multi-threading version.
  *
@@ -283,6 +289,13 @@ CAliM1543C_ide::CAliM1543C_ide(CConfigurator * cfg, CSystem * c, int pcibus, int
 
   // start controller threads
   StopThread = false;
+
+  mtControl[0] = new CMutex("ide0-control");
+  mtControl[1] = new CMutex("ide1-control");
+  mtCommand[0] = new CMutex("ide0-command");
+  mtCommand[1] = new CMutex("ide1-command");
+  mtBusMaster[0] = new CMutex("ide0-busmaster");
+  mtBusMaster[1] = new CMutex("ide1-busmaster");
   for(int i=0;i<2;i++) {
     char buffer[5];
     semController[i]=new Poco::Semaphore(0,1); // disk controller
