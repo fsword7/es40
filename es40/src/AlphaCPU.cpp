@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.73       Camiel Vanderhoeven                             11-MAR-2008
+ *      Don't printf calibration loop.
+ *
  * X-1.72       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -475,7 +478,7 @@ void CAlphaCPU::check_state()
 //    printf("                                     time %12" LL "d | prev %12" LL "d  \n",time,prev_time);
 //    printf("          count lapse %12" LL "d | curr %12" LL "d | prev %12" LL "d  \n",icount_lapse,icount,prev_icount);
 //    printf("cc %12" LL "d | aim %12" LL "d | diff %12" LL "d | prev %12" LL "d  \n",cc,cc_aim,cc_diff,prev_cc);
-//    printf("ce %12" LL "d | aim %12" LL "d | diff %12" LL "d | new  %12" LL "d  \n",ce,ce_aim,ce_diff,ce_new);
+    printf("ce %12" LL "d | aim %12" LL "d | diff %12" LL "d | new  %12" LL "d  \n",ce,ce_aim,ce_diff,ce_new);
 //    printf("==========================================================================  \n");
     cc_per_instruction = ce_new;
   }
