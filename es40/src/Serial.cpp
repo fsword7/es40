@@ -481,7 +481,8 @@ void CSerial::execute()
 #else
       size = read(connectSocket,&buffer,FIFO_SIZE);
 #endif
-      if(size == 0) {
+      extern int got_sigint;
+      if(size == 0 && !got_sigint) {
 	printf("%%SRL-W-DISCONNECT: Write socket closed on other end for serial port %d.\n",state.iNumber);
 	printf("-SRL-I-WAITFOR: Waiting for a new connection on port %d.\n",listenPort);
 	WaitForConnection();

@@ -124,7 +124,7 @@ LD = g++
 #  -O3   -- optimize at level 3
 #  -mtune=<cpu>   -- cpu is one of:  generic, core2, athlon64, pentium4, etc
 #
-CTUNINGFLAGS =  -O3 -mtune=core2
+CTUNINGFLAGS =  -O3 -mtune=generic
 
 #
 # CDEBUGFLAGS - turn on debugging in ES40
