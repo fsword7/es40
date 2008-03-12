@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.15       Brian Wheeler                                   12-MAR-2008
+ *      Better DMA support.
+ *
  * X-1.16       Camiel Vanderhoeven                             11-MAR-2008
  *      Named, debuggable mutexes.
  *
@@ -96,12 +99,25 @@
 #if !defined(INCLUDED_ALIM1543C_IDE_H_)
 #define INCLUDED_ALIM1543C_IDE_H_
 
+#ifdef DEBUG_IDE
+#define DEBUG_IDE_BUSMASTER
+#define DEBUG_IDE_COMMAND
+#define DEBUG_IDE_DMA
+#define DEBUG_IDE_INTERRUPT
+#define DEBUG_IDE_REG_COMMAND
+#define DEBUG_IDE_REG_CONTROL
+#define DEBUG_IDE_PACKET
+#define DEBUG_IDE_MULTIPLE
+#endif
+
 #include "DiskController.h"
 #include "Configurator.h"
 #include "SCSIDevice.h"
 #include "SCSIBus.h"
 
-#define MAX_MULTIPLE_SECTORS 16
+#define MAX_MULTIPLE_SECTORS 128
+
+
 
 /**
  * \brief Emulated IDE part of ALi M1543C multi-function device.
@@ -115,7 +131,7 @@
  *  .
  **/
 
-class CAliM1543C_ide : public CDiskController, public CSCSIDevice, public Poco::Runnable  
+class CAliM1543C_ide : public CDiskController, public CSCSIDevice, public Poco::Runnable
 {
  public:
   CAliM1543C_ide(CConfigurator * cfg, class CSystem * c, int pcibus, int pcidev);
@@ -159,13 +175,12 @@ class CAliM1543C_ide : public CDiskController, public CSCSIDevice, public Poco::
   Poco::Thread * thrController[2];  // one thread for each controller chip
   Poco::Semaphore * semController[2]; // controller start/stop
   Poco::Semaphore * semBusMaster[2]; // bus master start/stop
-  CMutex * mtControl[2]; // controller registers
-  CMutex * mtCommand[2]; // command registers
-  CMutex * mtBusMaster[2]; // busmaster registers
-#define LOCK_CMD_REGS(i) SCOPED_M_LOCK(mtCommand[i]);
-#define LOCK_CTL_REGS(i) SCOPED_M_LOCK(mtControl[i]);
-#define LOCK_BM_REGS(i)  SCOPED_M_LOCK(mtBusMaster[i]);
+  CRWMutex * mtRegisters[2]; // main registers
+  CRWMutex * mtBusMaster[2]; // busmaster registers
+
   bool StopThread;
+
+  bool usedma;
 
 // The state structure contains all elements that need to be saved to the statefile.
   struct SAliM1543C_ideState {
