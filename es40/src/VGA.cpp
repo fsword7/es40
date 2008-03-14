@@ -42,19 +42,16 @@
  * X-1.1        Camiel Vanderhoeven                             10-DEC-2007
  *      Initial version in CVS.
  **/
-
 #include "StdAfx.h"
 #include "VGA.h"
 
-CVGA::CVGA(class CConfigurator * cfg, class CSystem * c, int pcibus, int pcidev) : CPCIDevice(cfg,c,pcibus,pcidev)
+CVGA::CVGA(class CConfigurator* cfg, class CSystem* c, int pcibus, int pcidev) : CPCIDevice(cfg, c, pcibus, pcidev)
 {
-  if (theVGA != 0)
-    FAILURE(Configuration,"More than one VGA");
+  if(theVGA != 0)
+    FAILURE(Configuration, "More than one VGA");
   theVGA = this;
 }
 
 CVGA::~CVGA(void)
-{
-}
-
-CVGA * theVGA = 0;
+{ }
+CVGA*   theVGA = 0;

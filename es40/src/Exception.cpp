@@ -34,9 +34,10 @@
  **/
 #include "StdAfx.h"
 
-POCO_IMPLEMENT_EXCEPTION(CConfigurationException,Poco::Exception,"Configuration error");
-POCO_IMPLEMENT_EXCEPTION(CThreadException,Poco::Exception,"Threading error");
-POCO_IMPLEMENT_EXCEPTION(CWin32Exception,Poco::Exception,"Win32 error");
-POCO_IMPLEMENT_EXCEPTION(CSDLException,Poco::Exception,"SDL error");
-POCO_IMPLEMENT_EXCEPTION(CGracefulException,Poco::Exception,"Graceful exit");  /* User request to exit */
-POCO_IMPLEMENT_EXCEPTION(CAbortException,Poco::Exception,"Abort requested");     /* User request to abort */
+POCO_IMPLEMENT_EXCEPTION
+  (CConfigurationException, Poco::Exception, "Configuration error");
+POCO_IMPLEMENT_EXCEPTION(CThreadException, Poco::Exception, "Threading error");
+POCO_IMPLEMENT_EXCEPTION(CWin32Exception, Poco::Exception, "Win32 error");
+POCO_IMPLEMENT_EXCEPTION(CSDLException, Poco::Exception, "SDL error");
+POCO_IMPLEMENT_EXCEPTION(CGracefulException, Poco::Exception, "Graceful exit"); /* User request to exit */
+POCO_IMPLEMENT_EXCEPTION(CAbortException, Poco::Exception, "Abort requested");  /* User request to abort */

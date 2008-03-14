@@ -41,20 +41,19 @@
  *      Initial version for ES40 emulator.
  *
  **/
-
 #include "gui.h"
 #ifndef BX_SCANCODES_H
 #define BX_SCANCODES_H
 
 // Translation table of the 8042
-extern unsigned char translation8042[256];
+extern unsigned char  translation8042[256];
 
-typedef struct { 
-  const char *make;
-  const char *brek;
+typedef struct
+{
+  const char*   make;
+  const char*   brek;
 } scancode;
 
 // Scancodes table
 extern scancode scancodes[BX_KEY_NBKEYS][3];
-
 #endif

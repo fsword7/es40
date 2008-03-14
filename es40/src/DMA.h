@@ -34,54 +34,52 @@
  *
  * \author Camiel Vanderhoeven (camiel@camicom.com / http://www.camicom.com)
  **/
-
 #if !defined(INCLUDED_DMA_H)
 #define INCLUDED_DMA_H
 
 #include "SystemComponent.h"
 
-
 /**
  * \brief Emulated DMA controller.
  **/
-
-class CDMA : public CSystemComponent  
+class CDMA : public CSystemComponent
 {
- public:
-  CDMA(CConfigurator * cfg, CSystem * c);
-  virtual ~CDMA();
+  public:
+    CDMA(CConfigurator* cfg, CSystem* c);
+    virtual       ~CDMA();
 
-  virtual int DoClock();
-  virtual void WriteMem(int index, u64 address, int dsize, u64 data);
-  virtual u64 ReadMem(int index, u64 address, int dsize);
-  virtual int SaveState(FILE * f);
-  virtual int RestoreState(FILE * f);
+    virtual int   DoClock();
+    virtual void  WriteMem(int index, u64 address, int dsize, u64 data);
+    virtual u64   ReadMem(int index, u64 address, int dsize);
+    virtual int   SaveState(FILE* f);
+    virtual int   RestoreState(FILE* f);
+  private:
 
- private:
+    /// The state structure contains all elements that need to be saved to the statefile.
+    struct SDMA_state
+    {
 
-   
-  /// The state structure contains all elements that need to be saved to the statefile.
-  struct SDMA_state {
+      /// DMA channel state
+      struct SDMA_chan
+      {
+        bool  a_lobyte; // address lobyte expected
+        bool  c_lobyte; // count lobyte expected
+        u16   current;
+        u16   base;
+        u16   pagebase;
+        u16   count;
+      } channel[8];
 
-    /// DMA channel state
-    struct SDMA_chan {
-      bool a_lobyte; // address lobyte expected
-      bool c_lobyte; // count lobyte expected
-      u16 current;
-      u16 base;
-      u16 pagebase;
-      u16 count;
-    } channel[8];
-
-    /// DMA controller state
-    struct SDMA_ctrl {
-      u8 status;
-      u8 command;
-      u8 writereq;
-      u8 mask;
-      u8 mode;
-    } controller[2];
-  } state;
+      /// DMA controller state
+      struct SDMA_ctrl
+      {
+        u8  status;
+        u8  command;
+        u8  writereq;
+        u8  mask;
+        u8  mode;
+      } controller[2];
+    }
+    state;
 };
-
 #endif // !defined(INCLUDED_DMA_H)

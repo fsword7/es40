@@ -59,7 +59,6 @@
  *
  * \author Camiel Vanderhoeven (camiel@camicom.com / http://www.camicom.com)
  **/
-
 #if !defined(INCLUDED_FLOPPYCONTROLLER_H)
 #define INCLUDED_FLOPPYCONTROLLER_H
 
@@ -68,20 +67,17 @@
 /**
  * \brief Emulated floppy-drive controller.
  **/
-
-class CFloppyController : public CSystemComponent  
+class CFloppyController : public CSystemComponent
 {
- public:
-  virtual u64 ReadMem(int index, u64 address, int dsize);
-  virtual void WriteMem(int index, u64 address, int dsize, u64 data);
-  CFloppyController(class CConfigurator * cfg, class CSystem * c, int id);
-  virtual ~CFloppyController();
-
- private:
-  u8 iRegisters[0x2a];
-  int iActiveRegister;
-  int iMode;
-  int iID;
+  public:
+    virtual u64   ReadMem(int index, u64 address, int dsize);
+    virtual void  WriteMem(int index, u64 address, int dsize, u64 data);
+    CFloppyController(class CConfigurator* cfg, class CSystem* c, int id);
+    virtual       ~CFloppyController();
+  private:
+    u8  iRegisters[0x2a];
+    int iActiveRegister;
+    int iMode;
+    int iID;
 };
-
 #endif // !defined(INCLUDED_FLOPPYCONTROLLER_H)

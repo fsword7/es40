@@ -55,31 +55,33 @@
 //
 // This file provides macros and types needed for plugins.  It is based on
 // the plugin.h file from plex86, but with significant changes to make
-// it work in Bochs.  
+// it work in Bochs.
 // Plex86 is Copyright (C) 1999-2000  The plex86 developers team
 //
 /////////////////////////////////////////////////////////////////////////
-
 #ifndef __PLUGIN_H
 #define __PLUGIN_H
 
-#define PLUG_load_plugin(cfg,name) {lib##name##_LTX_plugin_init(cfg);}
-#define PLUG_unload_plugin(name) {lib##name##_LTX_plugin_fini();}
+#define PLUG_load_plugin(cfg, name)   \
+  {                                   \
+    lib##name##_LTX_plugin_init(cfg); \
+  }
+#define PLUG_unload_plugin(name)   \
+  {                                \
+    lib##name##_LTX_plugin_fini(); \
+  }
 
-#define DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(mod) \
-  int lib##mod##_LTX_plugin_init(CConfigurator * cfg); \
-  void lib##mod##_LTX_plugin_fini(void);
+#define DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(mod)        \
+  int  lib##mod##_LTX_plugin_init(CConfigurator*  cfg); \
+  void                                                lib##mod##_LTX_plugin_fini(void);
 
 #if defined(HAVE_SDL)
 DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(sdl)
 #endif
-
 #if defined(_WIN32)
 DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(win32)
 #endif
-
 #if defined(HAVE_X11)
 DECLARE_PLUGIN_INIT_FINI_FOR_MODULE(x11)
 #endif
-
 #endif /* __PLUGIN_H */

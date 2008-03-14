@@ -52,53 +52,43 @@
  * X-1.1        Camiel Vanderhoeven                             18-FEB-2007
  *      File created. Contains code previously found in AlphaCPU.h
  **/
-
-
-#define DO_BEQ                                                          \
-  if (!state.r[REG_1])                                                  \
+#define DO_BEQ  if(!state.r[REG_1]) \
     add_pc(DISP_21 * 4);
 
-#define DO_BGE                                                          \
-  if ((s64)state.r[REG_1]>=0)                                           \
+#define DO_BGE  if((s64) state.r[REG_1] >= 0) \
     add_pc(DISP_21 * 4);
 
-#define DO_BGT                                                          \
-  if ((s64)state.r[REG_1]>0)                                            \
+#define DO_BGT  if((s64) state.r[REG_1] > 0) \
     add_pc(DISP_21 * 4);
 
-#define DO_BLBC                                                         \
-  if (!(state.r[REG_1] & 1))                                            \
+#define DO_BLBC if(!(state.r[REG_1] & 1)) \
     add_pc(DISP_21 * 4);
 
-#define DO_BLBS                                                         \
-  if (state.r[REG_1] & 1)                                               \
+#define DO_BLBS if(state.r[REG_1] & 1) \
     add_pc(DISP_21 * 4);
 
-#define DO_BLE                                                          \
-  if ((s64)state.r[REG_1]<=0)                                           \
+#define DO_BLE  if((s64) state.r[REG_1] <= 0) \
     add_pc(DISP_21 * 4);
 
-#define DO_BLT                                                          \
-  if ((s64)state.r[REG_1]<0)                                            \
+#define DO_BLT  if((s64) state.r[REG_1] < 0) \
     add_pc(DISP_21 * 4);
 
-#define DO_BNE                                                          \
-  if (state.r[REG_1])                                                   \
+#define DO_BNE  if(state.r[REG_1]) \
     add_pc(DISP_21 * 4);
 
-#define DO_BR					                                        \
-  {                                                                     \
-    state.r[REG_1] = state.pc & ~U64(0x3);		                        \
-    add_pc(DISP_21 * 4);                                                \
+#define DO_BR                             \
+  {                                       \
+    state.r[REG_1] = state.pc &~U64(0x3); \
+    add_pc(DISP_21 * 4);                  \
   }
 
-#define DO_BSR DO_BR
+#define DO_BSR  DO_BR
 
-#define DO_JMP					                                        \
-  {                                                                     \
-    temp_64 = state.r[REG_2] & ~U64(0x3);		                            \
-    state.r[REG_1] = state.pc & ~U64(0x3);		                        \
-    set_pc(temp_64 | (state.pc & 3));                                   \
+#define DO_JMP                            \
+  {                                       \
+    temp_64 = state.r[REG_2] &~U64(0x3);  \
+    state.r[REG_1] = state.pc &~U64(0x3); \
+    set_pc(temp_64 | (state.pc & 3));     \
   }
 
 // JSR, RET and JSR_COROUTINE is really JMP, just with different prediction bits.

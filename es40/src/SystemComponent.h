@@ -80,52 +80,35 @@
  *
  * \author Camiel Vanderhoeven (camiel@camicom.com / http://www.camicom.com)
  **/
-
 #if !defined(INCLUDED_SYSTEMCOMPONENT_H)
 #define INCLUDED_SYSTEMCOMPONENT_H
 
 #include "Configurator.h"
+
 /**
  * \brief Abstract base class for devices that connect to the Typhoon chipset.
  **/
-
 class CSystemComponent
 {
-public:
-  virtual int RestoreState (FILE * f) = 0;
-  virtual int SaveState (FILE * f) = 0;
+  public:
+    virtual int   RestoreState(FILE* f) = 0;
+    virtual int   SaveState(FILE* f) = 0;
 
-    CSystemComponent (class CConfigurator * cfg, class CSystem * system);
-    virtual ~ CSystemComponent ();
+    CSystemComponent(class CConfigurator* cfg, class CSystem* system);
+    virtual       ~CSystemComponent();
 
-  //=== abstract ===
-  virtual u64 ReadMem (int index, u64 address, int dsize)
-  {
-    return 0;
-  };
-  virtual void WriteMem (int index, u64 address, int dsize, u64 data)
-  {
-  };
-  virtual void check_state ()
-  {
-  };
-  virtual void ResetPCI ()
-  {
-  };
-  virtual void init ()
-  {
-  };
-  virtual void start_threads ()
-  {
-  };
-  virtual void stop_threads ()
-  {
-  };
+    //=== abstract ===
+    virtual u64   ReadMem(int index, u64 address, int dsize)            { return 0; };
+    virtual void  WriteMem(int index, u64 address, int dsize, u64 data) { };
+    virtual void  check_state()                                         { };
+    virtual void  ResetPCI()                                            { };
+    virtual void  init()                                                { };
+    virtual void  start_threads()                                       { };
+    virtual void  stop_threads()                                        { };
 
-  char *devid_string;
-protected:
-  class CSystem * cSystem;
-  class CConfigurator *myCfg;
+    char*         devid_string;
+  protected:
+    class CSystem*        cSystem;
+    class CConfigurator*  myCfg;
 };
-
 #endif // !defined(INCLUDED_SYSTEMCOMPONENT_H)
