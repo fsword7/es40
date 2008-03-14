@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.17       Camiel Vanderhoeven                             14-MAR-2008
+ *   1. More meaningful exceptions replace throwing (int) 1.
+ *   2. U64 macro replaces X64 macro.
+ *
  * X-1.16       Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -111,8 +115,7 @@ bool CDiskRam::seek_byte(off_t_large byte)
 {
   if (byte >=byte_size)
   {
-    printf("%s: Seek beyond end of file!\n",devid_string);
-    throw((int)1);
+    FAILURE_1(InvalidArgument,"%s: Seek beyond end of file!\n",devid_string);
   }
 
   state.byte_pos = byte;

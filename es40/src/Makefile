@@ -29,6 +29,9 @@
 #
 # $Id$
 #
+# X-1.30       Camiel Vanderhoeven              14-MAR-2008
+#      Added Exception.h.
+#
 # X-1.29       Camiel Vanderhoeven              04-MAR-2008
 #      Merged Brian wheeler's New IDE code into the standard 
 #      controller.
@@ -221,6 +224,7 @@ OBJS = AliM1543C.o \
        DPR.o \
        es40_debug.o \
        Ethernet.o \
+       Exception.o \
        Flash.o \
        FloppyController.o \
        Keyboard.o \

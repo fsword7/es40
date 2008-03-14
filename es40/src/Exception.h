@@ -24,37 +24,27 @@
  */
 
 /**
- * \file
- * Contains the code for the VGA base class.
+ * \file 
+ * Contains the definitions for the different exceptions used.
  *
  * $Id$
  *
- * X-1.4        Camiel Vanderhoeven                             14-MAR-2008
- *   1. More meaningful exceptions replace throwing (int) 1.
- *   2. U64 macro replaces X64 macro.
- *
- * X-1.3        Brian Wheeler                                   27-FEB-2008
- *      Avoid compiler warnings.
- *
- * X-1.2        Camiel Vanderhoeven                             28-DEC-2007
- *      Throw exceptions rather than just exiting when errors occur.
- *
- * X-1.1        Camiel Vanderhoeven                             10-DEC-2007
- *      Initial version in CVS.
+ * X-1.1        Camiel Vanderhoeven                             14-MAR-2007
+ *      File created.
  **/
 
-#include "StdAfx.h"
-#include "VGA.h"
+POCO_DECLARE_EXCEPTION(,CConfigurationException,Poco::Exception);
+POCO_DECLARE_EXCEPTION(,CThreadException,Poco::Exception);
+POCO_DECLARE_EXCEPTION(,CWin32Exception,Poco::Exception);
+POCO_DECLARE_EXCEPTION(,CSDLException,Poco::Exception);
+POCO_DECLARE_EXCEPTION(,CGracefulException,Poco::Exception);  /* User request to exit */
+POCO_DECLARE_EXCEPTION(,CAbortException,Poco::Exception);     /* User request to abort */
 
-CVGA::CVGA(class CConfigurator * cfg, class CSystem * c, int pcibus, int pcidev) : CPCIDevice(cfg,c,pcibus,pcidev)
-{
-  if (theVGA != 0)
-    FAILURE(Configuration,"More than one VGA");
-  theVGA = this;
-}
-
-CVGA::~CVGA(void)
-{
-}
-
-CVGA * theVGA = 0;
+#define CInvalidArgumentException Poco::InvalidArgumentException
+#define CFileNotFoundException Poco::FileNotFoundException
+#define CTimeoutException Poco::TimeoutException
+#define CNotImplementedException Poco::NotImplementedException
+#define CIllegalStateException Poco::IllegalStateException
+#define CLogicException Poco::LogicException
+#define CRuntimeException Poco::RuntimeException
+#define COutOfMemoryException Poco::OutOfMemoryException

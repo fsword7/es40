@@ -541,13 +541,13 @@ void terminateEmul(int reason) {
 
   switch (reason) {
   case EXIT_GUI_SHUTDOWN:
-    FAILURE("Window closed, exiting!");
+    FAILURE(Graceful,"Window closed, exiting!");
     break;
   case EXIT_GMH_FAILURE:
-    FAILURE("GetModuleHandle failure!");
+    FAILURE(Win32,"GetModuleHandle failure!");
     break;
   case EXIT_FONT_BITMAP_ERROR:
-    FAILURE("Font bitmap creation failure!");
+    FAILURE(Win32,"Font bitmap creation failure!");
     break;
   case EXIT_NORMAL:
     break;

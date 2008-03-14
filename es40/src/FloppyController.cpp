@@ -1,5 +1,5 @@
 /* ES40 emulator.
- * Copyright (C) 2007 by the ES40 Emulator Project
+ * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
  * WWW    : http://sourceforge.net/projects/es40
  * E-mail : camiel@camicom.com
@@ -26,6 +26,12 @@
 /** 
  * \file
  * Contains the code for the emulated Floppy Controller devices.
+ *
+ * $Id$
+ *
+ * X-1.12       Camiel Vanderhoeven                             14-MAR-2008
+ *   1. More meaningful exceptions replace throwing (int) 1.
+ *   2. U64 macro replaces X64 macro.
  *
  * X-1.11       Camiel Vanderhoeven                             30-DEC-2007
  *      Print file id on initialization.
@@ -73,8 +79,8 @@
 
 CFloppyController::CFloppyController(CConfigurator * cfg, CSystem * c, int id) : CSystemComponent(cfg,c)
 {
-  c->RegisterMemory(this, 0, X64(00000801fc0003f0) - (0x80 * id), 6);
-  c->RegisterMemory(this, 1, X64(00000801fc0003f7) - (0x80 * id), 1);
+  c->RegisterMemory(this, 0, U64(0x00000801fc0003f0) - (0x80 * id), 6);
+  c->RegisterMemory(this, 1, U64(0x00000801fc0003f7) - (0x80 * id), 1);
   iMode = 0;
   iID = id;
   iActiveRegister = 0;

@@ -30,6 +30,10 @@
  *
  * $Id$
  *
+ * X-1.9        Camiel Vanderhoeven                             14-MAR-2008
+ *   1. More meaningful exceptions replace throwing (int) 1.
+ *   2. U64 macro replaces X64 macro.
+ *
  * X-1.8        Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -88,7 +92,7 @@
 	  state.r[REG_1] = READ_PHYS(64);
 
 #define DO_LDQ_U									\
-	  DATA_PHYS_NT((state.r[REG_2] + DISP_16)& ~X64(7), ACCESS_READ);	\
+	  DATA_PHYS_NT((state.r[REG_2] + DISP_16)& ~U64(0x7), ACCESS_READ);	\
 	  state.r[REG_1] = READ_PHYS(64);
 
 #define DO_LDWU									\
@@ -126,7 +130,7 @@
           state.r[REG_1] = 0;
 
 #define DO_STQ_U									\
-	  DATA_PHYS_NT((state.r[REG_2] + DISP_16)& ~X64(7), ACCESS_WRITE);	\
+	  DATA_PHYS_NT((state.r[REG_2] + DISP_16)& ~U64(0x7), ACCESS_WRITE);	\
 	  WRITE_PHYS(state.r[REG_1],64);
 
 #define DO_STW									\

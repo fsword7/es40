@@ -1,5 +1,5 @@
 /* ES40 emulator.
- * Copyright (C) 2007 by the ES40 Emulator Project
+ * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
  * Website: http://sourceforge.net/projects/es40
  * E-mail : camiel@camicom.com
@@ -26,6 +26,12 @@
 /** 
  * \file
  * Contains the code for the emulated Dual Port Ram and RMC devices.
+ *
+ * $Id$
+ *
+ * X-1.19       Camiel Vanderhoeven                             14-MAR-2008
+ *   1. More meaningful exceptions replace throwing (int) 1.
+ *   2. U64 macro replaces X64 macro.
  *
  * X-1.18       Camiel Vanderhoeven                             13-MAR-2008
  *      Create init(), start_threads() and stop_threads() functions.
@@ -103,10 +109,10 @@ extern CSerial *srl[2];
 CDPR::CDPR (CConfigurator * cfg, CSystem * c):CSystemComponent (cfg, c)
 {
   if (theDPR)
-    FAILURE ("More than one DPR!!");
+    FAILURE (Configuration,"More than one DPR");
   theDPR = this;
 
-  c->RegisterMemory (this, 0, X64 (0000080110000000), 0x100000);        // 16KB
+  c->RegisterMemory (this, 0, U64(0x0000080110000000), 0x100000);        // 16KB
 }
 
 /**

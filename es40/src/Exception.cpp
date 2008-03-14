@@ -24,37 +24,19 @@
  */
 
 /**
- * \file
- * Contains the code for the VGA base class.
+ * \file 
+ * Contains the implementation for the different exceptions used.
  *
  * $Id$
  *
- * X-1.4        Camiel Vanderhoeven                             14-MAR-2008
- *   1. More meaningful exceptions replace throwing (int) 1.
- *   2. U64 macro replaces X64 macro.
- *
- * X-1.3        Brian Wheeler                                   27-FEB-2008
- *      Avoid compiler warnings.
- *
- * X-1.2        Camiel Vanderhoeven                             28-DEC-2007
- *      Throw exceptions rather than just exiting when errors occur.
- *
- * X-1.1        Camiel Vanderhoeven                             10-DEC-2007
- *      Initial version in CVS.
+ * X-1.1        Camiel Vanderhoeven                             14-MAR-2007
+ *      File created.
  **/
-
 #include "StdAfx.h"
-#include "VGA.h"
 
-CVGA::CVGA(class CConfigurator * cfg, class CSystem * c, int pcibus, int pcidev) : CPCIDevice(cfg,c,pcibus,pcidev)
-{
-  if (theVGA != 0)
-    FAILURE(Configuration,"More than one VGA");
-  theVGA = this;
-}
-
-CVGA::~CVGA(void)
-{
-}
-
-CVGA * theVGA = 0;
+POCO_IMPLEMENT_EXCEPTION(CConfigurationException,Poco::Exception,"Configuration error");
+POCO_IMPLEMENT_EXCEPTION(CThreadException,Poco::Exception,"Threading error");
+POCO_IMPLEMENT_EXCEPTION(CWin32Exception,Poco::Exception,"Win32 error");
+POCO_IMPLEMENT_EXCEPTION(CSDLException,Poco::Exception,"SDL error");
+POCO_IMPLEMENT_EXCEPTION(CGracefulException,Poco::Exception,"Graceful exit");  /* User request to exit */
+POCO_IMPLEMENT_EXCEPTION(CAbortException,Poco::Exception,"Abort requested");     /* User request to abort */

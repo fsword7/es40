@@ -29,6 +29,10 @@
  *
  * $Id$
  *
+ * X-1.4        Camiel Vanderhoeven                             14-MAR-2008
+ *   1. More meaningful exceptions replace throwing (int) 1.
+ *   2. U64 macro replaces X64 macro.
+ *
  * X-1.3        Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.
  *
@@ -55,10 +59,10 @@ CDMA::CDMA(CConfigurator * cfg, CSystem * c) : CSystemComponent(cfg,c)
   int i;
 
   // DMA Setup
-  c->RegisterMemory(this, 0, X64(00000801fc000000), 16); // dma 0-3
-  c->RegisterMemory(this, 1, X64(00000801fc0000c0),32); // dma 4-7
-  c->RegisterMemory(this, 2, X64(00000801fc000080),16); // dma 0-7 (memory base low page register)
-  c->RegisterMemory(this, 3, X64(00000801fc000480),16); // dma 0-7 (memory base high page register)
+  c->RegisterMemory(this, 0, U64(0x00000801fc000000), 16); // dma 0-3
+  c->RegisterMemory(this, 1, U64(0x00000801fc0000c0),32); // dma 4-7
+  c->RegisterMemory(this, 2, U64(0x00000801fc000080),16); // dma 0-7 (memory base low page register)
+  c->RegisterMemory(this, 3, U64(0x00000801fc000480),16); // dma 0-7 (memory base high page register)
   for(i=0;i<8;i++) {
     state.channel[i].c_lobyte=true;
     state.channel[i].a_lobyte=true;
@@ -143,7 +147,7 @@ u64 CDMA::ReadMem(int index, u64 address, int dsize)
       data = 0;
       break;
     default:
-      FAILURE("dma: ReadMem index out of range");
+      FAILURE(InvalidArgument,"dma: ReadMem index out of range");
     }
 #if defined(DEBUG_DMA)
     printf("dma: read %d,%02x: %02x.   \n",index,address,data);
@@ -316,7 +320,7 @@ void CDMA::WriteMem(int index, u64 address, int dsize, u64 data)
         break;
 
       default:
-        FAILURE("dma: don't know what to do.\n");
+        FAILURE(NotImplemented,"dma: don't know what to do");
       }
       break;
 
@@ -356,7 +360,7 @@ void CDMA::WriteMem(int index, u64 address, int dsize, u64 data)
 //      FAILURE("dma: don't know what to do.\n");
       break;
     default:
-      FAILURE("dma: ReadMem index out of range");
+      FAILURE(InvalidArgument,"dma: ReadMem index out of range");
     }
     return;
   }

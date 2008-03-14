@@ -32,6 +32,10 @@
  *
  * $Id$
  *
+ * X-1.29       Camiel Vanderhoeven                             14-MAR-2008
+ *   1. More meaningful exceptions replace throwing (int) 1.
+ *   2. U64 macro replaces X64 macro.
+ *
  * X-1.28       Camiel Vanderhoeven                             11-MAR-2008
  *      Named, debuggable mutexes.
  *
@@ -189,9 +193,6 @@ inline char printable(char c)
   return '.';
 }
 
-#include "es40_debug.h"
-#include "es40_endian.h"
-
 // Different OS'es define different functions to access 64-bit files
 #if defined(_WIN32)
 // Windows obviously does things differently...
@@ -219,6 +220,11 @@ inline char printable(char c)
 #include <Poco/Mutex.h>
 #include <Poco/Timestamp.h>
 
+#include "es40_debug.h"
+
+#include "Exception.h"
 #include "Lock.h"
+
+#include "es40_endian.h"
 
 #endif // !defined(INCLUDED_STDAFX_H)
