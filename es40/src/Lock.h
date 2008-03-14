@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.6        Camiel Vanderhoeven                             14-MAR-2008
+ *      2-second timeouts on simple mutexes.
+ *
+ * X-1.5        Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.4        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
  *   2. U64 macro replaces X64 macro.
@@ -65,7 +71,7 @@ template<class M>
 class CScopedLock
 {
   public:
-    inline  CScopedLock(M* mutex) { _mutex = mutex; _mutex->lock(); }
+    inline  CScopedLock(M* mutex) { _mutex = mutex; _mutex->lock(2000); }
     inline  ~CScopedLock()        { _mutex->unlock(); }
   private:
     M*  _mutex;
@@ -515,7 +521,7 @@ inline CScopedRWLock::~CScopedRWLock()
   _rwl->unlock();
 }
 
-#define MUTEX_LOCK(mutex)         mutex->lock()
+#define MUTEX_LOCK(mutex)         mutex->lock(2000)
 #define MUTEX_READ_LOCK(mutex)    mutex->readLock()
 #define MUTEX_WRITE_LOCK(mutex)   mutex->writeLock()
 #define MUTEX_UNLOCK(mutex)       mutex->unlock()
