@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.45       Camiel Vanderhoeven                             13-MAR-2008
+ *      Fixed FAILURE macro's for Unix.
+ *
+ * X-1.44       Camiel Vanderhoeven                             13-MAR-2008
+ *      Formatting.
+ *
  * X-1.42       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
  *   2. U64 macro replaces X64 macro.
@@ -831,8 +837,7 @@ void CSerial::WaitForConnection()
     if(!(child = fork()))
     {
       execvp(argv[0], argv);
-      printf("Exec of '%s' failed.\n", argv[0]);
-      FAILURE("undefined");
+      FAILURE_1(Runtime,"Exec of '%s' failed.\n", argv[0]);
     }
     else
     {
@@ -840,8 +845,7 @@ void CSerial::WaitForConnection()
       waitpid(child, &status, WNOHANG); // reap it, if needed.
       if(kill(child, 0) < 0)
       { // uh oh, no kiddo.
-        printf("%%SRL-F-EXEC: Exec of '%s' has failed.\n", argv[0]);
-        FAILURE("undefined");
+        FAILURE_1(Runtime,"Exec of '%s' has failed.\n", argv[0]);
       }
     }
 #endif
