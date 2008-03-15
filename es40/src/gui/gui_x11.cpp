@@ -36,6 +36,12 @@
  *
  * $Id$
  *
+ * X-1.4        Pepito Grillo                                   15-MAR-2008
+ *      Fixed FAILURE macro
+ *
+ * X-1.3        Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting
+ *
  * X-1.2        Camiel Vanderhoeven                             12-FEB-2008
  *      Moved keyboard code into it's own class (CKeyboard)
  *
@@ -611,7 +617,7 @@ void bx_x11_gui_c::specific_init(unsigned tilewidth, unsigned tileheight)
   // redirect notify callback to X11 specific code
   //  SIM->get_notify_callback (&old_callback, &old_callback_arg);
   //  if (old_callback == NULL)
-  //    FAILURE("old_callback = null");
+  //    FAILURE(Runtime,"old_callback = null");
   //  SIM->set_notify_callback (x11_notify_callback, NULL);
   // loads keymap for x11
   x_keymapping = myCfg->get_bool_value("keyboard.use_mapping", false);
@@ -838,7 +844,7 @@ void bx_x11_gui_c::handle_events(void)
       if(!strcmp(XGetAtomName(bx_x_display, report.xclient.message_type),
          "WM_PROTOCOLS"))
       {
-        FAILURE("Emulator stopped from X");
+        FAILURE(Graceful,"Emulator stopped from X");
 
         //bx_stop_simulation();
       }
