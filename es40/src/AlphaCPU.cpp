@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.77       Camiel Vanderhoeven                             15-MAR-2008
+ *      Remove confusing outer for-loop in CAlphaCPU::run().
+ *
+ * X-1.76       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.75       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
  *   2. U64 macro replaces X64 macro.
@@ -337,19 +343,15 @@ void CAlphaCPU::run()
 {
   try
   {
+    mySemaphore.wait();
     for(;;)
     {
-      mySemaphore.wait();
-      for(;;)
-      {
-        if(StopThread)
-          return;
-        for(int i = 0; i < 1000000; i++)
-          execute();
-      }
+      if(StopThread)
+        return;
+      for(int i = 0; i < 1000000; i++)
+        execute();
     }
   }
-
   catch(Poco::Exception & e)
   {
     printf("Exception in CPU thread: %s.\n", e.displayText().c_str());
