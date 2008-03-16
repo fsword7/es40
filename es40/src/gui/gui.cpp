@@ -36,6 +36,12 @@
  *
  * $Id$
  *
+ * X-1.9        Camiel Vanderhoeven                             16-MAR-2008
+ *      Fixed threading problems with SDL (I hope).
+ *
+ * X-1.8        Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.7        Camiel Vanderhoeven                             11-MAR-2008
  *      Named, debuggable mutexes.
  *
@@ -56,6 +62,10 @@
  *      Initial version for ES40 emulator.
  *
  **/
+
+//#define DEBUG_LOCKS
+//#define NO_LOCK_TIMEOUTS
+
 #include "../StdAfx.h"
 
 #include <signal.h>

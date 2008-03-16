@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.19       Camiel Vanderhoeven                             16-MAR-2008
+ *      Fixed threading problems with SDL (I hope).
+ *
+ * X-1.18       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.17       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
  *   2. U64 macro replaces X64 macro.
@@ -134,15 +140,23 @@ static const u8 ccdat[16][4] = {
 {
   try
   {
+    bx_gui->init(state.x_tilesize, state.y_tilesize);
     for(;;)
     {
       if(StopThread)
         return;
+      for (int i=0;i<10;i++)
+      {
+        bx_gui->lock();
+        bx_gui->handle_events();
+        bx_gui->unlock();
+        Poco::Thread::sleep(10);
+      }
       bx_gui->lock();
       update();
       bx_gui->flush();
       bx_gui->unlock();
-      Poco::Thread::sleep(100); // 10 fps
+      //Poco::Thread::sleep(100); // 10 fps
     }
   }
 
@@ -340,7 +354,7 @@ void CCirrus::init()
     for(unsigned x = 0; x < 640 / X_TILESIZE; x++)
       SET_TILE_UPDATED(x, y, 0);
 
-  bx_gui->init(state.x_tilesize, state.y_tilesize);
+//  bx_gui->init(state.x_tilesize, state.y_tilesize);
 
   state.charmap_address = 0;
   state.x_dotclockdiv2 = 0;
