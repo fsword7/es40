@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.45       Camiel Vanderhoeven                             17-MAR-2008
+ *      Always set volatile DPR rom contents.
+ *
+ * X-1.44       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.43       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
  *   2. U64 macro replaces X64 macro.
@@ -318,9 +324,6 @@ int main (int argc, char*argv[])
     trc = new CTraceEngine(theSystem);
 #endif
     theSystem->LoadROM();
-
-    theSROM->RestoreStateF();
-    theDPR->RestoreStateF();
 
 #if defined(PROFILE)
     {
