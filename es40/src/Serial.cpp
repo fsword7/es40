@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.46       Camiel Vanderhoeven                             19-MAR-2008
+ *      Initialize breakHit.
+ *
  * X-1.45       Camiel Vanderhoeven                             13-MAR-2008
  *      Fixed FAILURE macro's for Unix.
  *
@@ -196,6 +199,7 @@ int iCounter = 0;
 CSerial::CSerial(CConfigurator* cfg, CSystem* c, u16 number) : CSystemComponent(cfg, c)
 {
   state.iNumber = number;
+  breakHit = false;
 }
 
 /**
