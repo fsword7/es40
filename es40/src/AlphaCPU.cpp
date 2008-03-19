@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.78       Camiel Vanderhoeven                             19-MAR-2008
+ *      IDB versions compileable again.
+ *
  * X-1.77       Camiel Vanderhoeven                             15-MAR-2008
  *      Remove confusing outer for-loop in CAlphaCPU::run().
  *
@@ -1312,7 +1315,7 @@ void CAlphaCPU::listing(u64 from, u64 to, u64 mark)
   bListing = true;
   for(state.pc = from; state.pc <= to;)
   {
-    DoClock();
+    execute();
     if(state.pc == mark)
       printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
   }
