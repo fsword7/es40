@@ -122,38 +122,6 @@
  */
 
 /**
- * \page con_ack Contributors & Acknowledgements
- *
- * \section con Contributors
- * In order of appearance.
- *  - Camiel Vanderhoeven (camiel@camicom.com): main architect/developer.
- *  - Brian Wheeler: UNIX port, initial config file, initial VGA, new IDE, and contributions to overall quality.
- *  - Eduardo Marcelo Serrat: Major bugfixes. 
- *  - Fang Zhe: OS X port.
- *  - David Hittner: Ethernet controller fixes, many wise suggestions in other places.
- *  - Fausto Saporito: Bugfixes.
- *  - Alex: GNU/Win32 support.
- *  - David Leonard: Bugfixes.
- *  - Pepito Grillo: Bugfixes.
- *  .
- *
- * \section Acknowledgements
- * In order of appearance.
- *  - Gerrit Woertman (HP)
- *  - Jur van der Burg (helped out with IDE problems)
- *  - Stephen "Hoff" Hoffman (helped out with booting problems)
- *  - Sue Skonetski (HP) (publicity)
- *  - Andy Goldstein (HP)
- *  - Ian Miller (publicity: http://www.openvms.org)
- *  - Anders Gavare (allowing us to re-use parts of GXEmul)
- *  - Bob Supnik (author of the SIMH Alpha pre-implementation)
- *  - Paco Linux
- *  .
- *
- * If we missed anyone, please let us know!
- **/
-
-/**
  * \page cons Consulted Documentation
  * The following documents have been useful to us:
  *  - Alpha 21264/EV68CB and 21264/EV68DC Microprocessor Hardware Reference Manual [HRM] (http://download.majix.org/dec/21264ev68cb_ev68dc_hrm.pdf)
