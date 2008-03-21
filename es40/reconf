@@ -50,7 +50,7 @@ m4 <configure_1.m4 >configure_1.sh
 cat >configure <<EOF
 #! /bin/sh
 ./configure_1.sh
-./configure_2.sh $@
+./configure_2.sh \$@
 EOF
 chmod u+x configure configure_1.sh configure_2.sh
 exit
