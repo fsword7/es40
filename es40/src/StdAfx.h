@@ -32,6 +32,9 @@
  *
  * $Id$
  *
+ * X-1.32       Camiel Vanderhoeven                             21-MAR-2008
+ *      Added inclusion of config_debug.h.
+ *
  * X-1.31       Camiel Vanderhoeven                             14-MAR-2008
  *      Added inclusion of typeinfo.
  *
@@ -133,6 +136,9 @@
  **/
 #if !defined(INCLUDED_STDAFX_H)
 #define INCLUDED_STDAFX_H
+
+// Include generated file with debugging flags (defines)
+#include "config_debug.h"
 
 #include "datatypes.h"
 
