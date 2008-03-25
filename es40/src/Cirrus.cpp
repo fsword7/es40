@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.21       Pepito Grillo                                   25-MAR-2008
+ *      Fixed a typo in the last patch.
+ *
  * X-1.20       Camiel Vanderhoeven                             24-MAR-2008
  *      Added comments on VGA registers.
  *
@@ -1393,7 +1396,7 @@ void CCirrus::write_b_3c5(u8 value)
 #if defined(DEBUG_VGA)
     printf("io write 3c5=%02x: clocking mode reg: ignoring   \n",
            (unsigned) value);
-#endi
+#endif
     state.sequencer.reg1 = value & 0x3f;
     state.x_dotclockdiv2 = ((value & 0x08) > 0);
     break;
