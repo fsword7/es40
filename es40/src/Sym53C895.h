@@ -29,8 +29,14 @@
  *
  * $Id$
  *
- * X-1.16       Camiel Vanderhoeven                             25-MAR-2008
+ * X-1.18       Camiel Vanderhoeven                             25-MAR-2008
+ *      Separate functions for different instructions.
+ *
+ * X-1.17       Camiel Vanderhoeven                             25-MAR-2008
  *      Separate CSym53C895::check_phase() function.
+ *
+ * X-1.16       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
  *
  * X-1.15       Camiel Vanderhoeven                             13-MAR-2008
  *      Create init(), start_threads() and stop_threads() functions.
@@ -139,6 +145,12 @@ class CSym53C895 : public CDiskController, public CSCSIDevice, public Poco::Runn
     void  post_dsp_write();
 
     int check_phase(int chk_phase);
+    void execute_io_op();
+    void execute_rw_op();
+    void execute_ls_op();
+    void execute_mm_op();
+    void execute_tc_op();
+    void execute_bm_op();
     void  execute();
 
     void  eval_interrupts();
