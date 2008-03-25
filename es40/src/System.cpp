@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.74       Pepito Grillo                                   25-MAR-2008
+ *      Fixed a typo.
+ *
+ * X-1.73       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.72       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
  *   2. U64 macro replaces X64 macro.
@@ -2151,7 +2157,7 @@ u64 CSystem::PCI_Phys(int pcibus, u32 address)
   for(j = 0; j < 4; j++)
   {
     printf("WSBA%d: %016"LL "x WSM: %016"LL "x TBA: %016"LL "x\n", j,
-           state.pctl[pcibus].wsba[j], state.pchip[pcibus].wsm[j],
+           state.pchip[pcibus].wsba[j], state.pchip[pcibus].wsm[j],
            state.pchip[pcibus].tba[j]);
   }
 
