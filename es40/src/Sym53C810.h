@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.7        Camiel Vanderhoeven                             25-MAR-2008
+ *      Separate functions for different instructions, comments.
+ *
+ * X-1.6        Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.5        Camiel Vanderhoeven                             13-MAR-2008
  *      Create init(), start_threads() and stop_threads() functions.
  *
@@ -103,6 +109,13 @@ class CSym53C810 : public CDiskController, public CSCSIDevice, public Poco::Runn
 
     void  post_dsp_write();
 
+    int check_phase(int chk_phase);
+    void execute_io_op();
+    void execute_rw_op();
+    void execute_ls_op();
+    void execute_mm_op();
+    void execute_tc_op();
+    void execute_bm_op();
     void  execute();
 
     void  eval_interrupts();
