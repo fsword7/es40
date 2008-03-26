@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.34       Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
+ * X-1.33       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.32       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
  *   2. U64 macro replaces X64 macro.
@@ -214,8 +220,8 @@ class CSystem
     void          DumpMemory(unsigned int filenum);
     char*         PtrToMem(u64 address);
     unsigned int  get_memory_bits();
-    void          RestoreState(char* fn);
-    void          SaveState(char* fn);
+    void          RestoreState(const char* fn);
+    void          SaveState(const char* fn);
     u64           PCI_Phys(int pcibus, u32 address);
     u64           PCI_Phys_direct_mapped(u32 address, u64 wsm, u64 tba);
     u64           PCI_Phys_scatter_gather(u32 address, u64 wsm, u64 tba);

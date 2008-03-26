@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.75       Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
  * X-1.74       Pepito Grillo                                   25-MAR-2008
  *      Fixed a typo.
  *
@@ -2381,7 +2384,7 @@ void CSystem::stop_threads()
 /**
  * Save system state to a state file.
  **/
-void CSystem::SaveState(char* fn)
+void CSystem::SaveState(const char* fn)
 {
   FILE*         f;
   int           i;
@@ -2441,7 +2444,7 @@ void CSystem::SaveState(char* fn)
 /**
  * Restore system state from a state file.
  **/
-void CSystem::RestoreState(char* fn)
+void CSystem::RestoreState(const char* fn)
 {
   FILE*         f;
   int           i;

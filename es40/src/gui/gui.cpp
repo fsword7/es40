@@ -36,6 +36,9 @@
  *
  * $Id$
  *
+ * X-1.10       Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
  * X-1.9        Camiel Vanderhoeven                             16-MAR-2008
  *      Fixed threading problems with SDL (I hope).
  *
@@ -79,7 +82,7 @@ bx_gui_c*   bx_gui = NULL;
 
 typedef struct
 {
-  char*   key;
+  const char*   key;
   u32     symbol;
 } user_key_t;
 

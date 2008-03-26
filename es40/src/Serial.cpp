@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.47       Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
  * X-1.46       Camiel Vanderhoeven                             19-MAR-2008
  *      Initialize breakHit.
  *
@@ -471,7 +474,7 @@ void CSerial::eval_interrupts()
   }
 }
 
-void CSerial::write(char* s)
+void CSerial::write(const char* s)
 {
   int val = send(connectSocket, s, (int) strlen(s) + 1, 0);
 }
@@ -791,7 +794,7 @@ void CSerial::WaitForConnection()
 {
   struct sockaddr_in  Address;
   socklen_t           nAddressSize = sizeof(struct sockaddr_in);
-  char*               telnet_options = "%c%c%c";
+  const char*               telnet_options = "%c%c%c";
   char                buffer[8];
   char                s[1000];
   char*               nargv = s;

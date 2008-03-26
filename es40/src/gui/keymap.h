@@ -36,6 +36,12 @@
  *
  * $Id$
  *
+ * X-1.7        Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
+ * X-1.6        Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.4        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *
@@ -79,7 +85,7 @@ class bx_keymap_c
 
     BXKeyEntry*   findHostKey(u32 hostkeynum);
     BXKeyEntry*   findAsciiChar(u8 ascii);
-    char*         getBXKeyName(u32 key);
+    const char*         getBXKeyName(u32 key);
   private:
     u32             convertStringToBXKey(const char* );
     CConfigurator*  myCfg;
