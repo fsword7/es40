@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.22       Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
  * X-1.21       Camiel Vanderhoeven                             24-MAR-2008
  *      Comments.
  *
@@ -361,7 +364,7 @@ class CAliM1543C_ide : public CDiskController, public CSCSIDevice, public Poco::
 #define REG_COMMAND_STATUS        7
 #define REG_COMMAND_COMMAND       7
 
-static char*  register_names[] = {
+static const char*  register_names[] = {
   "DATA",
   "ERROR/FEATURES",
   "SECTOR_COUNT/PKT REASON",
@@ -385,7 +388,7 @@ static char*  register_names[] = {
 #define IR_REL      0x04
 
 /* Packet protocol states */
-static char*  packet_states[] = {
+static const char*  packet_states[] = {
   "DP0: Prepare A",
   "DP1: Receive Packet",
   "DP2: Prepare B",
