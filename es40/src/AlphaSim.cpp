@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.46       Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
  * X-1.45       Camiel Vanderhoeven                             17-MAR-2008
  *      Always set volatile DPR rom contents.
  *
@@ -186,11 +189,13 @@
 #include "lockstep.h"
 
 /// "standard" locations for a configuration file.  This will be port specific.
-char*   path[] ={
+const char* path[] ={
 #if defined(_WIN32)
   ".\\es40.cfg",
   "c:\\es40.cfg",
   "c:\\windows\\es40.cfg",
+#elif defined(__VMS)
+  "[]ES40.CFG",
 #else
   "./es40.cfg",
   "/etc/es40.cfg",
@@ -269,7 +274,7 @@ int main (int argc, char*argv[])
   printf("   **======================================================================**\n");
   printf("\n\n");
 
-  char*   filename = 0;
+  const char*   filename = 0;
   FILE*   f;
 
 #ifdef HAS_BACKTRACE
