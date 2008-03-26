@@ -29,6 +29,12 @@
  *
  * $Id$
  *
+ * X-1.22       Camiel Vanderhoeven                             26-MAR-2008
+ *      Support OpenVMS path names.
+ *
+ * X-1.21       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.20       Camiel Vanderhoeven                             19-MAR-2008
  *      Use fopen_large to support files >2GB on linux. Macro was already 
  *      defined, but never used. (doh!)
@@ -170,8 +176,10 @@ CDiskFile::CDiskFile(CConfigurator*  cfg, CSystem*  sys, CDiskController*  c,
 
   // skip to the filename portion of the path.
   char*   p = model_number;
-#ifdef _WIN32
+#if defined(_WIN32)
   char    x = '\\';
+#elif defined(__VMS)
+  char    x = ']';
 #else
   char    x = '/';
 #endif
