@@ -32,6 +32,12 @@
  *
  * $Id$
  *
+ * X-1.3        Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
+ * X-1.2        Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
+ *
  * X-1.1        David Hittner                                   26-FEB-2008
  *      File creation.                    
  **/
@@ -42,7 +48,7 @@
 /**
  * \brief Packet Queue for Ethernet packets.
  **/
-CPacketQueue::CPacketQueue(char* name, int max)
+CPacketQueue::CPacketQueue(const char* name, int max)
 {
   this->name = name;
   this->max = max;
