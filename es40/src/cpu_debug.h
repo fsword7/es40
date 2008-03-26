@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.29       Camiel Vanderhoeven                             26-MAR-2008
+ *      Fix compiler warnings.
+ *
  * X-1.28       Camiel Vanderhoeven                             19-MAR-2008
  *      IDB versions compileable again.
  *
@@ -130,8 +133,8 @@
  *      File created. Contains code previously found in AlphaCPU.h
  **/
 #if defined(IDB)
-extern char*  PAL_NAME[];
-extern char*  IPR_NAME[];
+extern const char*  PAL_NAME[];
+extern const char*  IPR_NAME[];
 
 extern char   dbg_string[1000];
 #if !defined(LS_MASTER) && !defined(LS_SLAVE)
