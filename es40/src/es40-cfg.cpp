@@ -29,11 +29,14 @@
  *
  * $Id$
  *
+ * X-1.2        Camiel Vanderhoeven                             28-MAR-2008
+ *     Properly capitalized "StdAfx.h".
+ *
  * X-1.1        Camiel Vanderhoeven                             28-MAR-2008
  *      File created.
  **/
 
-#include "stdafx.h"
+#include "StdAfx.h"
 
 // C++ includes
 #include <string>
