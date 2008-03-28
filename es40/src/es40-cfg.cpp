@@ -29,8 +29,11 @@
  *
  * $Id$
  *
+ * X-1.3        Camiel Vanderhoeven                             28-MAR-2008
+ *      Fixed CD-ROM question behaviour.
+ *
  * X-1.2        Camiel Vanderhoeven                             28-MAR-2008
- *     Properly capitalized "StdAfx.h".
+ *      Properly capitalized "StdAfx.h".
  *
  * X-1.1        Camiel Vanderhoeven                             28-MAR-2008
  *      File created.
@@ -187,7 +190,7 @@ void add_disks(ShrinkingChoiceQuestion * disk_q, ostream * os)
     ro_q.addAnswer("yes","true","read-only");
     ro_q.setDefault("no");
 
-    if (cdrom_q.getAnswer() == "true")
+    if (cdrom_q.ask() == "true")
     {
       /* CD-ROMs are always read-only.
        */
@@ -507,7 +510,7 @@ int main(int argc, char* argv[])
        */
       os << "    action = \"\"\"" << exec_q.getAnswer() << "\"\" " << arg_q.getAnswer() << "\";\n";
 #else
-      os << "    action = \"" << exec_q.getAnswer() << " " << arg_q.getAnswer() << "\";\n",s0_exec,s0_arg);
+      os << "    action = \"" << exec_q.getAnswer() << " " << arg_q.getAnswer() << "\";\n";
 #endif
     }
       os << "  }\n\n";
