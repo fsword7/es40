@@ -33,7 +33,7 @@
 #
 ################################################################################
 
-bin_PROGRAMS = es40 es40_idb es40_lss es40_lsm
+bin_PROGRAMS = es40 es40_idb es40_lss es40_lsm es40_cfg
 
 es40_SOURCES = AliM1543C.cpp \
        AliM1543C_ide.cpp \
@@ -86,5 +86,7 @@ es40_lsm_SOURCES = $(es40_SOURCES)
 es40_idb_CXXFLAGS = -DIDB
 es40_lss_CXXFLAGS = -DIDB -DLSS
 es40_lsm_CXXFLAGS = -DIDB -DLSM
+
+es40_cfg_SOURCES = es40-cfg.cpp
 
 LDADD = -lPocoFoundation
