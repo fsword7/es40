@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.6        Camiel Vanderhoeven                             29-MAR-2008
+ *      Replaced SDL with sdl.
+ *
  * X-1.5        Camiel Vanderhoeven                             29-MAR-2008
  *      Fix VGA console value.
  *
@@ -294,7 +297,7 @@ int main(int argc, char* argv[])
   gui_q.addAnswer("none","","No GUI. Graphics cards are not supported.");
 
 #if defined(HAVE_SDL)
-  gui_q.addAnswer("SDL","SDL","Simple Directmedia Layer. Preferred GUI mechanism.");
+  gui_q.addAnswer("SDL","sdl","Simple Directmedia Layer. Preferred GUI mechanism.");
 #endif
 #if defined(HAVE_X11)
   gui_q.addAnswer("X11","X11","Unix X-Windows GUI support.");
