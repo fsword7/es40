@@ -44,6 +44,10 @@ echo "- autoheader."
 autoheader
 echo "- automake."
 automake -a
+echo "- VMS scripts."
+cd src
+./make_vms.sh
+cd ..
 echo "- housekeeping."
 mv configure configure_2.sh
 m4 <configure_1.m4 >configure_1.sh
