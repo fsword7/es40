@@ -29,8 +29,8 @@
  *
  * $Id$
  *
- * X-1.47       Camiel Vanderhoeven                             26-MAR-2008
- *      Fix compiler warnings.
+ * X-1.47       Camiel Vanderhoeven                             31-MAR-2008
+ *      Compileable on OpenVMS.
  *
  * X-1.46       Camiel Vanderhoeven                             19-MAR-2008
  *      Initialize breakHit.
@@ -565,7 +565,7 @@ void CSerial::serial_menu()
       break;  // leave loop
     }
 
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(__VMS)
     size = recv(connectSocket, (char*) buffer, FIFO_SIZE, 0);
 #else
     size = read(connectSocket, &buffer, FIFO_SIZE);
@@ -633,7 +633,7 @@ void CSerial::execute()
     tv.tv_usec = 0;
     if(select(connectSocket + 1, &readset, NULL, NULL, &tv) > 0)
     {
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(__VMS)
 
       // Windows Sockets has no direct equivalent of BSD's read
       size = recv(connectSocket, (char*) buffer, FIFO_SIZE, 0);
@@ -838,7 +838,7 @@ void CSerial::WaitForConnection()
     //printf("%s: Starting %s\n", devid_string,nargv);
 #if defined(_WIN32)
     _spawnvp(_P_NOWAIT, nargv, argv);
-#else
+#elif !defined(__VMS)
     pid_t child;
     int   status;
     if(!(child = fork()))
