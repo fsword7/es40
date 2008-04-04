@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.47       Camiel Vanderhoeven                             04-APR-2008
+ *      Take version number from config.h
+ *
  * X-1.46       Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.
  *
@@ -261,7 +264,7 @@ int main (int argc, char*argv[])
   printf("\n\n");
   printf("   **======================================================================**\n");
   printf("   ||                             ES40  emulator                           ||\n");
-  printf("   ||                              Version 0.18                            ||\n");
+  printf("   ||                              Version " VERSION "                            ||\n");
   printf("   ||                                                                      ||\n");
   printf("   ||  Copyright (C) 2007-2008 by the ES40 Emulator Project                ||\n");
   printf("   ||  Website: http://sourceforge.net/projects/es40                       ||\n");
