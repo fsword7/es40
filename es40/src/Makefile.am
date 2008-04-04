@@ -28,6 +28,12 @@
 #
 # $Id$
 #
+# X-1.4      Camiel Vanderhoeven                      04-APR-2008
+#      Added comments.
+#
+# X-1.3      Camiel Vanderhoeven                      29-MAR-2008
+#      Added es40_cfg.
+#
 # X-1.1	     Camiel Vanderhoeven                      20-MAR-2008
 #      File Created.
 #
