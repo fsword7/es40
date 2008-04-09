@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.22       Brian Wheeler                                   09-APR-2008
+ *      Correct RMC ROM versions.
+ *
  * X-1.21       Camiel Vanderhoeven                             17-MAR-2008
  *      Always set volatile DPR rom contents.
  *
@@ -340,14 +343,14 @@ void CDPR::init()
   //    3009:300B       RMC Rev Level of RMC first byte is letter Rev [x/t/v] second 2 bytes are major/minor.
   //                            This is the rev level of the RMC on-chip code.
   state.ram[0x3009] = 'V';
-  state.ram[0x300a] = 0x01;
-  state.ram[0x300b] = 0x00;
+  state.ram[0x300a] = 0x31;
+  state.ram[0x300b] = 0x30;
 
   //    300C:300E       RMC Rev Level of RMC first byte is letter Rev [x/t/v] second 2 bytes are major/minor.
   //                            This is the rev level of the RMC flash code.
   state.ram[0x300c] = 'V';
-  state.ram[0x300d] = 0x01;
-  state.ram[0x300e] = 0x00;
+  state.ram[0x300d] = 0x31;
+  state.ram[0x300e] = 0x30;
 
   //    300F:3010 300F RMC Revision Field of the DPR Structure
   //    3400 SROM Size of Bcache in MB
