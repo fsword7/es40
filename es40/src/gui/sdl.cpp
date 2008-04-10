@@ -1,7 +1,7 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://sourceforge.net/projects/es40
+ * WWW    : http://es40.org
  * E-mail : camiel@camicom.com
  * 
  *  This file is based upon Bochs.
@@ -35,6 +35,9 @@
  * SDL.
  *
  * $Id$
+ *
+ * X-1.16		Martin Borgman  				                10-APR-2008
+ *	    Handle SDL support on OS X through OS_X/SDLMain.m.
  *
  * X-1.15       Camiel Vanderhoeven                             29-FEB-2008
  *      Comments
@@ -82,11 +85,6 @@
 //#include "../AliM1543C.h"
 #include "../Keyboard.h"
 #include "../Configurator.h"
-
-#ifdef __APPLE__
-#include <WebKit/CarbonUtils.h>
-#include <ApplicationServices/ApplicationServices.h>
-#endif
 
 #define _MULTI_THREAD
 
@@ -180,18 +178,6 @@ void bx_sdl_gui_c::specific_init(
   for(i=0;i<256;i++)
     for(j=0;j<16;j++)
       vga_charmap[i*32+j] = sdl_font8x16[i][j];
-
-#ifdef __APPLE__
-  {
-    // Initialize Cocoa before SDL_Init, using a method from WebKit.framework
-    WebInitForCarbon();
-    // Make the application as a GUI application (shown in Dock, etc.)
-    ProcessSerialNumber psn = { 0, kCurrentProcess};    
-    TransformProcessType(&psn, kProcessTransformToForegroundApplication);
-    // Bring the window to the front
-    SetFrontProcess(&psn);
-  }
-#endif
 
 #ifdef __MORPHOS__
   if (!(PowerSDLBase=OpenLibrary("powersdl.library",0)))

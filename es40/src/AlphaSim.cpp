@@ -1,7 +1,7 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://sourceforge.net/projects/es40
+ * WWW    : http://es40.org
  * E-mail : camiel@camicom.com
  * 
  * This program is free software; you can redistribute it and/or
@@ -28,6 +28,9 @@
  * Defines the entry point for the application.
  *
  * $Id$
+ *
+ * X-1.43		Martin Borgman  				                10-APR-2008
+ *	    Handle SDL support on OS X through OS_X/SDLMain.m.
  *
  * X-1.42       Camiel Vanderhoeven                             04-MAR-2008
  *      Version updated to 0.18.
@@ -175,6 +178,10 @@
 #include "DPR.h"
 
 #include "lockstep.h"
+
+#if defined(HAVE_SDL)
+#include "SDL.h"
+#endif
 
 /// "standard" locations for a configuration file.  This will be port specific.
 char *path[]={
