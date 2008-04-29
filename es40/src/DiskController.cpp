@@ -1,8 +1,8 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://sourceforge.net/projects/es40
- * E-mail : camiel@camicom.com
+ * WWW    : http://es40.org
+ * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,6 +28,13 @@
  * Contains definitions for the disk controller base class.
  *
  * $Id$
+ *
+ * X-1.15       Camiel Vanderhoeven                             29-APR-2008
+ *      CDiskController is no longer a CPCIDevice. devices that are both
+ *      should multiple inherit both.
+ *
+ * X-1.14       Camiel Vanderhoeven                             14-MAR-2008
+ *      Formatting.
  *
  * X-1.13       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.
@@ -70,8 +77,7 @@
 #include "DiskController.h"
 #include "Disk.h"
 
-CDiskController::CDiskController(CConfigurator*  cfg, CSystem*  c, int pcibus,
-                                 int pcidev, int num_busses, int num_devices) : CPCIDevice(cfg, c, pcibus, pcidev)
+CDiskController::CDiskController(int num_busses, int num_devices)
 {
   num_bus = num_busses;
   num_dev = num_devices;
