@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.9        Camiel Vanderhoeven                             29-APR-2008
+ *      Removed double function bodies. (patch issue)
+ *
  * X-1.8        Brian Wheeler                                   29-APR-2008
  *      Fixed floppy disk implementation.
  *
@@ -447,6 +450,9 @@ void CDMA::do_dma()
   }
 }
 
+/**
+ * This can be called by a device to perform a DMA in one fell swoop.
+ **/
 
 void CDMA::send_data(int channel, void *data) 
 {
@@ -465,7 +471,6 @@ void CDMA::send_data(int channel, void *data)
 	      printf("\n  ");
       }
       printf("\n");
-
 
       // increment
       theAli->do_pci_write(addr,data,1,count);
@@ -488,45 +493,4 @@ void CDMA::send_data(int channel, void *data)
 }
 
 void CDMA::recv_data(int channel, void *data) {
-
-}
-
-
-/*
-  This can be called by a device to perform a DMA in one fell swoop.
-
- */
-void CDMA::send_data(int channel, void *data) {
-  if((state.controller[channel < 4? 0 : 1].command & 0x04) == 0) {
-    if((state.controller[channel < 4 ? 0 : 1].mask & ( 1 << channel)) == 0) {
-      u64 addr = (state.channel[channel].pagebase << 16) + state.channel[channel].base;
-      int count = get_count(channel);
-
-      printf("DMA send_data:  %x @ %16" LL "x\n  ", count, addr); 
-      for(int i = 0; i < count; i++) {
-	printf("%02x ", *((char *)data+i) & 0xff);
-	if(i % 16 == 15) 
-	  printf("\n  ");
-      }
-      printf("\n");
-
-
-      // increment
-      theAli->do_pci_write(addr,data,1,count);
-
-      // set the terminal count bit
-      if(channel < 4)
-	state.controller[0].status |= 1 << channel;
-      else
-	state.controller[1].status |= 1 << channel;
-    } else {
-      printf("dma: dma requested by device on channel %d, but it is masked.\n", channel);
-    }
-  } else {
-    printf("dma: dma requested by device, but controller %d is disabled.\n", channel < 4 ? 0 : 1);
-  }
-}
-
-void CDMA::recv_data(int channel, void *data) {
-
 }
