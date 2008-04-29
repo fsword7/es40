@@ -1,8 +1,8 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://sourceforge.net/projects/es40
- * E-mail : camiel@camicom.com
+ * WWW    : http://es40.org
+ * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,6 +28,9 @@
  * Contains the code for the configuration file interpreter.
  *
  * $Id$
+ *
+ * X-1.28       Brian Wheeler                                   29-APR-2008
+ *      Added Floppy Controller.
  *
  * X-1.27       Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.
@@ -131,6 +134,7 @@
 #include "Port80.h"
 #include "S3Trio64.h"
 #include "Cirrus.h"
+#include "FloppyController.h"
 #if defined(HAVE_RADEON)
 #include "Radeon.h"
 #endif
@@ -828,6 +832,7 @@ void CConfigurator::initialize()
     new CPort80(this, (CSystem*) pParent->get_device());
     new CKeyboard(this, (CSystem*) pParent->get_device());
     new CDMA(this, (CSystem*) pParent->get_device());
+    new CFloppyController(this, (CSystem*) pParent->get_device(),0);
     break;
 
   case c_ali_ide:
