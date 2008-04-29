@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.4        Brian Wheeler                                   29-APR-2008
+ *      Fixed floppy disk implementation.
+ *
  * X-1.3        Brian Wheeler                                   18-APR-2008
  *      Rewrote DMA code to make it ready for floppy support.
  *
