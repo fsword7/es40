@@ -1,8 +1,8 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://sourceforge.net/projects/es40
- * E-mail : camiel@camicom.com
+ * WWW    : http://es40.org
+ * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,6 +28,9 @@
  * Contains the definitions for the configuration file interpreter.
  *
  * $Id$
+ *
+ * X-1.17       Camiel Vanderhoeven                             29-APR-2008
+ *      Added floppy configuration.
  *
  * X-1.16       Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.
@@ -93,6 +96,7 @@ typedef enum
   // system devices
   c_ev68cb,
   c_serial,
+  c_floppy,
 
   // pci devices
   c_ali,

@@ -530,6 +530,40 @@ int main(int argc, char* argv[])
   }
 
   /* **************************** *
+   * Floppy Disks                *
+   * **************************** */
+
+  MultipleChoiceQuestion fdc_q;
+
+  fdc_q.setQuestion("Do you want a floppy controller in your system?");
+  fdc_q.setExplanation("You need a floppy controller if you want to add floppy drives.");
+  fdc_q.setDefault("no");
+  fdc_q.addAnswer("yes","fdc","FDC present.");
+  fdc_q.addAnswer("no","","FDC not present.");
+
+  if (fdc_q.ask() != "")
+  {
+    /* Use a ShrinkingChoiceQuestion; once
+     * a disk position has been used, it
+     * can't be used again.
+     */
+    ShrinkingChoiceQuestion fd_q;
+    fd_q.setQuestion("Do you want to add any disks to the Floppy controller?");
+    fd_q.setDefault("none");
+    fd_q.setExplanation("Here, you can add floppy drives to your system.");
+    fd_q.addAnswer("none","","stop adding disks");
+    fd_q.addAnswer("0","disk0.0","A:");
+    fd_q.addAnswer("1","disk0.1","B:");
+
+    os << "  fdc0 = floppy\n";
+    os << "  {\n";
+    /* Ask what disks to add.
+     */
+    add_disks(&fd_q, &os);
+    os << "  }\n\n";
+  }
+
+  /* **************************** *
    * ALi IDE Disks                *
    * **************************** */
 
