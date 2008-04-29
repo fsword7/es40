@@ -42,7 +42,7 @@
  * main project page, goto http://es40.org.
  *
  * On these pages here, you can find the documented source code, the change
- * log, compilation & installation instructions, and more.
+ * log, and more.
  **/
 
 /**
