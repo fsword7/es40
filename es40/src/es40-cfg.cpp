@@ -1,8 +1,8 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://sourceforge.net/projects/es40
- * E-mail : camiel@camicom.com
+ * WWW    : http://es40.org
+ * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,6 +28,9 @@
  * Configuration file creator.
  *
  * $Id$
+ *
+ * X-1.7        Camiel Vanderhoeven                             29-APR-2008
+ *      Added floppy configuration.
  *
  * X-1.6        Camiel Vanderhoeven                             29-MAR-2008
  *      Replaced SDL with sdl.
