@@ -1,7 +1,7 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://es40.org
+ * WWW    : http://www.es40.org
  * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
@@ -28,6 +28,9 @@
  * Contains the definitions for the emulated Symbios SCSI controller.
  *
  * $Id$
+ *
+ * X-1.9        Camiel Vanderhoeven                             31-MAY-2008
+ *      Changes to include parts of Poco.
  *
  * X-1.8        Camiel Vanderhoeven                             29-APR-2008
  *      CDiskController is no longer a CPCIDevice. devices that are both
@@ -77,7 +80,7 @@
 class CSym53C810 : public CPCIDevice, 
                    public CDiskController, 
                    public CSCSIDevice, 
-                   public Poco::Runnable
+                   public CRunnable
 {
   public:
     virtual int   SaveState(FILE* f);
@@ -130,8 +133,8 @@ class CSym53C810 : public CPCIDevice,
     void  set_interrupt(int reg, u8 interrupt);
     void  chip_reset();
 
-    Poco::Thread * myThread;
-    Poco::Semaphore mySemaphore;
+    CThread * myThread;
+    CSemaphore mySemaphore;
     CMutex*         myRegLock;
     bool            StopThread;
 

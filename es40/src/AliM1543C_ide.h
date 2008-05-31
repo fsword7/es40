@@ -1,7 +1,7 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://es40.org
+ * WWW    : http://www.es40.org
  * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
@@ -28,6 +28,9 @@
  * Contains the definitions for the emulated Ali M1543C IDE chipset part.
  *
  * $Id$
+ *
+ * X-1.24       Camiel Vanderhoeven                             31-MAY-2008
+ *      Changes to include parts of Poco.
  *
  * X-1.23       Camiel Vanderhoeven                             29-APR-2008
  *      CDiskController is no longer a CPCIDevice. devices that are both
@@ -167,7 +170,7 @@
 class CAliM1543C_ide : public CPCIDevice, 
                        public CDiskController, 
                        public CSCSIDevice, 
-                       public Poco::Runnable
+                       public CRunnable
 {
   public:
     CAliM1543C_ide(CConfigurator*  cfg, class CSystem*  c, int pcibus, int pcidev);
@@ -211,11 +214,11 @@ class CAliM1543C_ide : public CPCIDevice,
 
     void  execute(int index);
 
-    Poco::Thread * thrController[2];    // one thread for each controller chip
-    Poco::Semaphore * semController[2]; // controller start/stop
-    Poco::Semaphore * semBusMaster[2];  // bus master start/stop
-    CRWMutex*   mtRegisters[2];         // main registers
-    CRWMutex*   mtBusMaster[2];         // busmaster registers
+    CThread * thrController[2];    // one thread for each controller chip
+    CSemaphore * semController[2]; // controller start/stop
+    CSemaphore * semBusMaster[2];  // bus master start/stop
+    CRWLock*   mtRegisters[2];         // main registers
+    CRWLock*   mtBusMaster[2];         // busmaster registers
     bool        StopThread;
 
     bool        usedma;

@@ -1,8 +1,8 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by the ES40 Emulator Project
  *
- * WWW    : http://sourceforge.net/projects/es40
- * E-mail : camiel@camicom.com
+ * WWW    : http://www.es40.org
+ * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -28,6 +28,9 @@
  * Contains the code for the emulated Serial Port devices.
  *
  * $Id$
+ *
+ * X-1.48       Camiel Vanderhoeven                             31-MAY-2008
+ *      Changes to include parts of Poco.
  *
  * X-1.47       Camiel Vanderhoeven                             31-MAR-2008
  *      Compileable on OpenVMS.
@@ -289,7 +292,7 @@ void CSerial::start_threads()
   if(!myThread)
   {
     sprintf(buffer, "srl%d", state.iNumber);
-    myThread = new Poco::Thread(buffer);
+    myThread = new CThread(buffer);
     printf(" %s", myThread->getName().c_str());
     StopThread = false;
     myThread->start(*this);
@@ -507,11 +510,11 @@ void CSerial::run()
       if(StopThread)
         return;
       execute();
-      Poco::Thread::sleep(20);
+      CThread::sleep(20);
     }
   }
 
-  catch(Poco::Exception & e)
+  catch(CException & e)
   {
     printf("Exception in Serial thread: %s.\n", e.displayText().c_str());
 
@@ -889,6 +892,6 @@ void CSerial::WaitForConnection()
   sprintf(buffer, telnet_options, IAC, WILL, TELOPT_SGA);
   this->write(buffer);
 
-  sprintf(s, "This is serial port #%d on AlphaSim\r\n", state.iNumber);
+  sprintf(s, "This is serial port #%d on ES40 Emulator\r\n", state.iNumber);
   this->write(s);
 }

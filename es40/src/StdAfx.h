@@ -1,8 +1,8 @@
 /* ES40 emulator.
  * Copyright (C) 2007-2008 by Camiel Vanderhoeven
  *
- * Website: www.camicom.com
- * E-mail : camiel@camicom.com
+ * Website: http://www.es40.org
+ * E-mail : camiel@es40.org
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -31,6 +31,9 @@
  * are changed infrequently.
  *
  * $Id$
+ *
+ * X-1.35       Camiel Vanderhoeven                             31-MAY-2008
+ *      Changes to include parts of Poco.
  *
  * X-1.34       Camiel Vanderhoeven                             31-MAR-2008
  *      Moved Poco-includes to StdAfx.h, include config_vms.h on VMS.
@@ -300,26 +303,14 @@ inline char printable(char c)
 
 #define POCO_NO_UNWINDOWS
 
-#if defined(__VMS)
-#include "VMS/Thread.h"
-#include "VMS/Runnable.h"
-#include "VMS/Semaphore.h"
-#include "VMS/Mutex.h"
-#include "VMS/Timestamp.h"
-#include "VMS/RWLock.h"
-#else
-#include <Poco/Thread.h>
-#include <Poco/Runnable.h>
-#include <Poco/Semaphore.h>
-#include <Poco/Mutex.h>
-#include <Poco/Timestamp.h>
-#include <Poco/RWLock.h>
-#endif
+#include "base/Mutex.h"
+#include "base/Thread.h"
+#include "base/Runnable.h"
+#include "base/Semaphore.h"
+#include "base/Timestamp.h"
+#include "base/RWLock.h"
 
 #include "es40_debug.h"
-
-#include "Exception.h"
-#include "Lock.h"
 
 #include "es40_endian.h"
 #endif // !defined(INCLUDED_STDAFX_H)
