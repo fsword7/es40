@@ -73,7 +73,7 @@
 
 
 #include "RWLock.h"
-#include <string.cpp>
+#include <string.h>
 
 #if defined(POCO_OS_FAMILY_WINDOWS)
 #include "RWLock_WIN32.cpp"
