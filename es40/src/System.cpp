@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.81       Camiel Vanderhoeven                             12-JUN-2008
+ *      Support to keep secondary CPUs waiting until activated from primary.
+ *
  * X-1.78       Camiel Vanderhoeven                             02-JUN-2008
  *      Remove hard references to CPU 1 from decompression routine.
  *
@@ -587,6 +590,7 @@ int CSystem::SingleStep()
   int result;
 
   for(i = 0; i < iNumCPUs; i++)
+    if (!acCPUs[i]->get_waiting())
     acCPUs[i]->execute();
 
   //  iSingleStep++;
