@@ -29,6 +29,9 @@
  *
  * $Id$
  *
+ * X-1.51       Camiel Vanderhoeven                             12-JUN-2008
+ *      Properly initialize DPR memory areas.
+ *
  * X-1.49       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.
  *
