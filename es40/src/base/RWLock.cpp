@@ -29,6 +29,9 @@
 /**
  * $Id$
  *
+ * X-1.2        Caolan McNamara                                 12-JUN-2008
+ *      Fixes to build on Fedora 9 / gcc 4.3.0.
+ *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
  **/
@@ -70,7 +73,7 @@
 
 
 #include "RWLock.h"
-
+#include <string.cpp>
 
 #if defined(POCO_OS_FAMILY_WINDOWS)
 #include "RWLock_WIN32.cpp"

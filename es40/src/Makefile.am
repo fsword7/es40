@@ -28,7 +28,10 @@
 #
 # $Id$
 #
-# X-1.5      Camiel Vanderhoeven                          31-MAY-2008
+# X-1.6      Caolan McNamara                          12-JUN-2008
+#      Fixes to build on Fedora 9 / gcc 4.3.0.
+#
+# X-1.5      Camiel Vanderhoeven                      31-MAY-2008
 #      Add parts of Poco.
 #
 # X-1.4      Camiel Vanderhoeven                      04-APR-2008
@@ -109,5 +112,6 @@ es40_idb_CXXFLAGS = -DIDB
 es40_lss_CXXFLAGS = -DIDB -DLSS
 es40_lsm_CXXFLAGS = -DIDB -DLSM
 
-es40_cfg_SOURCES = es40-cfg.cpp
+es40_cfg_SOURCES = es40-cfg.cpp \
+    base/Exception.cpp
 
