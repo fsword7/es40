@@ -342,6 +342,7 @@ int main (int argc, char*argv[])
     trc = new CTraceEngine(theSystem);
 #endif
     theSystem->LoadROM();
+    theDPR->init();
 
 #if defined(PROFILE)
     {
