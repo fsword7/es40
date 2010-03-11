@@ -115,6 +115,6 @@
 #include "Bugcheck.h"
 #include "Types.h"
 #include <string>
-
+#include <stdio.h>
 
 #endif // Foundation_Foundation_INCLUDED
