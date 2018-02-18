@@ -27,7 +27,7 @@
  * \file
  * Contains the datatype definitions for use with Microsoft Visual C++ and Linux.
  *
- * $Id$
+ * $Id: datatypes.h,v 1.20 2008/03/26 19:25:40 iamcamiel Exp $
  *
  * X-1.20       Camiel Vanderhoeven                             26-MAR-2008
  *      Use config.h information.

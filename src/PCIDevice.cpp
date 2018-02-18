@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the PCI device class.
  *
- * $Id$
+ * $Id: PCIDevice.cpp,v 1.18 2008/04/02 13:28:29 iamcamiel Exp $
  *
  * X-1.17       Camiel Vanderhoeven                             02-APR-2008
  *      Fixed compiler warnings.

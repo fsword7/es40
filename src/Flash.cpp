@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the emulated Flash ROM devices.
  *
- * $Id$
+ * $Id: Flash.cpp,v 1.19 2008/03/24 22:11:50 iamcamiel Exp $
  *
  * X-1.19       Camiel Vanderhoeven                             24-MAR-2008
  *      Comments.
@@ -121,7 +121,7 @@ CFlash::CFlash(CConfigurator* cfg, CSystem* c) : CSystemComponent(cfg, c)
   RestoreStateF();
   state.mode = MODE_READ;
 
-  printf("%s: $Id$\n",
+  printf("%s: $Id: Flash.cpp,v 1.19 2008/03/24 22:11:50 iamcamiel Exp $\n",
          devid_string);
 }
 

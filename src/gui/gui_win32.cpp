@@ -37,7 +37,7 @@
  * \file
  * Win32 GUI implementation. Allows use of gfx without SDL on WIndows
  *
- * $Id$
+ * $Id: gui_win32.cpp,v 1.8 2008/03/14 15:31:29 iamcamiel Exp $
  *
  * X-1.5        Camiel Vanderhoeven                             05-MAR-2008
  *      Multi-threading version.

@@ -28,7 +28,7 @@
  * Contains code macros for the processor control instructions.
  * Based on ARM chapter 4.3
  *
- * $Id$
+ * $Id: cpu_control.h,v 1.7 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.6        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

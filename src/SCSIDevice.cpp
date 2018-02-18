@@ -27,7 +27,7 @@
  * \file
  * Contains definitions for the SCSI device base class.
  *
- * $Id$
+ * $Id: SCSIDevice.cpp,v 1.3 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.2        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

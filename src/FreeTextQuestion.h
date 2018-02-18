@@ -27,7 +27,7 @@
  * \file
  * FreeTextQuestion class for Configuration file creator.
  *
- * $Id$
+ * $Id: FreeTextQuestion.h,v 1.1 2008/03/28 21:56:56 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             28-MAR-2008
  *      File created.

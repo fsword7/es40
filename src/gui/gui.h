@@ -34,7 +34,7 @@
  * Contains the definitions for the bx_gui_c base class used for interfacing with
  * SDL and other device interfaces.
  *
- * $Id$
+ * $Id: gui.h,v 1.9 2008/03/14 15:31:29 iamcamiel Exp $
  *
  * X-1.8        Camiel Vanderhoeven                             11-MAR-2008
  *      Named, debuggable mutexes.

@@ -27,7 +27,7 @@
  * \file 
  * Contains the code for the emulated Ali M1543C chipset devices.
  *
- * $Id$
+ * $Id: AliM1543C.cpp,v 1.66 2008/05/31 15:47:07 iamcamiel Exp $
  *
  * X-1.66       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.
@@ -411,7 +411,7 @@ void CAliM1543C::init()
 
   myThread = 0;
 
-  printf("%s: $Id$\n",
+  printf("%s: $Id: AliM1543C.cpp,v 1.66 2008/05/31 15:47:07 iamcamiel Exp $\n",
          devid_string);
 }
 

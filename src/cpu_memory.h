@@ -28,7 +28,7 @@
  * Contains code macros for the processor memory load/store instructions.
  * Based on ARM chapter 4.2.
  *
- * $Id$
+ * $Id: cpu_memory.h,v 1.12 2008/06/12 07:29:44 iamcamiel Exp $
  *
  * X-1.12       Camiel Vanderhoeven                             12-JUN-2008
  *      Support for last written and last read memory locations.

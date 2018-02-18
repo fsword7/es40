@@ -28,7 +28,7 @@
  * Contains code macros for miscellaneous processor instructions.
  * Based on ARM chapter 4.11.
  *
- * $Id$
+ * $Id: cpu_misc.h,v 1.13 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.12       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

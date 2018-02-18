@@ -28,7 +28,7 @@
  * Contains code macros for the processor integer arithmetic instructions.
  * Based on ARM chapter 4.4.
  *
- * $Id$
+ * $Id: cpu_arith.h,v 1.15 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.14       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

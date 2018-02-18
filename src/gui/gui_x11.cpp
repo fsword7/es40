@@ -34,7 +34,7 @@
  * \file
  * X-Windows GUI implementation. Allows use of gfx without SDL on Linux.
  *
- * $Id$
+ * $Id: gui_x11.cpp,v 1.5 2008/03/26 19:19:53 iamcamiel Exp $
  *
  * X-1.5        Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.

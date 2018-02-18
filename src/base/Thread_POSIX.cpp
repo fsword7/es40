@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: Thread_POSIX.cpp,v 1.1 2008/05/31 15:47:29 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
@@ -36,7 +36,7 @@
 //
 // Thread_POSIX.cpp
 //
-// $Id$
+// $Id: Thread_POSIX.cpp,v 1.1 2008/05/31 15:47:29 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Threading
@@ -217,7 +217,7 @@ void* CThreadImpl::entry(void* pThread)
 	catch (CException& exc)
 	{
       printf("Thread has terminated with an unexpected %s exception:\n",exc.className());
-      printf("  %s\n",exc.displayText());
+      printf("  %s\n",exc.displayText().c_str());
 	}
 	catch (std::exception& exc)
 	{

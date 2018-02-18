@@ -26,7 +26,7 @@
 #
 ################################################################################
 #
-# $Id$
+# $Id: Makefile.am,v 1.6 2008/06/12 06:54:21 iamcamiel Exp $
 #
 # X-1.6      Caolan McNamara                          12-JUN-2008
 #      Fixes to build on Fedora 9 / gcc 4.3.0.
@@ -44,6 +44,7 @@
 #      File Created.
 #
 ################################################################################
+AUTOMAKE_OPTIONS = subdir-objects
 
 bin_PROGRAMS = es40 es40_idb es40_lss es40_lsm es40_cfg
 

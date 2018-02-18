@@ -28,7 +28,7 @@
  * Contains code macros for the processor floating-point branch instructions.
  * Based on ARM chapter 4.9.
  *
- * $Id$
+ * $Id: cpu_fp_branch.h,v 1.13 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.12       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the emulated Dual Port Ram and RMC devices.
  *
- * $Id$
+ * $Id: DPR.cpp,v 1.23 2008/06/12 07:29:44 iamcamiel Exp $
  *
  * X-1.23       Camiel Vanderhoeven                             12-JUN-2008
  *      Implement DPR mechanism for starting secondary cpu's.
@@ -394,7 +394,7 @@ void CDPR::init()
   //    3600:36FF 3600 SRM Reserved
   //    3700:37FF SRM Reserved
   //    3800:3AFF RMC RMC scratch space
-  printf("%s: $Id$\n",
+  printf("%s: $Id: DPR.cpp,v 1.23 2008/06/12 07:29:44 iamcamiel Exp $\n",
          devid_string);
 }
 

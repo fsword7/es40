@@ -27,7 +27,7 @@
  * \file
  * Contains definitions to use a file as a disk image.
  *
- * $Id$
+ * $Id: DiskFile.h,v 1.8 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.7        Camiel Vanderhoeven                             09-JAN-2008
  *      Save disk state to state file.

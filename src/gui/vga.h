@@ -35,7 +35,7 @@
  *
  * \todo Split this out for the different VGA cards.
  *
- * $Id$
+ * $Id: vga.h,v 1.5 2008/03/14 15:31:29 iamcamiel Exp $
  *
  * X-1.3        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.

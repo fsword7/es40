@@ -34,7 +34,7 @@
  * Contains the code for the bx_keymap_c class used for keyboard
  * interfacing with SDL and other device interfaces.
  *
- * $Id$
+ * $Id: keymap.cpp,v 1.9 2008/03/26 19:19:53 iamcamiel Exp $
  *
  * X-1.9        Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.

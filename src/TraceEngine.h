@@ -27,7 +27,7 @@
  * \file 
  * Contains the definitions for the CPU tracing engine.
  *
- * $Id$
+ * $Id: TraceEngine.h,v 1.20 2008/03/26 19:15:05 iamcamiel Exp $
  *
  * X-1.20       Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.

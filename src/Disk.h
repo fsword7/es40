@@ -27,7 +27,7 @@
  * \file
  * Contains definitions for the disk base class.
  *
- * $Id$
+ * $Id: Disk.h,v 1.16 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.15       Camiel Vanderhoeven                             26-FEB-2008
  *      Remove private devid_string.

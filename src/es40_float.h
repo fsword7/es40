@@ -30,7 +30,7 @@
  * point registers, and to convert them to/from the host's native floating point 
  * format when required.
  *
- * $Id$
+ * $Id: es40_float.h,v 1.21 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.19       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

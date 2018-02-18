@@ -28,7 +28,7 @@
  * Contains code macros for the processor floating-point operate instructions.
  * Based on ARM chapter 4.10.
  *
- * $Id$
+ * $Id: cpu_fp_operate.h,v 1.21 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.20       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

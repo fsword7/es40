@@ -28,7 +28,7 @@
  * \file
  * Contains the definitions for the emulated DecChip 21264CB EV68 Alpha processor.
  *
- * $Id$
+ * $Id: AlphaCPU.h,v 1.59 2008/06/12 07:29:44 iamcamiel Exp $
  *
  * X-1.59       Camiel Vanderhoeven                             12-JUN-2008
  *   a) Support to keep secondary CPUs waiting until activated from primary.

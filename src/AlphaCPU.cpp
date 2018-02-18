@@ -29,7 +29,7 @@
  * \file 
  * Contains the code for the emulated DecChip 21264CB EV68 Alpha processor.
  *
- * $Id$
+ * $Id: AlphaCPU.cpp,v 1.82 2009/03/16 01:33:27 iamcamiel Exp $
  *
  * X-1.82       Camiel Vanderhoeven                             15-MAR-2008
  *   a) Added CONSTANT_TIME_FACTOR define to lock the CPU timing.
@@ -442,7 +442,7 @@ void CAlphaCPU::init()
 
   state.r[22] = state.r[22 + 32] = state.iProcNum;
 
-  printf("%s(%d): $Id$\n",
+  printf("%s(%d): $Id: AlphaCPU.cpp,v 1.82 2009/03/16 01:33:27 iamcamiel Exp $\n",
          devid_string, state.iProcNum);
 }
 

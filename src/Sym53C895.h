@@ -27,7 +27,7 @@
  * \file
  * Contains the definitions for the emulated Symbios SCSI controller.
  *
- * $Id$
+ * $Id: Sym53C895.h,v 1.20 2008/05/31 15:47:14 iamcamiel Exp $
  *
  * X-1.20       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.

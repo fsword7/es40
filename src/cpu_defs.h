@@ -27,7 +27,7 @@
  * \file 
  * Contains some macro definitions and some inline functions for the Alpha CPU.
  *
- * $Id$
+ * $Id: cpu_defs.h,v 1.15 2009/03/16 01:32:54 iamcamiel Exp $
  *
  * X-1.15       Camiel Vanderhoeven                             15-MAR-2009
  *      Fixed a bug in unaligned memory accesses crossing a page boundary,

@@ -27,7 +27,7 @@
 #
 ################################################################################
 #
-# $Id$
+# $Id: configure.ac,v 1.5 2008/05/31 15:47:07 iamcamiel Exp $
 #
 # X-1.3      Camiel Vanderhoeven                      31-MAY-2008
 #      Add parts of Poco.
@@ -46,7 +46,7 @@ AC_PREREQ(2.61)
 AC_INIT(es40, 0.18+, iamcamiel@gmail.com)
 AC_CONFIG_SRCDIR([src/Flash.cpp])
 AM_CONFIG_HEADER([src/config.h])
-AM_INIT_AUTOMAKE(es40, 0.18+)
+AM_INIT_AUTOMAKE
 
 # Checks for programs.
 AC_PROG_CXX

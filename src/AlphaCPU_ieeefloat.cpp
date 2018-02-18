@@ -27,7 +27,7 @@
  * \file 
  * Contains IEEE floating point code for the Alpha CPU.
  *
- * $Id$
+ * $Id: AlphaCPU_ieeefloat.cpp,v 1.9 2008/04/02 13:29:02 iamcamiel Exp $
  *
  * X-1.8        Camiel Vanderhoeven                             02-APR-2008
  *      Fixed pointless comparison of U64 value against zero.

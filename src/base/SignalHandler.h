@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: SignalHandler.h,v 1.1 2008/05/31 15:47:28 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
@@ -36,7 +36,7 @@
 //
 // SignalHandler.h
 //
-// $Id$
+// $Id: SignalHandler.h,v 1.1 2008/05/31 15:47:28 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Threading

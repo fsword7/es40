@@ -27,7 +27,7 @@
  * \file
  * Defines the entry point for the application.
  *
- * $Id$
+ * $Id: AlphaSim.cpp,v 1.51 2008/06/12 07:22:25 iamcamiel Exp $
  *
  * X-1.51       Camiel Vanderhoeven                             12-JUN-2008
  *      Properly initialize DPR memory areas.

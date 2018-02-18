@@ -30,7 +30,7 @@
  * \file
  * Contains macro's and prototypes for debugging.
  *
- * $Id$
+ * $Id: es40_debug.h,v 1.8 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.7        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

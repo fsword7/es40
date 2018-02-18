@@ -27,7 +27,7 @@
  * \file
  * Contains code to use a raw device as a disk image.
  *
- * $Id$
+ * $Id: DiskDevice.cpp,v 1.8 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.7        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

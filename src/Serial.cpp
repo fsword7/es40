@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the emulated Serial Port devices.
  *
- * $Id$
+ * $Id: Serial.cpp,v 1.51 2008/06/03 09:07:56 iamcamiel Exp $
  *
  * X-1.51       Camiel Vanderhoeven                             03-JUN-2008
  *      Fixed misplaced semicolon.
@@ -288,7 +288,7 @@ void CSerial::init()
   state.irq_active = false;
   myThread = 0;
 
-  printf("%s: $Id$\n",
+  printf("%s: $Id: Serial.cpp,v 1.51 2008/06/03 09:07:56 iamcamiel Exp $\n",
          devid_string);
 }
 

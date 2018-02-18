@@ -32,7 +32,7 @@
  * Contains the definitions for use with bx_..._gui_c classes used for
  * interfacing with SDL and other device interfaces.
  *
- * $Id$
+ * $Id: plugin.h,v 1.7 2008/03/14 15:31:29 iamcamiel Exp $
  *
  * X-1.5        Camiel Vanderhoeven                             20-JAN-2008
  *      Added X11 GUI.

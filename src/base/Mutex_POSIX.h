@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: Mutex_POSIX.h,v 1.1 2008/05/31 15:47:24 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
@@ -36,7 +36,7 @@
 //
 // Mutex_POSIX.h
 //
-// $Id$
+// $Id: Mutex_POSIX.h,v 1.1 2008/05/31 15:47:24 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Threading

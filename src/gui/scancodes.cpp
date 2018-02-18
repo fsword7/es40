@@ -34,7 +34,7 @@
  * Contains scancodes used to translate host keys to scancodes for the
  * emulated keyboard controller.
  *
- * $Id$
+ * $Id: scancodes.cpp,v 1.6 2008/03/24 11:58:21 iamcamiel Exp $
  *
  * X-1.2        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.

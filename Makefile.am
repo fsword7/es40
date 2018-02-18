@@ -26,7 +26,7 @@
 #
 ################################################################################
 #
-# $Id$
+# $Id: Makefile.am,v 1.2 2008/05/31 15:47:05 iamcamiel Exp $
 #
 # X-1.2      Camiel Vanderhoeven                      31-MAY-2008
 #      Add parts of Poco.
@@ -35,6 +35,7 @@
 #      File Created.
 #
 ################################################################################
-
+AUTOMAKE_OPTIONS = subdir-objects
 EXTRA_DIST = reconf configure
 SUBDIRS = m4 src doc
+ACLOCAL_AMFLAGS = -I m4

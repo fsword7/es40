@@ -28,7 +28,7 @@
  * \file
  * Contains the code for the emulated Ali M1543C IDE chipset part.
  *
- * $Id$
+ * $Id: AliM1543C_ide.cpp,v 1.34 2008/05/31 15:47:08 iamcamiel Exp $
  *
  * X-1.34       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.

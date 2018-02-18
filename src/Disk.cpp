@@ -27,7 +27,7 @@
  * \file
  * Contains code for the disk base class.
  *
- * $Id$
+ * $Id: Disk.cpp,v 1.31 2008/04/02 13:28:29 iamcamiel Exp $
  *
  * X-1.31       Camiel Vanderhoeven                             02-APR-2008
  *      Fixed compiler warnings.

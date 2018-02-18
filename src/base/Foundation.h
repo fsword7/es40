@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: Foundation.h,v 1.2 2010/03/11 22:44:16 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
@@ -36,7 +36,7 @@
 //
 // Foundation.h
 //
-// $Id$
+// $Id: Foundation.h,v 1.2 2010/03/11 22:44:16 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Core

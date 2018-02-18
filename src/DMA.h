@@ -27,7 +27,7 @@
  * \file
  * Contains the definitions for the emulated DMA controller.
  *
- * $Id$
+ * $Id: DMA.h,v 1.6 2008/04/29 09:26:53 iamcamiel Exp $
  *
  * X-1.5        Camiel Vanderhoeven                             29-APR-2008
  *      Removed unused reference to floppy disk image.

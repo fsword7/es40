@@ -27,7 +27,7 @@
  * \file
  * Contains the definitions for emulated S3 Trio 64 Video Card device.
  *
- * $Id$
+ * $Id: S3Trio64.h,v 1.13 2008/05/31 15:47:11 iamcamiel Exp $
  *
  * X-1.12       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.

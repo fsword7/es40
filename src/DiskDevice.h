@@ -27,7 +27,7 @@
  * \file
  * Contains definitions to use a raw device as a disk image.
  *
- * $Id$
+ * $Id: DiskDevice.h,v 1.4 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.3        Camiel Vanderhoeven                             09-JAN-2008
  *      Save disk state to state file.

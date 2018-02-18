@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the VGA base class.
  *
- * $Id$
+ * $Id: VGA.cpp,v 1.6 2008/03/24 11:38:15 iamcamiel Exp $
  *
  * X-1.6        Camiel Vanderhoeven                             24-MAR-2008
  *      Added comments.

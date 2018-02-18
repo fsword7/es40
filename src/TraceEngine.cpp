@@ -28,7 +28,7 @@
  * Contains the code for the CPU tracing engine.
  * This will become the debugging engine (interactive debugger) soon.
  *
- * $Id$
+ * $Id: TraceEngine.cpp,v 1.38 2008/06/12 07:29:44 iamcamiel Exp $
  *
  * X-1.38       Camiel Vanderhoeven                             12-JUN-2008
  *      New BREAKPOINT READ, WRITE and ACCESS commands allow breakpoint to

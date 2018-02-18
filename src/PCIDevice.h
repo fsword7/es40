@@ -27,7 +27,7 @@
  * \file
  * Contains the definitions for the PCI Device base class.
  *
- * $Id$
+ * $Id: PCIDevice.h,v 1.6 2008/04/29 08:42:59 iamcamiel Exp $
  *
  * X-1.6        Brian Wheeler                                   29-APR-2008
  *      Made some protected functions public for the benefit of the floppy

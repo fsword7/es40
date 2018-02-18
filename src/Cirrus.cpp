@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the emulated Cirrus CL GD-5434 Video Card device.
  *
- * $Id$
+ * $Id: Cirrus.cpp,v 1.23 2008/05/31 15:47:09 iamcamiel Exp $
  *
  * X-1.23       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.
@@ -337,7 +337,7 @@ void CCirrus::init()
   state.vga_mem_updated = 1;
 
   myThread = 0;
-  printf("%s: $Id$\n",
+  printf("%s: $Id: Cirrus.cpp,v 1.23 2008/05/31 15:47:09 iamcamiel Exp $\n",
          devid_string);
 }
 

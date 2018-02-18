@@ -42,7 +42,7 @@
  * Contains definitions for the MII physical interface layer for the
  * emulated DEC 21143 NIC device.
  *
- * $Id$
+ * $Id: DEC21143_mii.h,v 1.3 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.2        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.

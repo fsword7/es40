@@ -27,7 +27,7 @@
  * \file 
  * Contains the definitions for the emulated Typhoon Chipset devices.
  *
- * $Id$
+ * $Id: System.h,v 1.34 2008/03/26 19:16:33 iamcamiel Exp $
  *
  * X-1.34       Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.

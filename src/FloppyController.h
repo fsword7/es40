@@ -27,7 +27,7 @@
  * \file 
  * Contains the definitions for the emulated Floppy Controller devices.
  *
- * $Id$
+ * $Id: FloppyController.h,v 1.13 2008/04/29 09:53:30 iamcamiel Exp $
  *
  * X-1.13       Camiel Vanderhoeven                             29-APR-2008
  *      Make floppy disk use CDisk images.

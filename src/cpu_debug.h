@@ -27,7 +27,7 @@
  * \file 
  * Contains debugging macros used by AlphaCPU.cpp
  *
- * $Id$
+ * $Id: cpu_debug.h,v 1.29 2008/03/26 19:06:49 iamcamiel Exp $
  *
  * X-1.29       Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.

@@ -27,7 +27,7 @@
  * \file 
  * Contains VAX floating point code for the Alpha CPU.
  *
- * $Id$
+ * $Id: AlphaCPU_vaxfloat.cpp,v 1.11 2008/03/14 15:30:50 iamcamiel Exp $
  *
  * X-1.9        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

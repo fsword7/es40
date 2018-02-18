@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: Exception.h,v 1.1 2008/05/31 15:47:23 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
@@ -36,7 +36,7 @@
 //
 // Exception.h
 //
-// $Id$
+// $Id: Exception.h,v 1.1 2008/05/31 15:47:23 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Core

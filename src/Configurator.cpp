@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the configuration file interpreter.
  *
- * $Id$
+ * $Id: Configurator.cpp,v 1.31 2008/04/30 16:00:03 iamcamiel Exp $
  *
  * X-1.31       Camiel Vanderhoeven                             30-APR-2008
  *      For disk controllers, myDevice points to the CDiskController part

@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the emulated Symbios SCSI controller.
  *
- * $Id$
+ * $Id: Sym53C895.cpp,v 1.35 2008/05/31 15:47:14 iamcamiel Exp $
  *
  * X-1.35       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.
@@ -661,7 +661,7 @@ void CSym53C895::init()
 
   myThread = 0;
 
-  printf("%s: $Id$\n",
+  printf("%s: $Id: Sym53C895.cpp,v 1.35 2008/05/31 15:47:14 iamcamiel Exp $\n",
          devid_string);
 }
 

@@ -30,7 +30,7 @@
  * \file 
  * Contains the code for the packet queue and other NIC support routines.
  *
- * $Id$
+ * $Id: Ethernet.cpp,v 1.3 2008/03/26 19:13:35 iamcamiel Exp $
  *
  * X-1.3        Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.

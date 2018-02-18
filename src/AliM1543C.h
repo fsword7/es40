@@ -27,7 +27,7 @@
  * \file 
  * Contains the definitions for the ISA part of the emulated Ali M1543C chipset.
  *
- * $Id$
+ * $Id: AliM1543C.h,v 1.34 2008/05/31 15:47:08 iamcamiel Exp $
  *
  * X-1.34       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.

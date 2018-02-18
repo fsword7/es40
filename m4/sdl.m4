@@ -26,7 +26,7 @@
 #
 ################################################################################
 #
-# $Id$
+# $Id: sdl.m4,v 1.3 2008/05/09 07:10:22 iamcamiel Exp $
 #
 # X-1.3          Caolán McNamarra                         09-MAY-2008
 #      Fixed a bug (checking for "true" rather than "yes" in the final test) that

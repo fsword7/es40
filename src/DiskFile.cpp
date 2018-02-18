@@ -27,7 +27,7 @@
  * \file
  * Contains code to use a file as a disk image.
  *
- * $Id$
+ * $Id: DiskFile.cpp,v 1.22 2008/03/26 19:20:59 iamcamiel Exp $
  *
  * X-1.22       Camiel Vanderhoeven                             26-MAR-2008
  *      Support OpenVMS path names.

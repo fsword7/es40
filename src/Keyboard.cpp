@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the emulated Keyboard and mouse devices and controller.
  *
- * $Id$
+ * $Id: Keyboard.cpp,v 1.10 2008/05/31 15:47:09 iamcamiel Exp $
  *
  * X-1.10       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.
@@ -146,7 +146,7 @@ void CKeyboard::init()
 
   myThread = 0;
 
-  printf("kbc: $Id$\n");
+  printf("kbc: $Id: Keyboard.cpp,v 1.10 2008/05/31 15:47:09 iamcamiel Exp $\n");
 }
 
 void CKeyboard::start_threads()

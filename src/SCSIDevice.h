@@ -27,7 +27,7 @@
  * \file
  * Contains definitions for the SCSI device base class.
  *
- * $Id$
+ * $Id: SCSIDevice.h,v 1.3 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.2        Brian Wheeler                                   27-FEB-2008
  *      Avoid compiler warnings.

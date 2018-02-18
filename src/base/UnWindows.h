@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: UnWindows.h,v 1.1 2008/05/31 15:47:30 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
@@ -36,7 +36,7 @@
 //
 // UnWindows.h
 //
-// $Id$
+// $Id: UnWindows.h,v 1.1 2008/05/31 15:47:30 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Core

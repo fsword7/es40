@@ -105,7 +105,7 @@ CAliM1543C_usb::CAliM1543C_usb(CConfigurator*  cfg, CSystem*  c, int pcibus,
   state.usb_data[0x34 / 4] = 0x2edf;
   state.usb_data[0x48 / 4] = 0x01000003;
 
-  printf("%s: $Id$\n",
+  printf("%s: $Id: AliM1543C_usb.cpp,v 1.6 2008/03/14 15:30:50 iamcamiel Exp $\n",
          devid_string);
 }
 

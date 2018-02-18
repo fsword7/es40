@@ -30,7 +30,7 @@
  * miss certain functions or macro's we need. In this file, we try to take 
  * away most of these differences.
  *
- * $Id$
+ * $Id: telnet.h,v 1.12 2008/03/26 19:25:40 iamcamiel Exp $
  *
  * X-1.12       Camiel Vanderhoeven                             26-MAR-2008
  *      Use config.h information.

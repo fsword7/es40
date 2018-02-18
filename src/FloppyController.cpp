@@ -27,7 +27,7 @@
  * \file
  * Contains the code for the emulated Floppy Controller devices.
  *
- * $Id$
+ * $Id: FloppyController.cpp,v 1.16 2008/04/29 09:53:30 iamcamiel Exp $
  *
  * X-1.16       Camiel Vanderhoeven                             29-APR-2008
  *      Make floppy disk use CDisk images.
@@ -99,7 +99,7 @@ CFloppyController::CFloppyController(CConfigurator* cfg, CSystem* c, int id) : C
   state.status.rqm=1;
   state.status.dio=0;
 
-  printf("%s: $Id$\n",
+  printf("%s: $Id: FloppyController.cpp,v 1.16 2008/04/29 09:53:30 iamcamiel Exp $\n",
        devid_string);
 }
 

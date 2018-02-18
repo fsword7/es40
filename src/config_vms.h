@@ -28,7 +28,7 @@
  * Contains configuration definitions (similar to produced by the configure 
  * script on other OS'es) to build ES40 emulator on OpenVMS.
  *
- * $Id$
+ * $Id: config_vms.h,v 1.2 2008/04/04 09:07:14 iamcamiel Exp $
  *
  * X-1.2        Camiel Vanderhoeven                             04-APR-2008
  *      Version number set to "0.18+"

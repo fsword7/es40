@@ -27,7 +27,7 @@
  * \file
  * Contains code to use a RAM disk.
  *
- * $Id$
+ * $Id: DiskRam.cpp,v 1.18 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.17       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

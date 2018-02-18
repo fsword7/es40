@@ -30,7 +30,7 @@
  * \file 
  * Contains the definitions for the emulated DEC 21143 NIC device.
  *
- * $Id$
+ * $Id: DEC21143.h,v 1.18 2008/05/31 15:47:09 iamcamiel Exp $
  *
  * X-1.18       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.

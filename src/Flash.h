@@ -27,7 +27,7 @@
  * \file 
  * Contains the definitions for the emulated Flash ROM devices.
  *
- * $Id$
+ * $Id: Flash.h,v 1.12 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.11       Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.

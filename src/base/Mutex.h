@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: Mutex.h,v 1.2 2008/06/12 06:52:33 iamcamiel Exp $
  *
  * X-1.2        Caolan McNamara                                 12-JUN-2008
  *      Fixes to build on Fedora 9 / gcc 4.3.0.
@@ -39,7 +39,7 @@
 //
 // Mutex.h
 //
-// $Id$
+// $Id: Mutex.h,v 1.2 2008/06/12 06:52:33 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Threading

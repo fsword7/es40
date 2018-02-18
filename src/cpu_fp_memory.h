@@ -28,7 +28,7 @@
  * Contains code macros for the processor floating-point load/store instructions.
  * Based on ARM chapter 4.8.
  *
- * $Id$
+ * $Id: cpu_fp_memory.h,v 1.16 2008/07/12 15:05:32 iamcamiel Exp $
  *
  * X-1.16       Camiel Vanderhoeven                             12-JUL-2008
  *      Fixed typo in new fp DO_LDT implementation.

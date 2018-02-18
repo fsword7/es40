@@ -34,7 +34,7 @@
  * Contains code for the bx_gui_c base class used for interfacing with
  * SDL and other device interfaces.
  *
- * $Id$
+ * $Id: gui.cpp,v 1.10 2008/03/26 19:19:53 iamcamiel Exp $
  *
  * X-1.10       Camiel Vanderhoeven                             26-MAR-2008
  *      Fix compiler warnings.

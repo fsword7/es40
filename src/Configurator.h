@@ -27,7 +27,7 @@
  * \file
  * Contains the definitions for the configuration file interpreter.
  *
- * $Id$
+ * $Id: Configurator.h,v 1.17 2008/04/29 09:52:46 iamcamiel Exp $
  *
  * X-1.17       Camiel Vanderhoeven                             29-APR-2008
  *      Added floppy configuration.

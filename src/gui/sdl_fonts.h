@@ -33,7 +33,7 @@
  * \file
  * Contains fonts used by SDL.
  *
- * $Id$
+ * $Id: sdl_fonts.h,v 1.3 2008/03/14 15:31:29 iamcamiel Exp $
  * X-1.2        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *

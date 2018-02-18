@@ -30,7 +30,7 @@ $! the general public.
 $!
 $! =============================================================================
 $!
-$! $Id$
+$! $Id: make_vms.com $
 $!
 $! X-1.3     Camiel Vanderhoeven                          02-APR-2008
 $!   Added SET ON again after SET NOON.

@@ -27,7 +27,7 @@
  * \file 
  * Contains definitions for the base class for devices that connect to the chipset.
  *
- * $Id$
+ * $Id: SystemComponent.h,v 1.17 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.16       Camiel Vanderhoeven                             13-MAR-2008
  *      Create init(), start_threads() and stop_threads() functions.

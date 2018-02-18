@@ -27,7 +27,7 @@
 #
 # Makefile for GNU Linux. (And possibly many UNIX'es).
 #
-# $Id$
+# $Id: Makefile.osx,v 1.2 2008/04/10 12:32:25 iamcamiel Exp $
 #
 # X-1.17		Martin Borgman  				10-APR-2008
 #	Handle SDL support on OS X through OS_X/SDLMain.m.

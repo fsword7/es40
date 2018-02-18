@@ -27,7 +27,7 @@
  * \file
  * Contains the definitions for the VGA base class.
  *
- * $Id$
+ * $Id: VGA.h,v 1.5 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.4        Camiel Vanderhoeven                             20-JAN-2008
  *      Added X11 GUI.

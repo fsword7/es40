@@ -30,7 +30,7 @@
  * or project specific include files that are used frequently, but
  * are changed infrequently.
  *
- * $Id$
+ * $Id: StdAfx.h,v 1.35 2008/05/31 15:47:13 iamcamiel Exp $
  *
  * X-1.35       Camiel Vanderhoeven                             31-MAY-2008
  *      Changes to include parts of Poco.

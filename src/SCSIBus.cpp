@@ -27,7 +27,7 @@
  * \file
  * Contains definitions for the SCSI bus class.
  *
- * $Id$
+ * $Id: SCSIBus.cpp,v 1.5 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.4        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

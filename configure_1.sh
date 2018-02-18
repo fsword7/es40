@@ -28,7 +28,7 @@
 #
 ################################################################################
 #
-# $Id$
+# $Id: configure_1.sh,v 1.7 2010/03/11 22:44:06 iamcamiel Exp $
 #
 # X-1.7      Camiel Vanderhoeven                      31-MAY-2008
 #      Add parts of Poco.

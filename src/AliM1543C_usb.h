@@ -27,7 +27,7 @@
  * \file
  * Contains the definitions for the emulated Ali M1543C USB chipset part.
  *
- * $Id$
+ * $Id: AliM1543C_usb.h,v 1.6 2008/03/14 15:30:50 iamcamiel Exp $
  *
  * X-1.5        Brian wheeler                                   18-FEB-2008
  *      Implemented HCI register space. 

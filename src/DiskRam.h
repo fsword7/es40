@@ -27,7 +27,7 @@
  * \file
  * Contains definitions to use a RAM disk.
  *
- * $Id$
+ * $Id: DiskRam.h,v 1.10 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.9        Camiel Vanderhoeven                             12-JAN-2008
  *      Avoid compiler warnings.

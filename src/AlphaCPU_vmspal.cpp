@@ -29,7 +29,7 @@
  * DecChip 21264CB EV68 Alpha processor. Based on disassembly of original VMS
  * PALcode, HRM, and OpenVMS AXP Internals and Data Structures.
  *
- * $Id$
+ * $Id: AlphaCPU_vmspal.cpp,v 1.15 2008/03/14 15:30:50 iamcamiel Exp $
  *
  * X-1.14       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

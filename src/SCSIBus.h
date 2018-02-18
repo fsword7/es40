@@ -27,7 +27,7 @@
  * \file
  * Contains definitions for the SCSI bus class.
  *
- * $Id$
+ * $Id: SCSIBus.h,v 1.3 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.2        Camiel Vanderhoeven                             20-JAN-2008
  *      Avoid compiler warnings.

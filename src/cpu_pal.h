@@ -28,7 +28,7 @@
  * Contains code macros for the processor PALmode instructions.
  * Based on HRM.
  *
- * $Id$
+ * $Id: cpu_pal.h,v 1.16 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.15       Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

@@ -27,7 +27,7 @@
  * \file
  * Defines the Apple entry point for the application.
  *
- * $Id$
+ * $Id: SDLMain.h,v 1.2 2008/04/10 12:32:25 iamcamiel Exp $
  *
  * X-1.1 		Martin Borgman  				                10-APR-2008
  *	    Adapted for use with ES40 Emulator.

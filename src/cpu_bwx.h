@@ -28,7 +28,7 @@
  * Contains code macros for the processor BWX (byte and word extension) instructions.
  * Based on ARM chapter 4.6.
  *
- * $Id$
+ * $Id: cpu_bwx.h,v 1.10 2008/03/14 15:30:52 iamcamiel Exp $
  *
  * X-1.9        Camiel Vanderhoeven                             14-MAR-2008
  *   1. More meaningful exceptions replace throwing (int) 1.

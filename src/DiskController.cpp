@@ -27,7 +27,7 @@
  * \file
  * Contains definitions for the disk controller base class.
  *
- * $Id$
+ * $Id: DiskController.cpp,v 1.15 2008/04/29 08:03:21 iamcamiel Exp $
  *
  * X-1.15       Camiel Vanderhoeven                             29-APR-2008
  *      CDiskController is no longer a CPCIDevice. devices that are both

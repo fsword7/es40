@@ -33,7 +33,7 @@
  * \file
  * Contains fonts used by the Win32 GUI.
  *
- * $Id$
+ * $Id: gui_win32_font.h,v 1.2 2008/03/14 15:31:29 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             19-JAN-2008
  *      Initial version for ES40 emulator.

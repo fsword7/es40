@@ -33,7 +33,7 @@
  * \file
  * Contains definitions for scancode table.
  *
- * $Id$
+ * $Id: scancodes.h,v 1.4 2008/03/14 15:31:29 iamcamiel Exp $
  * X-1.3        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.
  *

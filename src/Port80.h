@@ -27,7 +27,7 @@
  * \file 
  * Contains the definitions for the emulated Port 80 device.
  *
- * $Id$
+ * $Id: Port80.h,v 1.10 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.9        Camiel Vanderhoeven                             02-JAN-2008
  *      Comments.

@@ -27,7 +27,7 @@
  */
 
 /**
- * $Id$
+ * $Id: Platform_POSIX.h,v 1.1 2008/05/31 15:47:25 iamcamiel Exp $
  *
  * X-1.1        Camiel Vanderhoeven                             31-MAY-2008
  *      Initial version for ES40 emulator.
@@ -36,7 +36,7 @@
 //
 // Platform_POSIX.h
 //
-// $Id$
+// $Id: Platform_POSIX.h,v 1.1 2008/05/31 15:47:25 iamcamiel Exp $
 //
 // Library: Foundation
 // Package: Core

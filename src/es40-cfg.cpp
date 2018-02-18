@@ -27,7 +27,7 @@
  * \file
  * Configuration file creator.
  *
- * $Id$
+ * $Id: es40-cfg.cpp,v 1.8 2008/05/04 11:45:11 iamcamiel Exp $
  *
  * X-1.7        Camiel Vanderhoeven                             29-APR-2008
  *      Added floppy configuration.

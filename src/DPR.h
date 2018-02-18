@@ -27,7 +27,7 @@
  * \file 
  * Contains the definitions for the emulated Dual Port Ram and RMC devices.
  *
- * $Id$
+ * $Id: DPR.h,v 1.13 2008/03/14 15:30:51 iamcamiel Exp $
  *
  * X-1.12       Camiel Vanderhoeven                             13-MAR-2008
  *      Create init(), start_threads() and stop_threads() functions.

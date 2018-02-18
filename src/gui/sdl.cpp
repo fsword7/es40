@@ -34,7 +34,7 @@
  * Contains the code for the bx_sdl_gui_c class used for interfacing with
  * SDL.
  *
- * $Id$
+ * $Id: sdl.cpp,v 1.18 2008/04/10 12:32:25 iamcamiel Exp $
  *
  * X-1.18       Martin Borgman                                  10-APR-2008
  *	    Handle SDL support on OS X through OS_X/SDLMain.m.
